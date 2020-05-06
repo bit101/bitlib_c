@@ -2,6 +2,7 @@
 #define _DRAWING_H_
 
 #include <gtk/gtk.h>
+#include "point.h"
 
 void cairo_clear_rgb(cairo_t *cr, double r, double g, double b);
 
@@ -20,5 +21,18 @@ void cairo_fill_round_rectangle(cairo_t *cr, double x, double y, double w, doubl
 void cairo_circle(cairo_t *cr, double x, double y, double r);
 void cairo_stroke_circle(cairo_t *cr, double x, double y, double r);
 void cairo_fill_circle(cairo_t *cr, double x, double y, double r);
+
+void cairo_ellipse(cairo_t *cr, double x, double y, double xr, double yr);
+void cairo_stroke_ellipse(cairo_t *cr, double x, double y, double xr, double yr);
+void cairo_fill_ellipse(cairo_t *cr, double x, double y, double xr, double yr);
+
+
+void cairo_path(cairo_t *cr, point *path);
+void cairo_stroke_path(cairo_t *cr, point *path, int close);
+void cairo_fill_path(cairo_t *cr, point *path);
+
+void cairo_polygon(cairo_t *cr, double x, double y, double r, int sides, double rotation);
+void cairo_stroke_polygon(cairo_t *cr, double x, double y, double r, int sides, double rotation);
+void cairo_fill_polygon(cairo_t *cr, double x, double y, double r, int sides, double rotation);
 
 #endif

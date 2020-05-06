@@ -1,4 +1,6 @@
 #include <gtk/gtk.h>
+#include <math.h>
+#include "point.h"
 #include "drawing.h"
 
 int main(int argc, char **argv) {
@@ -24,6 +26,23 @@ int main(int argc, char **argv) {
   cairo_stroke(cr);
   
   cairo_fill_circle(cr, 600, 600, 100);
+  cairo_stroke_ellipse(cr, 600, 600, 150, 200);
+
+  g_random_set_seed(time(0));
+  point *path;
+  path = make_point(g_random_double_range(0, 800), g_random_double_range(0, 800));
+  for (int i = 1; i < 10; i++)
+  {
+    add_point(path, g_random_double_range(0, 800), g_random_double_range(0, 800));
+  }
+
+  cairo_stroke_path(cr, path, 1);
+
+  cairo_stroke_polygon(cr, 300, 100, 50, 4, 0);
+  cairo_stroke_polygon(cr, 400, 100, 50, 5, 0);
+  cairo_stroke_polygon(cr, 500, 100, 50, 6, 0);
+  cairo_stroke_polygon(cr, 600, 100, 50, 7, 0);
+
 
   cairo_surface_write_to_png(surface, "out.png");
 

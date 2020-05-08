@@ -1,8 +1,8 @@
 #include <gtk/gtk.h>
 #include <math.h>
-#include "point.h"
-#include "drawing.h"
-#include "perlin.h"
+#include "src/point.h"
+#include "src/drawing.h"
+#include "src/perlin.h"
 
 int main(int argc, char **argv) {
   cairo_surface_t *surface;

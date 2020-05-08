@@ -1,20 +1,23 @@
-default: bitlib.a
-	@gcc `pkg-config --cflags gtk+-3.0` main.c bitlib.a -o test_one -lm `pkg-config --libs gtk+-3.0`
+default: build build/bitlib.a
+	@gcc `pkg-config --cflags gtk+-3.0` main.c build/bitlib.a -o test_one -lm `pkg-config --libs gtk+-3.0`
 	@./test_one
 	@eog out.png
 
 
-drawing.o: drawing.c
-	@gcc `pkg-config --cflags gtk+-3.0` -c drawing.c -o drawing.o -lm `pkg-config --libs gtk+-3.0`
+build/drawing.o: src/drawing.c
+	@gcc `pkg-config --cflags gtk+-3.0` -c src/drawing.c -o build/drawing.o -lm `pkg-config --libs gtk+-3.0`
 
-point.o: point.c
-	@gcc `pkg-config --cflags gtk+-3.0` -c point.c -o point.o -lm `pkg-config --libs gtk+-3.0`
+build/point.o: src/point.c
+	@gcc `pkg-config --cflags gtk+-3.0` -c src/point.c -o build/point.o -lm `pkg-config --libs gtk+-3.0`
 
-perlin.o: perlin.c
-	@gcc `pkg-config --cflags gtk+-3.0` -c perlin.c -o perlin.o -lm `pkg-config --libs gtk+-3.0`
+build/perlin.o: src/perlin.c
+	@gcc `pkg-config --cflags gtk+-3.0` -c src/perlin.c -o build/perlin.o -lm `pkg-config --libs gtk+-3.0`
 
-bitlib.a: drawing.o point.o perlin.o
-	@ld -r drawing.o point.o perlin.o -o bitlib.a
+build/bitlib.a: build/drawing.o build/point.o build/perlin.o
+	@ld -r build/drawing.o build/point.o build/perlin.o -o build/bitlib.a
+
+build:
+	@mkdir build
 
 clean:
 	@rm *.a

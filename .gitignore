@@ -1,4 +1,4 @@
-.o
-.a
-.png
+*.o
+*.a
+*.png
 test_one

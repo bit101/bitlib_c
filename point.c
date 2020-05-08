@@ -3,24 +3,35 @@
 
 point* make_point(double x, double y)
 {
-  point *p;
-  p = malloc(sizeof(point));
+  point *p = (point*)malloc(sizeof(point));
   p->x = x;
   p->y = y;
   p->next = NULL;
   return p;
 }
 
-void add_point(point *head, double x, double y)
+point_list* make_point_list()
 {
-  point *curr;
-  point *next;
-  curr = head;
-  while(curr->next != NULL)
+  point_list *p = (point_list*)malloc(sizeof(point_list));
+  p->next = NULL;
+  return p;
+}
+
+void add_point(point_list *head, double x, double y)
+{
+  point *curr = head->next;
+  point *next = make_point(x, y);
+  if (curr == NULL)
   {
-    curr = curr->next;
+    head->next = next;
   }
-  next = make_point(x, y);
-  curr->next = next;
+  else
+  {
+    while(curr->next != NULL)
+    {
+      curr = curr->next;
+    }
+    curr->next = next;
+  }
 }
 

@@ -137,10 +137,9 @@ void cairo_fill_ellipse(cairo_t *cr, double x, double y, double xr, double yr)
   cairo_fill(cr);
 }
 
-void draw_path(cairo_t *cr, point *head)
+void draw_path(cairo_t *cr, point_list *head)
 {
-  point *curr;
-  curr = head;
+  point *curr = head->next;
   while(curr != NULL)
   {
     cairo_line_to(cr, curr->x, curr->y); 
@@ -148,12 +147,12 @@ void draw_path(cairo_t *cr, point *head)
   }
 }
 
-void cairo_path(cairo_t *cr, point *path)
+void cairo_path(cairo_t *cr, point_list *path)
 {
   draw_path(cr, path);
 }
 
-void cairo_stroke_path(cairo_t *cr, point *path, int close)
+void cairo_stroke_path(cairo_t *cr, point_list *path, int close)
 {
   cairo_path(cr, path);
   if (close) {
@@ -162,7 +161,7 @@ void cairo_stroke_path(cairo_t *cr, point *path, int close)
   cairo_stroke(cr);
 }
 
-void cairo_fill_path(cairo_t *cr, point *path)
+void cairo_fill_path(cairo_t *cr, point_list *path)
 {
   cairo_path(cr, path);
   cairo_fill(cr);
@@ -194,3 +193,67 @@ void cairo_fill_polygon(cairo_t *cr, double x, double y, double r, int sides, do
   cairo_polygon(cr, x, y, r, sides, rotation);
   cairo_fill(cr);
 }
+
+void cairo_star(cairo_t *cr, double x, double y, double r0, double r1, int points, double rotation)
+{
+  double r;
+  double angle;
+
+  cairo_save(cr);
+  cairo_translate(cr, x, y);
+  cairo_rotate(cr, rotation);
+  for (int i = 0; i < points * 2; i++)
+  {
+    r = r1;
+    if (i % 2 == 1)
+    {
+      r = r0;
+    }
+    angle = G_PI / (double)points * (double)i;
+    cairo_line_to(cr, cos(angle) * r, sin(angle) * r);
+  }
+  cairo_close_path(cr);
+  cairo_restore(cr);
+}
+
+void cairo_stroke_star(cairo_t *cr, double x, double y, double r0, double r1, int points, double rotation)
+{
+  cairo_star(cr, x, y, r0, r1, points, rotation);
+  cairo_stroke(cr);
+}
+
+void cairo_fill_star(cairo_t *cr, double x, double y, double r0, double r1, int points, double rotation)
+{
+  cairo_star(cr, x, y, r0, r1, points, rotation);
+  cairo_fill(cr);
+}
+
+void cairo_stroke_curve(cairo_t *cr, double x0, double y0, double x1, double y1, double x2, double y2)
+{
+  cairo_curve_to(cr, x0, y0, x1, y1, x2, y2);
+  cairo_stroke(cr);
+}
+
+void cairo_quad_curve_to(cairo_t *cr, double x0, double y0, double x1, double y1)
+{
+  double px;
+  double py;
+
+  cairo_get_current_point(cr, &px, &py);
+  cairo_curve_to(
+      cr,
+      2.0 / 3.0 * x0 + 1.0 / 3.0 * px,
+      2.0 / 3.0 * y0 + 1.0 / 3.0 * py,
+      2.0 / 3.0 * x0 + 1.0 / 3.0 * x1,
+      2.0 / 3.0 * y0 + 1.0 / 3.0 * y1,
+      x1,
+      y1
+  );
+}
+
+void cairo_stroke_quad_curve_to(cairo_t *cr, double x0, double y0, double x1, double y1)
+{
+  cairo_quad_curve_to(cr, x0, y0, x1, y1);
+  cairo_stroke(cr);
+}
+

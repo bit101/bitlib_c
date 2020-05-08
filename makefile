@@ -15,3 +15,8 @@ perlin.o: perlin.c
 
 bitlib.a: drawing.o point.o perlin.o
 	@ld -r drawing.o point.o perlin.o -o bitlib.a
+
+clean:
+	@rm *.a
+	@rm *.o
+	@rm out.png

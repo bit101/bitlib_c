@@ -20,6 +20,6 @@ build:
 	@mkdir build
 
 clean:
-	@rm *.a
-	@rm *.o
+	@rm -rf build
 	@rm out.png
+	@rm test_one

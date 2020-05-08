@@ -1,25 +1,40 @@
-default: build build/bitlib.a
-	@gcc `pkg-config --cflags gtk+-3.0` main.c build/bitlib.a -o test_one -lm `pkg-config --libs gtk+-3.0`
-	@./test_one
+CC := gcc
+SRC := src
+BUILD := build
+TARGET := test/main.c
+BIN := bin
+EXE := $(BIN)/test
+INCLUDE := include
+CFLAGS := `pkg-config --cflags gtk+-3.0`
+LIBS := `pkg-config --libs gtk+-3.0`
+
+default: $(EXE)
+	@$(EXE)
 	@eog out.png
 
+$(EXE): $(BIN) $(BUILD) $(BUILD)/bitlib.a
+	@$(CC) $(CFLAGS)  $(TARGET) -I$(INCLUDE) $(BUILD)/bitlib.a -o $(EXE) -lm $(LIBS)
 
-build/drawing.o: src/drawing.c
-	@gcc `pkg-config --cflags gtk+-3.0` -c src/drawing.c -o build/drawing.o -lm `pkg-config --libs gtk+-3.0`
 
-build/point.o: src/point.c
-	@gcc `pkg-config --cflags gtk+-3.0` -c src/point.c -o build/point.o -lm `pkg-config --libs gtk+-3.0`
+$(BUILD)/bitlib.a: $(BUILD)/drawing.o $(BUILD)/point.o $(BUILD)/perlin.o
+	@ld -r $(BUILD)/drawing.o $(BUILD)/point.o $(BUILD)/perlin.o -o $(BUILD)/bitlib.a
 
-build/perlin.o: src/perlin.c
-	@gcc `pkg-config --cflags gtk+-3.0` -c src/perlin.c -o build/perlin.o -lm `pkg-config --libs gtk+-3.0`
+$(BUILD)/drawing.o: $(SRC)/drawing.c
+	@$(CC) $(CFLAGS) -c $(SRC)/drawing.c -I$(INCLUDE) -o $(BUILD)/drawing.o -lm $(LIBS)
 
-build/bitlib.a: build/drawing.o build/point.o build/perlin.o
-	@ld -r build/drawing.o build/point.o build/perlin.o -o build/bitlib.a
+$(BUILD)/point.o: $(SRC)/point.c
+	@$(CC) $(CFLAGS) -c $(SRC)/point.c   -I$(INCLUDE) -o $(BUILD)/point.o   -lm $(LIBS)
 
-build:
-	@mkdir build
+$(BUILD)/perlin.o: $(SRC)/perlin.c
+	@$(CC) $(CFLAGS) -c $(SRC)/perlin.c  -I$(INCLUDE) -o $(BUILD)/perlin.o  -lm $(LIBS)
+
+$(BUILD):
+	@mkdir $(BUILD)
+
+bin:
+	@mkdir $(BIN)
 
 clean:
-	@rm -rf build
+	@rm -rf $(BUILD)
+	@rm -rf $(BIN)
 	@rm out.png
-	@rm test_one

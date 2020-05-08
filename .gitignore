@@ -1,4 +1,3 @@
-*.o
-*.a
 *.png
-test_one
+bin
+build

@@ -6,7 +6,7 @@
 #include "color.h"
 
 
-void cairo_set_source_color(cairo_t *cr, color *c) {
+void cairo_set_source_color(cairo_t *cr, bl_color *c) {
   cairo_set_source_rgba(cr, c->r, c->g, c->b, c->a);
 }
 
@@ -37,7 +37,7 @@ void cairo_clear_rgb(cairo_t *cr, double r, double g, double b) {
   cairo_clear_rgba(cr, r, g, b, 1.0);
 }
 
-void cairo_clear_color(cairo_t *cr, color *c) {
+void cairo_clear_color(cairo_t *cr, bl_color *c) {
   cairo_clear_rgb(cr, c->r, c->g, c->b);
 }
 
@@ -140,19 +140,19 @@ void cairo_fill_ellipse(cairo_t *cr, double x, double y, double xr, double yr) {
   cairo_fill(cr);
 }
 
-void draw_path(cairo_t *cr, point_list *list) {
-  point *curr = list->head;
+void draw_path(cairo_t *cr, bl_point_list *list) {
+  bl_point *curr = list->head;
   while(curr != NULL) {
     cairo_line_to(cr, curr->x, curr->y); 
     curr = curr->next;
   }
 }
 
-void cairo_path(cairo_t *cr, point_list *path) {
+void cairo_path(cairo_t *cr, bl_point_list *path) {
   draw_path(cr, path);
 }
 
-void cairo_stroke_path(cairo_t *cr, point_list *path, bool close) {
+void cairo_stroke_path(cairo_t *cr, bl_point_list *path, bool close) {
   cairo_path(cr, path);
   if (close) {
     cairo_close_path(cr);
@@ -160,7 +160,7 @@ void cairo_stroke_path(cairo_t *cr, point_list *path, bool close) {
   cairo_stroke(cr);
 }
 
-void cairo_fill_path(cairo_t *cr, point_list *path) {
+void cairo_fill_path(cairo_t *cr, bl_point_list *path) {
   cairo_path(cr, path);
   cairo_fill(cr);
 }

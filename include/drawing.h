@@ -6,9 +6,9 @@
 #include "point.h"
 #include "color.h"
 
-void cairo_set_source_color(cairo_t *cr, color *c);
+void cairo_set_source_color(cairo_t *cr, bl_color *c);
 
-void cairo_clear_color(cairo_t *cr, color *c);
+void cairo_clear_color(cairo_t *cr, bl_color *c);
 void cairo_clear_rgb(cairo_t *cr, double r, double g, double b);
 void cairo_clear_rgba(cairo_t *cr, double r, double g, double b, double a);
 
@@ -32,9 +32,9 @@ void cairo_ellipse(cairo_t *cr, double x, double y, double xr, double yr);
 void cairo_stroke_ellipse(cairo_t *cr, double x, double y, double xr, double yr);
 void cairo_fill_ellipse(cairo_t *cr, double x, double y, double xr, double yr);
 
-void cairo_path(cairo_t *cr, point_list *path);
-void cairo_stroke_path(cairo_t *cr, point_list *path, bool close);
-void cairo_fill_path(cairo_t *cr, point_list *path);
+void cairo_path(cairo_t *cr, bl_point_list *path);
+void cairo_stroke_path(cairo_t *cr, bl_point_list *path, bool close);
+void cairo_fill_path(cairo_t *cr, bl_point_list *path);
 
 void cairo_polygon(cairo_t *cr, double x, double y, double r, int sides, double rotation);
 void cairo_stroke_polygon(cairo_t *cr, double x, double y, double r, int sides, double rotation);

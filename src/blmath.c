@@ -1,5 +1,6 @@
 #include <gtk/gtk.h>
 #include <math.h>
+#include <stdbool.h>
 #include "blmath.h"
 
 double bl_difference(double a, double b) {
@@ -68,6 +69,6 @@ double bl_lerp_sin(double value, double min, double max) {
   return bl_sin_range(value * G_PI * 2, min, max);
 }
 
-int bl_equalish(double a, double b, double delta) {
+bool bl_equalish(double a, double b, double delta) {
   return bl_difference(a, b) <= delta;
 }

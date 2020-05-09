@@ -6,328 +6,168 @@ typedef struct Color {
   double g;
   double b;
   double a;
-} color;
-
-color* color_rgba(double r, double g, double b, double a);
-
-color* color_rgb(double r, double g, double b);
-
-color* color_rgba_int(int r, int g, int b, int a);
-
-color* color_rgb_int(int r, int g, int b);
-
-color* color_int_24(int value);
-
-color* color_int_32(int value);
-
-color* color_lerp(color *color_a, color *color_b, double t);
-
-color* color_random_rgb();
-
-color* color_hsv(double h, double s, double v);
-
-color* color_grey(double shade);
-
-color* color_grey_int(int shade);
-
-color* color_random_grey();
-
-color* color_random_grey_range(double min, double max);
-
-
-
-color* color_blueviolet();
-
-color* color_brown();
-
-color* color_aliceblue();
-
-color* color_antiquewhite();
-
-color* color_aqua();
-
-color* color_aquamarine();
-
-color* color_azure();
-
-color* color_beige();
-
-color* color_bisque();
-
-color* color_black();
-
-color* color_blanchedalmond();
-
-color* color_blue();
-
-color* color_burlywood();
-
-color* color_cadetblue();
-
-color* color_chartreuse();
-
-color* color_chocolate();
-
-color* color_coral();
-
-color* color_cornflowerblue();
-
-color* color_cornsilk();
-
-color* color_crimson();
-
-color* color_cyan();
-
-color* color_darkblue();
-
-color* color_darkcyan();
-
-color* color_darkgoldenrod();
-
-color* color_darkgray();
-
-color* color_darkgreen();
-
-color* color_darkgrey();
-
-color* color_darkkhaki();
-
-color* color_darkmagenta();
-
-color* color_darkolivegreen();
-
-color* color_darkorange();
-
-color* color_darkorchid();
-
-color* color_darkred();
-
-color* color_darksalmon();
-
-color* color_darkseagreen();
-
-color* color_darkslateblue();
-
-color* color_darkslategray();
-
-color* color_darkslategrey();
-
-color* color_darkturquoise();
-
-color* color_darkviolet();
-
-color* color_deeppink();
-
-color* color_deepskyblue();
-
-color* color_dimgray();
-
-color* color_dimgrey();
-
-color* color_dodgerblue();
-
-color* color_firebrick();
-
-color* color_floralwhite();
-
-color* color_forestgreen();
-
-color* color_fuchsia();
-
-color* color_gainsboro();
-
-color* color_ghostwhite();
-
-color* color_gold();
-
-color* color_goldenrod();
-
-color* color_gray();
-
-color* color_green();
-
-color* color_greenyellow();
-
-color* color_honeydew();
-
-color* color_hotpink();
-
-color* color_indianred();
-
-color* color_indigo();
-
-color* color_ivory();
-
-color* color_khaki();
-
-color* color_lavender();
-
-color* color_lavenderblush();
-
-color* color_lawngreen();
-
-color* color_lemonchiffon();
-
-color* color_lightblue();
-
-color* color_lightcoral();
-
-color* color_lightcyan();
-
-color* color_lightgoldenrodyellow();
-
-color* color_lightgray();
-
-color* color_lightgreen();
-
-color* color_lightgrey();
-
-color* color_lightpink();
-
-color* color_lightsalmon();
-
-color* color_lightseagreen();
-
-color* color_lightskyblue();
-
-color* color_lightslategray();
-
-color* color_lightslategrey();
-
-color* color_lightsteelblue();
-
-color* color_lightyellow();
-
-color* color_lime();
-
-color* color_limegreen();
-
-color* color_linen();
-
-color* color_magenta();
-
-color* color_maroon();
-
-color* color_mediumaquamarine();
-
-color* color_mediumblue();
-
-color* color_mediumorchid();
-
-color* color_mediumpurple();
-
-color* color_mediumseagreen();
-
-color* color_mediumslateblue();
-
-color* color_mediumspringgreen();
-
-color* color_mediumturquoise();
-
-color* color_mediumvioletred();
-
-color* color_midnightblue();
-
-color* color_mintcream();
-
-color* color_mistyrose();
-
-color* color_moccasin();
-
-color* color_navajowhite();
-
-color* color_navy();
-
-color* color_oldlace();
-
-color* color_olive();
-
-color* color_olivedrab();
-
-color* color_orange();
-
-color* color_orangered();
-
-color* color_orchid();
-
-color* color_palegoldenrod();
-
-color* color_palegreen();
-
-color* color_paleturquoise();
-
-color* color_palevioletred();
-
-color* color_papayawhip();
-
-color* color_peachpuff();
-
-color* color_peru();
-
-color* color_pink();
-
-color* color_plum();
-
-color* color_powderblue();
-
-color* color_purple();
-
-color* color_rebeccapurple();
-
-color* color_red();
-
-color* color_rosybrown();
-
-color* color_royalblue();
-
-color* color_saddlebrown();
-
-color* color_salmon();
-
-color* color_sandybrown();
-
-color* color_seagreen();
-
-color* color_seashell();
-
-color* color_sienna();
-
-color* color_silver();
-
-color* color_skyblue();
-
-color* color_slateblue();
-
-color* color_slategray();
-
-color* color_slategrey();
-
-color* color_snow();
-
-color* color_springgreen();
-
-color* color_steelblue();
-
-color* color_tan();
-
-color* color_teal();
-
-color* color_thistle();
-
-color* color_tomato();
-
-color* color_turquoise();
-
-color* color_violet();
-
-color* color_wheat();
-
-color* color_white();
-
-color* color_whitesmoke();
-
-color* color_yellow();
-
-color* color_yellowgreen();
+} bl_color;
+
+bl_color* bl_color_rgba(double r, double g, double b, double a);
+bl_color* bl_color_rgb(double r, double g, double b);
+bl_color* bl_color_rgba_int(int r, int g, int b, int a);
+bl_color* bl_color_rgb_int(int r, int g, int b);
+bl_color* bl_color_int_24(int value);
+bl_color* bl_color_int_32(int value);
+bl_color* bl_color_lerp(bl_color *color_a, bl_color *color_b, double t);
+bl_color* bl_color_random_rgb();
+bl_color* bl_color_hsv(double h, double s, double v);
+bl_color* bl_color_grey(double shade);
+bl_color* bl_color_grey_int(int shade);
+bl_color* bl_color_random_grey();
+bl_color* bl_color_random_grey_range(double min, double max);
+
+bl_color* bl_color_blueviolet();
+bl_color* bl_color_brown();
+bl_color* bl_color_aliceblue();
+bl_color* bl_color_antiquewhite();
+bl_color* bl_color_aqua();
+bl_color* bl_color_aquamarine();
+bl_color* bl_color_azure();
+bl_color* bl_color_beige();
+bl_color* bl_color_bisque();
+bl_color* bl_color_black();
+bl_color* bl_color_blanchedalmond();
+bl_color* bl_color_blue();
+bl_color* bl_color_burlywood();
+bl_color* bl_color_cadetblue();
+bl_color* bl_color_chartreuse();
+bl_color* bl_color_chocolate();
+bl_color* bl_color_coral();
+bl_color* bl_color_cornflowerblue();
+bl_color* bl_color_cornsilk();
+bl_color* bl_color_crimson();
+bl_color* bl_color_cyan();
+bl_color* bl_color_darkblue();
+bl_color* bl_color_darkcyan();
+bl_color* bl_color_darkgoldenrod();
+bl_color* bl_color_darkgray();
+bl_color* bl_color_darkgreen();
+bl_color* bl_color_darkgrey();
+bl_color* bl_color_darkkhaki();
+bl_color* bl_color_darkmagenta();
+bl_color* bl_color_darkolivegreen();
+bl_color* bl_color_darkorange();
+bl_color* bl_color_darkorchid();
+bl_color* bl_color_darkred();
+bl_color* bl_color_darksalmon();
+bl_color* bl_color_darkseagreen();
+bl_color* bl_color_darkslateblue();
+bl_color* bl_color_darkslategray();
+bl_color* bl_color_darkslategrey();
+bl_color* bl_color_darkturquoise();
+bl_color* bl_color_darkviolet();
+bl_color* bl_color_deeppink();
+bl_color* bl_color_deepskyblue();
+bl_color* bl_color_dimgray();
+bl_color* bl_color_dimgrey();
+bl_color* bl_color_dodgerblue();
+bl_color* bl_color_firebrick();
+bl_color* bl_color_floralwhite();
+bl_color* bl_color_forestgreen();
+bl_color* bl_color_fuchsia();
+bl_color* bl_color_gainsboro();
+bl_color* bl_color_ghostwhite();
+bl_color* bl_color_gold();
+bl_color* bl_color_goldenrod();
+bl_color* bl_color_gray();
+bl_color* bl_color_green();
+bl_color* bl_color_greenyellow();
+bl_color* bl_color_honeydew();
+bl_color* bl_color_hotpink();
+bl_color* bl_color_indianred();
+bl_color* bl_color_indigo();
+bl_color* bl_color_ivory();
+bl_color* bl_color_khaki();
+bl_color* bl_color_lavender();
+bl_color* bl_color_lavenderblush();
+bl_color* bl_color_lawngreen();
+bl_color* bl_color_lemonchiffon();
+bl_color* bl_color_lightblue();
+bl_color* bl_color_lightcoral();
+bl_color* bl_color_lightcyan();
+bl_color* bl_color_lightgoldenrodyellow();
+bl_color* bl_color_lightgray();
+bl_color* bl_color_lightgreen();
+bl_color* bl_color_lightgrey();
+bl_color* bl_color_lightpink();
+bl_color* bl_color_lightsalmon();
+bl_color* bl_color_lightseagreen();
+bl_color* bl_color_lightskyblue();
+bl_color* bl_color_lightslategray();
+bl_color* bl_color_lightslategrey();
+bl_color* bl_color_lightsteelblue();
+bl_color* bl_color_lightyellow();
+bl_color* bl_color_lime();
+bl_color* bl_color_limegreen();
+bl_color* bl_color_linen();
+bl_color* bl_color_magenta();
+bl_color* bl_color_maroon();
+bl_color* bl_color_mediumaquamarine();
+bl_color* bl_color_mediumblue();
+bl_color* bl_color_mediumorchid();
+bl_color* bl_color_mediumpurple();
+bl_color* bl_color_mediumseagreen();
+bl_color* bl_color_mediumslateblue();
+bl_color* bl_color_mediumspringgreen();
+bl_color* bl_color_mediumturquoise();
+bl_color* bl_color_mediumvioletred();
+bl_color* bl_color_midnightblue();
+bl_color* bl_color_mintcream();
+bl_color* bl_color_mistyrose();
+bl_color* bl_color_moccasin();
+bl_color* bl_color_navajowhite();
+bl_color* bl_color_navy();
+bl_color* bl_color_oldlace();
+bl_color* bl_color_olive();
+bl_color* bl_color_olivedrab();
+bl_color* bl_color_orange();
+bl_color* bl_color_orangered();
+bl_color* bl_color_orchid();
+bl_color* bl_color_palegoldenrod();
+bl_color* bl_color_palegreen();
+bl_color* bl_color_paleturquoise();
+bl_color* bl_color_palevioletred();
+bl_color* bl_color_papayawhip();
+bl_color* bl_color_peachpuff();
+bl_color* bl_color_peru();
+bl_color* bl_color_pink();
+bl_color* bl_color_plum();
+bl_color* bl_color_powderblue();
+bl_color* bl_color_purple();
+bl_color* bl_color_rebeccapurple();
+bl_color* bl_color_red();
+bl_color* bl_color_rosybrown();
+bl_color* bl_color_royalblue();
+bl_color* bl_color_saddlebrown();
+bl_color* bl_color_salmon();
+bl_color* bl_color_sandybrown();
+bl_color* bl_color_seagreen();
+bl_color* bl_color_seashell();
+bl_color* bl_color_sienna();
+bl_color* bl_color_silver();
+bl_color* bl_color_skyblue();
+bl_color* bl_color_slateblue();
+bl_color* bl_color_slategray();
+bl_color* bl_color_slategrey();
+bl_color* bl_color_snow();
+bl_color* bl_color_springgreen();
+bl_color* bl_color_steelblue();
+bl_color* bl_color_tan();
+bl_color* bl_color_teal();
+bl_color* bl_color_thistle();
+bl_color* bl_color_tomato();
+bl_color* bl_color_turquoise();
+bl_color* bl_color_violet();
+bl_color* bl_color_wheat();
+bl_color* bl_color_white();
+bl_color* bl_color_whitesmoke();
+bl_color* bl_color_yellow();
+bl_color* bl_color_yellowgreen();
 
 #endif

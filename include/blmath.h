@@ -1,6 +1,8 @@
 #ifndef _MATH_H_
 #define _MATH_H_
 
+#include <stdbool.h>
+
 double bl_difference(double a, double b);
 
 double bl_norm(double value, double min, double max);
@@ -25,5 +27,5 @@ double bl_fract(double value);
 
 double bl_lerp_sin(double value, double min, double max);
 
-int bl_equalish(double a, double b, double delta);
+bool bl_equalish(double a, double b, double delta);
 #endif

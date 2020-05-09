@@ -6,12 +6,12 @@
 #define HEIGHT 800
 
 void render(cairo_surface_t *surface, cairo_t *cr) {
-  cairo_clear_rgb(cr, 1, 1, 1);
+  cairo_clear_color(cr, bl_color_red());
   cairo_set_line_width(cr, 0.5);
 
-  point_list *path = make_point_list();
+  bl_point_list *path = bl_make_point_list();
   for (int i = 0; i < 100; i++) {
-    add_point(path, random_point(0, 0, 400, 400));
+    bl_add_point(path, bl_random_point(0, 0, 400, 400));
   }
   cairo_stroke_path(cr, path, 0);
   cairo_translate(cr, 400, 0);

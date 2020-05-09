@@ -276,6 +276,7 @@ void cairo_splat(
   cairo_translate(cr, x, y);
   cairo_multi_loop(cr, path);
   cairo_restore(cr);
+  bl_point_list_destroy(path);
 }
 
 
@@ -382,23 +383,20 @@ void cairo_fractal_line(cairo_t *cr, double x0, double y0, double x1, double y1,
   bl_add_point_xy(path, x1, y1);
 
   for (int i = 0; i < iterations; i++) {
-    bl_point_list *new_path = bl_make_point_list();
     bl_point *curr = path->head;
-    while (curr != NULL) {
-      bl_add_point_xy(new_path, curr->x, curr->y);
-      if (curr->next != NULL) {
-        double x = (curr->x + curr->next->x) / 2.0 + g_random_double_range(-offset, offset);
-        double y = (curr->y + curr->next->y) / 2.0 + g_random_double_range(-offset, offset);
-        bl_add_point_xy(new_path, x, y);
-      }
-      curr = curr->next;
+    while (curr->next != NULL) {
+      bl_point *next = curr->next;
+      double x = (curr->x + next->x) / 2.0 + g_random_double_range(-offset, offset);
+      double y = (curr->y + next->y) / 2.0 + g_random_double_range(-offset, offset);
+      bl_point *middle = bl_make_point(x, y);
+      middle->next = next;
+      curr->next = middle;
+      curr = next;
     }
-    bl_point_list_destroy(path);
     offset *= roughness;
-    path = new_path;
   }
-
   cairo_path(cr, path);
+  bl_point_list_destroy(path);
 }
 
 void cairo_stroke_fractal_line(cairo_t *cr, double x0, double y0, double x1, double y1, double roughness, int iterations) {

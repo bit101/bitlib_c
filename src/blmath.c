@@ -87,4 +87,3 @@ int bl_equalish(double a, double b, double delta)
 {
   return bl_difference(a, b) <= delta;
 }
-#endif

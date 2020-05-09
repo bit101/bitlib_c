@@ -54,15 +54,10 @@ void cairo_line(cairo_t *cr, double x0, double y0, double x1, double y1)
 
 void cairo_line_through(cairo_t *cr, double x0, double y0, double x1, double y1, double overlap)
 {
-  double p2;
-  double dx;
-  double dy;
-  double dxy;
-
-  dx = x1 - x0;
-  dy = y1 - y0;
-  dxy = dx * dx + dy * dy;
-  p2 = sqrt(dxy);
+  double dx = x1 - x0;
+  double dy = y1 - y0;
+  double dxy = dx * dx + dy * dy;
+  double p2 = sqrt(dxy);
 
   cairo_save(cr);
   cairo_translate(cr, x0, y0);
@@ -162,9 +157,9 @@ void cairo_fill_ellipse(cairo_t *cr, double x, double y, double xr, double yr)
   cairo_fill(cr);
 }
 
-void draw_path(cairo_t *cr, point_list *head)
+void draw_path(cairo_t *cr, point_list *list)
 {
-  point *curr = head->next;
+  point *curr = list->head;
   while(curr != NULL)
   {
     cairo_line_to(cr, curr->x, curr->y); 

@@ -24,9 +24,9 @@ $(EXE): $(LIBS)/bitlib.a $(TARGET)
 	@$(CC) $(CFLAGS)  $(TARGET) -I$(INCLUDE) $(LIBS)/bitlib.a -o $(EXE) -lm $(CLIBS)
 
 
-$(LIBS)/bitlib.a: $(BUILD) $(BUILD)/drawing.o $(BUILD)/point.o $(BUILD)/perlin.o $(BUILD)/color.o
+$(LIBS)/bitlib.a: $(BUILD) $(BUILD)/drawing.o $(BUILD)/point.o $(BUILD)/perlin.o $(BUILD)/blmath.o $(BUILD)/color.o
 	@mkdir -p $(LIBS)
-	@ld -r $(BUILD)/drawing.o $(BUILD)/point.o $(BUILD)/perlin.o $(BUILD)/color.o -o $(LIBS)/bitlib.a
+	@ld -r $(BUILD)/drawing.o $(BUILD)/point.o $(BUILD)/perlin.o $(BUILD)/color.o $(BUILD)/blmath.o -o $(LIBS)/bitlib.a
 
 $(BUILD)/drawing.o: $(SRC)/drawing.c
 	@$(CC) $(CFLAGS) -c $(SRC)/drawing.c -I$(INCLUDE) -o $(BUILD)/drawing.o -lm $(CLIBS)
@@ -39,6 +39,9 @@ $(BUILD)/perlin.o: $(SRC)/perlin.c
 
 $(BUILD)/color.o: $(SRC)/color.c
 	@$(CC) $(CFLAGS) -c $(SRC)/color.c  -I$(INCLUDE) -o $(BUILD)/color.o  -lm $(CLIBS)
+
+$(BUILD)/blmath.o: $(SRC)/blmath.c
+	@$(CC) $(CFLAGS) -c $(SRC)/blmath.c  -I$(INCLUDE) -o $(BUILD)/blmath.o  -lm $(CLIBS)
 
 $(BUILD):
 	@mkdir $(BUILD)

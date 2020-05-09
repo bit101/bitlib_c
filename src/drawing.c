@@ -2,8 +2,6 @@
 #include <math.h>
 #include <stdbool.h>
 #include "drawing.h"
-#include "point.h"
-#include "color.h"
 
 
 void cairo_set_source_color(cairo_t *cr, bl_color *c) {
@@ -217,7 +215,7 @@ void cairo_fill_star(cairo_t *cr, double x, double y, double r0, double r1, int 
   cairo_fill(cr);
 }
 
-void cairo_stroke_curve(cairo_t *cr, double x0, double y0, double x1, double y1, double x2, double y2) {
+void cairo_stroke_curve_to(cairo_t *cr, double x0, double y0, double x1, double y1, double x2, double y2) {
   cairo_curve_to(cr, x0, y0, x1, y1, x2, y2);
   cairo_stroke(cr);
 }
@@ -249,4 +247,207 @@ void cairo_stroke_quad_curve_to(cairo_t *cr, double x0, double y0, double x1, do
   cairo_quad_curve_to(cr, x0, y0, x1, y1);
   cairo_stroke(cr);
 }
+
+bl_point* splat_point(double angle, double radius) {
+  return bl_make_point(cos(angle) * radius, sin(angle) * radius);
+}
+
+void cairo_splat(
+    cairo_t *cr, double x, double y, int num_nodes,
+    double radius, double inner_radius, double variation) {
+  bl_point_list *path = bl_make_point_list();
+  double slice = G_PI * 2 / (double)(num_nodes * 2);
+  double angle = 0.0;
+  double curve = 0.3;
+  double radius_range = radius - inner_radius;
+
+  variation = bl_clamp(variation, 0, 1);
+  for (int i = 0; i < num_nodes; i++) {
+    double r = radius + variation * g_random_double_range(-radius_range, radius_range);
+    double rr = r - inner_radius;
+    bl_add_point(path, splat_point(angle - slice * (1.0 + curve), inner_radius));
+    bl_add_point(path, splat_point(angle + slice * curve, inner_radius));
+    bl_add_point(path, splat_point(angle - slice * curve, inner_radius + rr * 0.8));
+    bl_add_point(path, splat_point(angle + slice / 2.0, r));
+    bl_add_point(path, splat_point(angle + slice * (1.0 + curve), inner_radius + rr * 0.8));
+    angle += slice * 2.0;
+  }
+  cairo_save(cr);
+  cairo_translate(cr, x, y);
+  cairo_multi_loop(cr, path);
+  cairo_restore(cr);
+}
+
+
+void cairo_stroke_splat(
+    cairo_t *cr, double x, double y, int num_nodes,
+    double radius, double inner_radius, double variation) {
+  cairo_splat(cr, x, y, num_nodes, radius, inner_radius, variation);
+  cairo_stroke(cr);
+}
+
+void cairo_fill_splat(
+    cairo_t *cr, double x, double y, int num_nodes,
+    double radius, double inner_radius, double variation) {
+  cairo_splat(cr, x, y, num_nodes, radius, inner_radius, variation);
+  cairo_fill(cr);
+}
+
+void cairo_multi_loop(cairo_t *cr, bl_point_list *path) {
+  int count = bl_point_list_count(path);
+
+  bl_point* points[count];
+  bl_point *curr = path->head;
+  int index = 0;
+  while (curr != NULL) {
+    points[index] = curr;
+    curr = curr->next;
+    index++;
+  }
+  bl_point *pa = points[0];
+  bl_point *pz = points[count - 1];
+  double mid1x = (pz->x + pa->x) / 2.0;
+  double mid1y = (pz->y + pa->y) / 2.0;
+  cairo_move_to(cr, mid1x, mid1y);
+  for (int i = 0; i < count-1; i++) {
+    bl_point *p0 = points[i];
+    bl_point *p1 = points[i + 1];
+    double midx = (p0->x + p1->x) / 2.0;
+    double midy = (p0->y + p1->y) / 2.0;
+    cairo_quad_curve_to(cr, p0->x, p0->y, midx, midy);
+  }
+  cairo_quad_curve_to(cr, pz->x, pz->y, mid1x, mid1y);
+}
+
+void cairo_stroke_multi_loop(cairo_t *cr, bl_point_list *path) {
+  cairo_multi_loop(cr, path);
+  cairo_stroke(cr);
+}
+
+void cairo_fill_multi_loop(cairo_t *cr, bl_point_list *path) {
+  cairo_multi_loop(cr, path);
+  cairo_fill(cr);
+}
+
+
+void cairo_multi_curve(cairo_t *cr, bl_point_list *path) {
+  int count = bl_point_list_count(path);
+
+  bl_point* points[count];
+  bl_point *curr = path->head;
+  int index = 0;
+  while (curr != NULL) {
+    points[index] = curr;
+    curr = curr->next;
+    index++;
+  }
+  cairo_move_to(cr, points[0]->x, points[0]->y);
+  cairo_line_to(cr, (points[0]->x + points[1]->x) / 2, (points[0]->y + points[1]->y) / 2);
+  for(int i = 1; i < count - 1; i++) {
+    bl_point *p0 = points[i];
+    bl_point *p1 = points[i + 1];
+    double midx = (p0->x + p1->x) / 2;
+    double midy = (p0->y + p1->y) / 2;
+    cairo_quad_curve_to(cr, p0->x, p0->y, midx, midy);
+  }
+  bl_point *p = points[count-1];
+  cairo_line_to(cr, p->x, p->y);
+}
+
+void cairo_stroke_multi_curve(cairo_t *cr, bl_point_list *path) {
+  cairo_multi_curve(cr, path);
+  cairo_stroke(cr);
+}
+
+void cairo_fill_multi_curve(cairo_t *cr, bl_point_list *path) {
+  cairo_multi_curve(cr, path);
+  cairo_fill(cr);
+}
+
+void cairo_draw_points(cairo_t *cr, bl_point_list *path, double radius) {
+  bl_point *curr = path->head;
+  while (curr != NULL) {
+    cairo_fill_circle(cr, curr->x, curr->y, radius);
+    curr = curr->next;
+  }
+}
+
+void cairo_fractal_line(cairo_t *cr, double x0, double y0, double x1, double y1, double roughness, int iterations) {
+  double dx = x1 - x0;
+  double dy = y1 - y0;
+  double offset = sqrt(dx * dx + dy * dy) * 0.15;
+
+  bl_point_list *path = bl_make_point_list();
+  bl_add_point_xy(path, x0, y0);
+  bl_add_point_xy(path, x1, y1);
+
+  for (int i = 0; i < iterations; i++) {
+    bl_point_list *new_path = bl_make_point_list();
+    bl_point *curr = path->head;
+    while (curr != NULL) {
+      bl_add_point_xy(new_path, curr->x, curr->y);
+      if (curr->next != NULL) {
+        double x = (curr->x + curr->next->x) / 2.0 + g_random_double_range(-offset, offset);
+        double y = (curr->y + curr->next->y) / 2.0 + g_random_double_range(-offset, offset);
+        bl_add_point_xy(new_path, x, y);
+      }
+      curr = curr->next;
+    }
+    bl_point_list_destroy(path);
+    offset *= roughness;
+    path = new_path;
+  }
+
+  cairo_path(cr, path);
+}
+
+void cairo_stroke_fractal_line(cairo_t *cr, double x0, double y0, double x1, double y1, double roughness, int iterations) {
+  cairo_fractal_line(cr, x0, y0, x1, y1, roughness, iterations);
+  cairo_stroke(cr);
+}
+
+void cairo_heart(cairo_t *cr, double x, double y, double w, double h, double r) {
+  double res = sqrt(w * h);
+  bl_point_list *path = bl_make_point_list();
+
+  cairo_save(cr);
+  cairo_translate(cr, x, y);
+  cairo_rotate(cr, r);
+  for (int i = 0; i < res; i++) {
+    double a = G_PI * 2 * (double)i / res;
+    double x = w * pow(sin(a), 3.0);
+    double y = h * (0.8125 * cos(a) - 0.3125 * cos(2.0 * a) - 0.125 * cos(3.0 * a) - 0.0625 * cos(4.0 * a));
+    bl_add_point_xy(path, x, -y);
+  }
+  cairo_path(cr, path);
+  cairo_restore(cr);
+  bl_point_list_destroy(path);
+}
+void cairo_stroke_heart(cairo_t *cr, double x, double y, double w, double h, double r) {
+  cairo_heart(cr, x, y, w, h, r);
+  cairo_stroke(cr);
+}
+
+void cairo_fill_heart(cairo_t *cr, double x, double y, double w, double h, double r) {
+  cairo_heart(cr, x, y, w, h, r);
+  cairo_fill(cr);
+}
+
+void cairo_grid(cairo_t *cr, double x, double y, double w, double h, double xres, double yres) {
+  for (double i = x; i < x + w; i += xres) {
+    cairo_move_to(cr, i, y);
+    cairo_line_to(cr, i, y + h);
+  }
+  for (double i = y; i < y + h; i += yres) {
+    cairo_move_to(cr, x, i);
+    cairo_line_to(cr, x + w, i);
+  }
+  cairo_stroke(cr);
+}
+
+
+
+
+
+
 

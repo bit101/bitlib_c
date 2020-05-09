@@ -26,10 +26,10 @@ $(EXE): $(LIBS)/bitlib.a $(TARGET)
 	@$(CC) $(WARN) $(CFLAGS)  $(TARGET) -I$(INCLUDE) $(LIBS)/bitlib.a -o $(EXE) -lm $(CLIBS)
 
 
-$(LIBS)/bitlib.a: $(BUILD) $(BUILD)/drawing.o $(BUILD)/point.o $(BUILD)/perlin.o $(BUILD)/blmath.o $(BUILD)/color.o
+$(LIBS)/bitlib.a: $(BUILD) $(BUILD)/drawing.o $(BUILD)/point.o $(BUILD)/noise.o $(BUILD)/blmath.o $(BUILD)/geom.o $(BUILD)/color.o
 	@echo compiling bitlib.a ...
 	@mkdir -p $(LIBS)
-	@ld -r $(BUILD)/drawing.o $(BUILD)/point.o $(BUILD)/perlin.o $(BUILD)/color.o $(BUILD)/blmath.o -o $(LIBS)/bitlib.a
+	@ld -r $(BUILD)/drawing.o $(BUILD)/point.o $(BUILD)/noise.o $(BUILD)/color.o $(BUILD)/blmath.o $(BUILD)/geom.o -o $(LIBS)/bitlib.a
 
 $(BUILD)/drawing.o: $(SRC)/drawing.c
 	@echo compiling drawing.o ...
@@ -39,9 +39,9 @@ $(BUILD)/point.o: $(SRC)/point.c
 	@echo compiling point.o ...
 	@$(CC) $(WARN) $(CFLAGS) -c $(SRC)/point.c   -I$(INCLUDE) -o $(BUILD)/point.o   -lm $(CLIBS)
 
-$(BUILD)/perlin.o: $(SRC)/perlin.c
-	@echo compiling perlin.o ...
-	@$(CC) $(WARN) $(CFLAGS) -c $(SRC)/perlin.c  -I$(INCLUDE) -o $(BUILD)/perlin.o  -lm $(CLIBS)
+$(BUILD)/noise.o: $(SRC)/noise.c
+	@echo compiling noise.o ...
+	@$(CC) $(WARN) $(CFLAGS) -c $(SRC)/noise.c  -I$(INCLUDE) -o $(BUILD)/noise.o  -lm $(CLIBS)
 
 $(BUILD)/color.o: $(SRC)/color.c
 	@echo compiling color.o ...
@@ -50,6 +50,10 @@ $(BUILD)/color.o: $(SRC)/color.c
 $(BUILD)/blmath.o: $(SRC)/blmath.c
 	@echo compiling blmath.o ...
 	@$(CC) $(WARN) $(CFLAGS) -c $(SRC)/blmath.c  -I$(INCLUDE) -o $(BUILD)/blmath.o  -lm $(CLIBS)
+
+$(BUILD)/geom.o: $(SRC)/geom.c
+	@echo compiling geom.o ...
+	@$(CC) $(WARN) $(CFLAGS) -c $(SRC)/geom.c  -I$(INCLUDE) -o $(BUILD)/geom.o  -lm $(CLIBS)
 
 $(BUILD):
 	@mkdir $(BUILD)

@@ -2,6 +2,7 @@
 #define _DRAWING_H_
 
 #include <gtk/gtk.h>
+#include <stdbool.h>
 #include "point.h"
 #include "color.h"
 
@@ -32,7 +33,7 @@ void cairo_stroke_ellipse(cairo_t *cr, double x, double y, double xr, double yr)
 void cairo_fill_ellipse(cairo_t *cr, double x, double y, double xr, double yr);
 
 void cairo_path(cairo_t *cr, point_list *path);
-void cairo_stroke_path(cairo_t *cr, point_list *path, int close);
+void cairo_stroke_path(cairo_t *cr, point_list *path, bool close);
 void cairo_fill_path(cairo_t *cr, point_list *path);
 
 void cairo_polygon(cairo_t *cr, double x, double y, double r, int sides, double rotation);
@@ -49,4 +50,5 @@ void cairo_stroke_quad_curve_to(cairo_t *cr, double x0, double y0, double x1, do
 
 void cairo_fill_text(cairo_t *cr, char *text, double x, double y);
 void cairo_stroke_text(cairo_t *cr, char *text, double x, double y);
+
 #endif

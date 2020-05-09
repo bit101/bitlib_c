@@ -1,5 +1,6 @@
 #include <gtk/gtk.h>
 #include <math.h>
+#include <stdbool.h>
 #include "drawing.h"
 #include "point.h"
 #include "color.h"
@@ -172,7 +173,7 @@ void cairo_path(cairo_t *cr, point_list *path)
   draw_path(cr, path);
 }
 
-void cairo_stroke_path(cairo_t *cr, point_list *path, int close)
+void cairo_stroke_path(cairo_t *cr, point_list *path, bool close)
 {
   cairo_path(cr, path);
   if (close) {

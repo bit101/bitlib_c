@@ -4,7 +4,7 @@
 
 double bl_difference(double a, double b)
 {
-  return abs(a - b);
+  return fabs(a - b);
 }
 
 double bl_norm(double value, double min, double max)

@@ -1,20 +1,16 @@
 #include <math.h>
 #include "perlin.h"
 
-double fade(double t)
-{
+double fade(double t) {
   return t * t * t * (t * (t * 6 - 15) + 10);
 }
 
-double lerp(double t, double a, double b)
-{
+double lerp(double t, double a, double b) {
   return a + t * (b - a);
 }
 
-double grad(int hash, double x, double y, double z)
-{
-  switch (hash & 15)
-  {
+double grad(int hash, double x, double y, double z) {
+  switch (hash & 15) {
     case 0: 
       return x + y;
     case 12:
@@ -84,18 +80,15 @@ int p[512] = {
   222, 114, 67, 29, 24, 72, 243, 141, 128, 195, 78, 66, 215, 61, 156, 180
 };
 
-double perlin_1(double x)
-{
+double perlin_1(double x) {
   return perlin(x, 0, 0);
 }
 
-double perlin_2(double x, double y)
-{
+double perlin_2(double x, double y) {
   return perlin(x, y, 0);
 }
 
-double perlin(double x, double y, double z)
-{
+double perlin(double x, double y, double z) {
   int X = (int)floor(x) & 255;
   int Y = (int)floor(y) & 255;
   int Z = (int)floor(z) & 255;

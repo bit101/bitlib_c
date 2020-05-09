@@ -4,8 +4,7 @@
 #include "color.h"
 
 
-color* color_rgba(double r, double g, double b, double a)
-{
+color* color_rgba(double r, double g, double b, double a) {
   color *c = malloc(sizeof(color));
   c->r = r;
   c->g = g;
@@ -14,31 +13,26 @@ color* color_rgba(double r, double g, double b, double a)
   return c;
 }
 
-color* color_rgb(double r, double g, double b)
-{
+color* color_rgb(double r, double g, double b) {
   return color_rgba(r, g, b, 1.0);
 }
 
-color* color_rgba_int(int r, int g, int b, int a)
-{
+color* color_rgba_int(int r, int g, int b, int a) {
   return color_rgba(r / 255.0, g / 255.0, b / 255.0, a / 255.0);
 }
 
-color* color_rgb_int(int r, int g, int b)
-{
+color* color_rgb_int(int r, int g, int b) {
   return color_rgba_int(r, g, b, 255);
 }
 
-color* color_int_24(int value)
-{
+color* color_int_24(int value) {
   int r = value >> 16 & 0xff;
   int g = value >> 8 & 0xff;
   int b = value & 0xff;
   return color_rgb_int(r, g, b);
 }
 
-color* color_int_32(int value)
-{
+color* color_int_32(int value) {
   int a = value >> 24;
   int r = value >> 16 & 0xff;
   int g = value >> 8 & 0xff;
@@ -46,26 +40,22 @@ color* color_int_32(int value)
   return color_rgba_int(r, g, b, a);
 }
 
-color* color_lerp(color *color_a, color *color_b, double t)
-{
+color* color_lerp(color *color_a, color *color_b, double t) {
   double r = color_a->r + (color_b->r - color_a->r) * t;
   double g = color_a->g + (color_b->g - color_a->g) * t;
   double b = color_a->b + (color_b->b - color_a->b) * t;
   double a = color_a->a + (color_b->a - color_a->a) * t;
   return color_rgba(r, g, b, a);
-
 }
 
-color* color_random_rgb()
-{
+color* color_random_rgb() {
   double r = g_random_double();
   double g = g_random_double();
   double b = g_random_double();
   return color_rgb(r, g, b);
 }
 
-color* color_hsv(double h, double s, double v)
-{
+color* color_hsv(double h, double s, double v) {
   h = h / 360.0;
   double i = floor(h * 6.0);
   double f = h * 6.0 - i;
@@ -91,23 +81,19 @@ color* color_hsv(double h, double s, double v)
   }
 }
 
-color* color_grey(double shade)
-{
+color* color_grey(double shade) {
   return color_rgb(shade, shade, shade);
 }
 
-color* color_grey_int(int shade)
-{
+color* color_grey_int(int shade) {
   return color_grey(shade / 255.0);
 }
 
-color* color_random_grey()
-{
+color* color_random_grey() {
   return color_grey(g_random_double());
 }
 
-color* color_random_grey_range(double min, double max)
-{
+color* color_random_grey_range(double min, double max) {
   return color_grey(min + g_random_double() * (max - min));
 }
 

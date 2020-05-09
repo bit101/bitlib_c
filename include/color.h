@@ -1,8 +1,7 @@
 #ifndef _COLOR_H_
 #define _COLOR_H_
 
-typedef struct Color
-{
+typedef struct Color {
   double r;
   double g;
   double b;

@@ -1,15 +1,13 @@
 #ifndef _POINT_H_
 #define _POINT_H_
 
-typedef struct Point
-{
+typedef struct Point {
   double x;
   double y;
   struct Point *next;
 } point;
 
-typedef struct Point_List
-{
+typedef struct Point_List {
   struct Point *head;
 } point_list;
 

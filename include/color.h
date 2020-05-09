@@ -13,13 +13,13 @@ color* color_rgba(double r, double g, double b, double a);
 
 color* color_rgb(double r, double g, double b);
 
-color* color_rgba_hex(int r, int g, int b, int a);
+color* color_rgba_int(int r, int g, int b, int a);
 
-color* color_rgb_hex(int r, int g, int b);
+color* color_rgb_int(int r, int g, int b);
 
-color* color_number(int value);
+color* color_int_24(int value);
 
-color* color_number_with_alpha(int value);
+color* color_int_32(int value);
 
 color* color_lerp(color *color_a, color *color_b, double t);
 
@@ -29,7 +29,7 @@ color* color_hsv(double h, double s, double v);
 
 color* color_grey(double shade);
 
-color* color_grey_hex(int shade);
+color* color_grey_int(int shade);
 
 color* color_random_grey();
 

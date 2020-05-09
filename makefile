@@ -1,66 +1,59 @@
-CC := clang
-SRC := src
-BUILD := build
-LIBS := libs
-TARGET := test/main.c
-BIN := bin
-DIST := dist
-EXE := $(BIN)/test
-INCLUDE := include
+CC := gcc
 WARN := -Wno-unused-command-line-argument
 CFLAGS := `pkg-config --cflags gtk+-3.0`
 CLIBS := `pkg-config --libs gtk+-3.0`
 
-default: $(EXE)
-	@$(EXE)
+test: bin/test
+	@echo running test...
+	@bin/test
 	@eog out.png
 
-dist: $(LIBS)/bitlib.a
-	@mkdir -p $(DIST)
-	@cp -r $(LIBS) $(DIST)
-	@cp -r $(INCLUDE) $(DIST)
+bin/test: libs/bitlib.a test/main.c
+	@echo compiling test/main.c
+	@mkdir -p bin
+	@$(CC) $(WARN) $(CFLAGS) test/main.c -Iinclude libs/bitlib.a -o bin/test -lm $(CLIBS)
 
-$(EXE): $(LIBS)/bitlib.a $(TARGET)
-	@echo compiling $(TARGET) ...
-	@mkdir -p $(BIN)
-	@$(CC) $(WARN) $(CFLAGS)  $(TARGET) -I$(INCLUDE) $(LIBS)/bitlib.a -o $(EXE) -lm $(CLIBS)
+dist: libs/bitlib.a
+	@echo assembling distribution package ...
+	@mkdir -p dist
+	@cp -r libs dist
+	@cp -r include dist
 
-
-$(LIBS)/bitlib.a: $(BUILD) $(BUILD)/drawing.o $(BUILD)/point.o $(BUILD)/noise.o $(BUILD)/blmath.o $(BUILD)/geom.o $(BUILD)/color.o
+libs/bitlib.a: build build/drawing.o build/point.o build/noise.o build/blmath.o build/geom.o build/color.o
 	@echo compiling bitlib.a ...
-	@mkdir -p $(LIBS)
-	@ld -r $(BUILD)/drawing.o $(BUILD)/point.o $(BUILD)/noise.o $(BUILD)/color.o $(BUILD)/blmath.o $(BUILD)/geom.o -o $(LIBS)/bitlib.a
+	@mkdir -p libs
+	@ld -r build/drawing.o build/point.o build/noise.o build/color.o build/blmath.o build/geom.o -o libs/bitlib.a
 
-$(BUILD)/drawing.o: $(SRC)/drawing.c
+build/drawing.o: src/drawing.c include/drawing.h
 	@echo compiling drawing.o ...
-	@$(CC) $(WARN) $(CFLAGS) -c $(SRC)/drawing.c -I$(INCLUDE) -o $(BUILD)/drawing.o -lm $(CLIBS)
+	@$(CC) $(WARN) $(CFLAGS) -c src/drawing.c -Iinclude -o build/drawing.o -lm $(CLIBS)
 
-$(BUILD)/point.o: $(SRC)/point.c
+build/point.o: src/point.c include/point.h
 	@echo compiling point.o ...
-	@$(CC) $(WARN) $(CFLAGS) -c $(SRC)/point.c   -I$(INCLUDE) -o $(BUILD)/point.o   -lm $(CLIBS)
+	@$(CC) $(WARN) $(CFLAGS) -c src/point.c -Iinclude -o build/point.o -lm $(CLIBS)
 
-$(BUILD)/noise.o: $(SRC)/noise.c
+build/noise.o: src/noise.c include/noise.h
 	@echo compiling noise.o ...
-	@$(CC) $(WARN) $(CFLAGS) -c $(SRC)/noise.c  -I$(INCLUDE) -o $(BUILD)/noise.o  -lm $(CLIBS)
+	@$(CC) $(WARN) $(CFLAGS) -c src/noise.c -Iinclude -o build/noise.o -lm $(CLIBS)
 
-$(BUILD)/color.o: $(SRC)/color.c
+build/color.o: src/color.c include/color.h
 	@echo compiling color.o ...
-	@$(CC) $(WARN) $(CFLAGS) -c $(SRC)/color.c  -I$(INCLUDE) -o $(BUILD)/color.o  -lm $(CLIBS)
+	@$(CC) $(WARN) $(CFLAGS) -c src/color.c -Iinclude -o build/color.o -lm $(CLIBS)
 
-$(BUILD)/blmath.o: $(SRC)/blmath.c
+build/blmath.o: src/blmath.c include/blmath.h
 	@echo compiling blmath.o ...
-	@$(CC) $(WARN) $(CFLAGS) -c $(SRC)/blmath.c  -I$(INCLUDE) -o $(BUILD)/blmath.o  -lm $(CLIBS)
+	@$(CC) $(WARN) $(CFLAGS) -c src/blmath.c -Iinclude -o build/blmath.o -lm $(CLIBS)
 
-$(BUILD)/geom.o: $(SRC)/geom.c
+build/geom.o: src/geom.c include/geom.h
 	@echo compiling geom.o ...
-	@$(CC) $(WARN) $(CFLAGS) -c $(SRC)/geom.c  -I$(INCLUDE) -o $(BUILD)/geom.o  -lm $(CLIBS)
+	@$(CC) $(WARN) $(CFLAGS) -c src/geom.c -Iinclude -o build/geom.o -lm $(CLIBS)
 
-$(BUILD):
-	@mkdir $(BUILD)
+build:
+	@mkdir build
 
 clean:
-	@rm -rf $(BUILD)
-	@rm -rf $(BIN)
-	@rm -rf $(LIBS)
-	@rm -rf $(DIST)
+	@rm -rf build
+	@rm -rf bin
+	@rm -rf libs
+	@rm -rf dist
 	@rm -f out.png

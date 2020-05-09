@@ -297,27 +297,27 @@ void cairo_fill_splat(
 void cairo_multi_loop(cairo_t *cr, bl_point_list *path) {
   int count = bl_point_list_count(path);
 
-  bl_point* points[count];
+  bl_point points[count];
   bl_point *curr = path->head;
   int index = 0;
   while (curr != NULL) {
-    points[index] = curr;
+    points[index] = *curr;
     curr = curr->next;
     index++;
   }
-  bl_point *pa = points[0];
-  bl_point *pz = points[count - 1];
-  double mid1x = (pz->x + pa->x) / 2.0;
-  double mid1y = (pz->y + pa->y) / 2.0;
+  bl_point pa = points[0];
+  bl_point pz = points[count - 1];
+  double mid1x = (pz.x + pa.x) / 2.0;
+  double mid1y = (pz.y + pa.y) / 2.0;
   cairo_move_to(cr, mid1x, mid1y);
   for (int i = 0; i < count-1; i++) {
-    bl_point *p0 = points[i];
-    bl_point *p1 = points[i + 1];
-    double midx = (p0->x + p1->x) / 2.0;
-    double midy = (p0->y + p1->y) / 2.0;
-    cairo_quad_curve_to(cr, p0->x, p0->y, midx, midy);
+    bl_point p0 = points[i];
+    bl_point p1 = points[i + 1];
+    double midx = (p0.x + p1.x) / 2.0;
+    double midy = (p0.y + p1.y) / 2.0;
+    cairo_quad_curve_to(cr, p0.x, p0.y, midx, midy);
   }
-  cairo_quad_curve_to(cr, pz->x, pz->y, mid1x, mid1y);
+  cairo_quad_curve_to(cr, pz.x, pz.y, mid1x, mid1y);
 }
 
 void cairo_stroke_multi_loop(cairo_t *cr, bl_point_list *path) {
@@ -334,25 +334,28 @@ void cairo_fill_multi_loop(cairo_t *cr, bl_point_list *path) {
 void cairo_multi_curve(cairo_t *cr, bl_point_list *path) {
   int count = bl_point_list_count(path);
 
-  bl_point* points[count];
+  bl_point points[count];
   bl_point *curr = path->head;
   int index = 0;
   while (curr != NULL) {
-    points[index] = curr;
+    points[index] = *curr;
     curr = curr->next;
     index++;
   }
-  cairo_move_to(cr, points[0]->x, points[0]->y);
-  cairo_line_to(cr, (points[0]->x + points[1]->x) / 2, (points[0]->y + points[1]->y) / 2);
+
+  bl_point p0 = points[0];
+  bl_point p1 = points[1];
+  cairo_move_to(cr, p0.x, p0.y);
+  cairo_line_to(cr, (p0.x + p1.x) / 2, (p0.y + p1.y) / 2);
   for(int i = 1; i < count - 1; i++) {
-    bl_point *p0 = points[i];
-    bl_point *p1 = points[i + 1];
-    double midx = (p0->x + p1->x) / 2;
-    double midy = (p0->y + p1->y) / 2;
-    cairo_quad_curve_to(cr, p0->x, p0->y, midx, midy);
+    bl_point p0 = points[i];
+    bl_point p1 = points[i + 1];
+    double midx = (p0.x + p1.x) / 2;
+    double midy = (p0.y + p1.y) / 2;
+    cairo_quad_curve_to(cr, p0.x, p0.y, midx, midy);
   }
-  bl_point *p = points[count-1];
-  cairo_line_to(cr, p->x, p->y);
+  bl_point p = points[count-1];
+  cairo_line_to(cr, p.x, p.y);
 }
 
 void cairo_stroke_multi_curve(cairo_t *cr, bl_point_list *path) {

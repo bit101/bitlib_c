@@ -3,8 +3,13 @@
 
 #include <gtk/gtk.h>
 #include "point.h"
+#include "color.h"
 
+void cairo_set_source_color(cairo_t *cr, color *c);
+
+void cairo_clear_color(cairo_t *cr, color *c);
 void cairo_clear_rgb(cairo_t *cr, double r, double g, double b);
+void cairo_clear_rgba(cairo_t *cr, double r, double g, double b, double a);
 
 void cairo_plot(cairo_t *cr, double x, double y);
 
@@ -41,4 +46,7 @@ void cairo_fill_star(cairo_t *cr, double x, double y, double r0, double r1, int 
 void cairo_stroke_curve(cairo_t *cr, double x0, double y0, double x1, double y1, double x2, double y2);
 void cairo_quad_curve_to(cairo_t *cr, double x0, double y0, double x1, double y1);
 void cairo_stroke_quad_curve_to(cairo_t *cr, double x0, double y0, double x1, double y1);
+
+void cairo_fill_text(cairo_t *cr, char *text, double x, double y);
+void cairo_stroke_text(cairo_t *cr, char *text, double x, double y);
 #endif

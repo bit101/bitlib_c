@@ -3,6 +3,7 @@
 #include "point.h"
 #include "drawing.h"
 #include "perlin.h"
+#include "color.h"
 
 int main(int argc, char **argv) {
   cairo_surface_t *surface;
@@ -27,7 +28,8 @@ int main(int argc, char **argv) {
       cairo_fill_rectangle(cr, x, y, 1, 1);
     }
   }
-  cairo_set_source_rgb(cr, 0, 0, 0);
+  color *c = color_springgreen();
+  cairo_set_source_rgb(cr, c->r, c->g, c->b);
 
 
   cairo_fill_rectangle(cr, 10, 10, 100, 100);

@@ -2,22 +2,47 @@
 #include <math.h>
 #include "drawing.h"
 #include "point.h"
+#include "color.h"
 
 
-void cairo_clear_rgb(cairo_t *cr, double r, double g, double b)
+void cairo_set_source_color(cairo_t *cr, color *c)
+{
+  cairo_set_source_rgba(cr, c->r, c->g, c->b, c->a);
+}
+
+void cairo_fill_text(cairo_t *cr, char *text, double x, double y)
 {
   cairo_save(cr);
-  cairo_set_source_rgb(cr, r, g, b);
+  cairo_translate(cr, x, y);
+  cairo_show_text(cr, text);
+  cairo_fill(cr);
+  cairo_restore(cr);
+}
+void cairo_stroke_text(cairo_t *cr, char *text, double x, double y)
+{
+  cairo_save(cr);
+  cairo_translate(cr, x, y);
+  cairo_show_text(cr, text);
+  cairo_stroke(cr);
+  cairo_restore(cr);
+}
+
+void cairo_clear_rgba(cairo_t *cr, double r, double g, double b, double a)
+{
+  cairo_save(cr);
+  cairo_set_source_rgba(cr, r, g, b, a);
   cairo_paint(cr);
   cairo_restore(cr);
 }
 
-void cairo_plot(cairo_t *cr, double x, double y)
+void cairo_clear_rgb(cairo_t *cr, double r, double g, double b)
 {
-  cairo_save(cr);
-  cairo_translate(cr, x, y);
-  cairo_fill_rectangle(cr, -0.5, -0.5, 1, 1);
-  cairo_restore(cr);
+  cairo_clear_rgba(cr, r, g, b, 1.0);
+}
+
+void cairo_clear_color(cairo_t *cr, color *c)
+{
+  cairo_clear_rgb(cr, c->r, c->g, c->b);
 }
 
 void cairo_line(cairo_t *cr, double x0, double y0, double x1, double y1)
@@ -250,6 +275,14 @@ void cairo_quad_curve_to(cairo_t *cr, double x0, double y0, double x1, double y1
       y1
   );
 }
+void cairo_plot(cairo_t *cr, double x, double y)
+{
+  cairo_save(cr);
+  cairo_translate(cr, x, y);
+  cairo_fill_rectangle(cr, -0.5, -0.5, 1, 1);
+  cairo_restore(cr);
+}
+
 
 void cairo_stroke_quad_curve_to(cairo_t *cr, double x0, double y0, double x1, double y1)
 {

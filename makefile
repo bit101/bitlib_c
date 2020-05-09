@@ -14,16 +14,18 @@ default: $(EXE)
 	@$(EXE)
 	@eog out.png
 
-dist: $(LIBS) $(LIBS)/bitlib.a
+dist: $(LIBS)/bitlib.a
 	@mkdir -p $(DIST)
 	@cp -r $(LIBS) $(DIST)
 	@cp -r $(INCLUDE) $(DIST)
 
-$(EXE): $(BIN) $(LIBS) $(LIBS)/bitlib.a $(TARGET)
+$(EXE): $(LIBS)/bitlib.a $(TARGET)
+	@mkdir -p $(BIN)
 	@$(CC) $(CFLAGS)  $(TARGET) -I$(INCLUDE) $(LIBS)/bitlib.a -o $(EXE) -lm $(CLIBS)
 
 
 $(LIBS)/bitlib.a: $(BUILD) $(BUILD)/drawing.o $(BUILD)/point.o $(BUILD)/perlin.o $(BUILD)/color.o
+	@mkdir -p $(LIBS)
 	@ld -r $(BUILD)/drawing.o $(BUILD)/point.o $(BUILD)/perlin.o $(BUILD)/color.o -o $(LIBS)/bitlib.a
 
 $(BUILD)/drawing.o: $(SRC)/drawing.c
@@ -40,12 +42,6 @@ $(BUILD)/color.o: $(SRC)/color.c
 
 $(BUILD):
 	@mkdir $(BUILD)
-
-$(LIBS):
-	@mkdir $(LIBS)
-
-$(BIN):
-	@mkdir $(BIN)
 
 clean:
 	@rm -rf $(BUILD)

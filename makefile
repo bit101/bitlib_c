@@ -2,6 +2,7 @@ CC := clang
 WARN := -Wno-unused-command-line-argument
 CFLAGS := `pkg-config --cflags gtk+-3.0`
 CLIBS := `pkg-config --libs gtk+-3.0`
+VERSION := v0.1.1
 
 test: bin/test
 	@echo running test...
@@ -14,10 +15,11 @@ bin/test: libs/bitlib.a test/main.c
 	@$(CC) $(WARN) $(CFLAGS) test/main.c -Iinclude libs/bitlib.a -o bin/test -lm $(CLIBS)
 
 dist: libs/bitlib.a
-	@echo assembling distribution package ...
+	@echo assembling distribution package for version $(VERSION) ...
 	@mkdir -p dist
 	@cp -r libs dist
 	@cp -r include dist
+	@echo $(VERSION) > dist/version.txt
 
 libs/bitlib.a: build build/drawing.o build/point.o build/noise.o build/blmath.o build/geom.o build/color.o
 	@echo compiling bitlib.a ...

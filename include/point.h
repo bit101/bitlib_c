@@ -11,6 +11,7 @@ typedef struct Point {
 
 typedef struct Point_List {
   struct Point *head;
+  struct Point *tail;
 } bl_point_list;
 
 bl_point_list* bl_make_point_list();

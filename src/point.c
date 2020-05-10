@@ -16,6 +16,7 @@ bl_point* bl_make_point(double x, double y) {
 bl_point_list* bl_make_point_list() {
   bl_point_list *p = (bl_point_list*)malloc(sizeof(bl_point_list));
   p->head = NULL;
+  p->tail = NULL;
   return p;
 }
 
@@ -24,15 +25,12 @@ void bl_add_point_xy(bl_point_list *list, double x, double y) {
 }
 
 void bl_add_point(bl_point_list *list, bl_point *p) {
-  bl_point *curr = list->head;
-  bl_point *next = p;
-  if (curr == NULL) {
-    list->head = next;
+  if (list->head == NULL) {
+    list->head = p;
+    list->tail = p;
   } else {
-    while(curr->next != NULL) {
-      curr = curr->next;
-    }
-    curr->next = next;
+    list->tail->next = p;
+    list->tail = p;
   }
 }
 

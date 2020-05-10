@@ -4,6 +4,9 @@ CFLAGS := `pkg-config --cflags gtk+-3.0`
 CLIBS := `pkg-config --libs gtk+-3.0`
 VERSION := v0.1.1
 
+SRC := src/*.c
+INC := include/*.h
+
 test: bin/test
 	@echo running test...
 	@bin/test
@@ -20,38 +23,15 @@ dist: libs/bitlib.a
 	@cp -r libs dist
 	@cp -r include dist
 	@echo $(VERSION) > dist/version.txt
+	@zip -rq $(VERSION).zip ./dist
 
-libs/bitlib.a: build build/drawing.o build/point.o build/noise.o build/blmath.o build/geom.o build/color.o
+libs/bitlib.a: $(SRC) $(INC)
 	@echo compiling bitlib.a ...
+	@mkdir -p build
 	@mkdir -p libs
-	@ld -r build/drawing.o build/point.o build/noise.o build/color.o build/blmath.o build/geom.o -o libs/bitlib.a
-
-build/drawing.o: src/drawing.c include/drawing.h
-	@echo compiling drawing.o ...
-	@$(CC) $(WARN) $(CFLAGS) -c src/drawing.c -Iinclude -o build/drawing.o -lm $(CLIBS)
-
-build/point.o: src/point.c include/point.h
-	@echo compiling point.o ...
-	@$(CC) $(WARN) $(CFLAGS) -c src/point.c -Iinclude -o build/point.o -lm $(CLIBS)
-
-build/noise.o: src/noise.c include/noise.h
-	@echo compiling noise.o ...
-	@$(CC) $(WARN) $(CFLAGS) -c src/noise.c -Iinclude -o build/noise.o -lm $(CLIBS)
-
-build/color.o: src/color.c include/color.h
-	@echo compiling color.o ...
-	@$(CC) $(WARN) $(CFLAGS) -c src/color.c -Iinclude -o build/color.o -lm $(CLIBS)
-
-build/blmath.o: src/blmath.c include/blmath.h
-	@echo compiling blmath.o ...
-	@$(CC) $(WARN) $(CFLAGS) -c src/blmath.c -Iinclude -o build/blmath.o -lm $(CLIBS)
-
-build/geom.o: src/geom.c include/geom.h
-	@echo compiling geom.o ...
-	@$(CC) $(WARN) $(CFLAGS) -c src/geom.c -Iinclude -o build/geom.o -lm $(CLIBS)
-
-build:
-	@mkdir build
+	@$(CC) $(WARN) $(CFLAGS) -c $(SRC) -Iinclude  -lm $(CLIBS)
+	@mv *.o build/
+	@ld -r build/*.o -o libs/bitlib.a
 
 clean:
 	@rm -rf build
@@ -59,3 +39,4 @@ clean:
 	@rm -rf libs
 	@rm -rf dist
 	@rm -f out.png
+	@rm -f v*.zip

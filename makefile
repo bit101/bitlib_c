@@ -3,19 +3,33 @@ WARN := -Wno-unused-command-line-argument
 CFLAGS := `pkg-config --cflags gtk+-3.0`
 CLIBS := `pkg-config --libs gtk+-3.0`
 VERSION := v0.1.1
-
 SRC := src/*.c
 INC := include/*.h
 
-test: bin/test
+# set to anim or image:
+default: anim
+
+image: bin/test_image
 	@echo running test...
-	@bin/test
+	@bin/test_image
 	@eog out.png
 
-bin/test: libs/bitlib.a test/main.c
+bin/test_image: libs/bitlib.a test/main.c
 	@echo compiling test/main.c
 	@mkdir -p bin
-	@$(CC) $(WARN) $(CFLAGS) test/main.c -Iinclude libs/bitlib.a -o bin/test -lm $(CLIBS)
+	@$(CC) $(WARN) $(CFLAGS) test/main.c -Iinclude libs/bitlib.a -o bin/test_image -lm $(CLIBS)
+
+anim: bin/test_anim
+	@echo running test_anim...
+	@bin/test_anim
+	@eog out.gif
+
+bin/test_anim: libs/bitlib.a test/anim_main.c
+	@echo compiling test/anim_main.c
+	@mkdir -p bin
+	@mkdir -p frames
+	@rm -f frames/*
+	@$(CC) $(WARN) $(CFLAGS) test/anim_main.c -Iinclude libs/bitlib.a -o bin/test_anim -lm $(CLIBS)
 
 dist: libs/bitlib.a
 	@echo assembling distribution package for version $(VERSION) ...
@@ -38,5 +52,7 @@ clean:
 	@rm -rf bin
 	@rm -rf libs
 	@rm -rf dist
-	@rm -f out.png
+	@rm -rf frames
+	@rm -f *.png
+	@rm -f *.gif
 	@rm -f v*.zip

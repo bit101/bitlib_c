@@ -4,8 +4,9 @@
 
 #define WIDTH 800
 #define HEIGHT 800
+#define OUT_NAME "out.png"
 
-void render(cairo_surface_t *surface, cairo_t *cr) {
+void render(cairo_t *cr) {
   cairo_clear_color(cr, bl_color_red());
   cairo_set_line_width(cr, 0.5);
 
@@ -17,19 +18,12 @@ void render(cairo_surface_t *surface, cairo_t *cr) {
   cairo_set_source_rgba(cr, 1, 1, 0, 0.5);
   cairo_fill_heart(cr, 400, 400, 300, 300, 0); 
 
-
   cairo_set_source_rgba(cr, 0, 1, 0, 0.5);
   cairo_grid(cr, 0, 0, 800, 800, 50, 50);
-
 }
 
 int main(int argc, char **argv) {
-  cairo_surface_t *surface = cairo_image_surface_create(CAIRO_FORMAT_ARGB32, WIDTH, HEIGHT);
-  cairo_t *cr = cairo_create(surface);
-
-  render(surface, cr);
-
-  cairo_surface_write_to_png(surface, "out.png");
+  bl_render_image(WIDTH, HEIGHT, OUT_NAME, render);
   return 0;
 }
 

@@ -7,5 +7,6 @@
 #include "color.h"
 #include "drawing.h"
 #include "geom.h"
+#include "render.h"
 
 #endif

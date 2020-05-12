@@ -5,6 +5,8 @@
 void bl_render_anim( double width, double height, double frames, double fps, char *gif_name, void (*render)(cairo_t *cr, double percent)){
   cairo_surface_t *surface = cairo_image_surface_create(CAIRO_FORMAT_ARGB32, width, height);
   char frame_name[255];
+  system("mkdir -p _frames");
+  system("rm -f _frames/*");
 
   for (int i = 0; i < frames; i++) {
     double percent = (double)i / frames;
@@ -14,12 +16,13 @@ void bl_render_anim( double width, double height, double frames, double fps, cha
     render(cr, percent);
     cairo_destroy(cr);
 
-    sprintf(frame_name, "%s/frame_%.4d.png", "frames", i);
+    sprintf(frame_name, "_frames/frame_%.4d.png", i);
     cairo_surface_write_to_png(surface, frame_name);
   }
   g_print("\n");
 
-  bl_convert_frames_to_gif("frames", "out.gif", fps, true);
+  bl_convert_frames_to_gif("_frames", "out.gif", fps, true);
+  system("rm -rf _frames");
 }
 
 void bl_render_image(double width, double height, char *png_file_name, void (*render)(cairo_t *cr)) {
@@ -42,3 +45,8 @@ void bl_convert_frames_to_gif(char *frames_dir, char *file_name, double fps, boo
   system(command);
 }
 
+void bl_view_image(char *file_name) {
+  char command[255];
+  sprintf(command, "eog %s", file_name);
+  system(command);
+}

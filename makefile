@@ -12,7 +12,6 @@ default: anim
 image: bin/test_image
 	@echo running test...
 	@bin/test_image
-	@eog out.png
 
 bin/test_image: libs/bitlib.a test/main.c
 	@echo compiling test/main.c
@@ -22,13 +21,10 @@ bin/test_image: libs/bitlib.a test/main.c
 anim: bin/test_anim
 	@echo running test_anim...
 	@bin/test_anim
-	@eog out.gif
 
 bin/test_anim: libs/bitlib.a test/anim_main.c
 	@echo compiling test/anim_main.c
 	@mkdir -p bin
-	@mkdir -p frames
-	@rm -f frames/*
 	@$(CC) $(WARN) $(CFLAGS) test/anim_main.c -Iinclude libs/bitlib.a -o bin/test_anim -lm $(CLIBS)
 
 dist: libs/bitlib.a
@@ -52,7 +48,6 @@ clean:
 	@rm -rf bin
 	@rm -rf libs
 	@rm -rf dist
-	@rm -rf frames
 	@rm -f *.png
 	@rm -f *.gif
 	@rm -f v*.zip

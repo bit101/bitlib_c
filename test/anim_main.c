@@ -19,6 +19,7 @@ void render(cairo_t *cr, double percent) {
 
 int main(int argc, char **argv) {
   bl_render_anim(WIDTH, HEIGHT, FRAME_COUNT, FPS, OUT_NAME, render);
+  bl_view_image(OUT_NAME);
   return 0;
 }
 

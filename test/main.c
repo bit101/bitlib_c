@@ -24,6 +24,7 @@ void render(cairo_t *cr) {
 
 int main(int argc, char **argv) {
   bl_render_image(WIDTH, HEIGHT, OUT_NAME, render);
+  bl_view_image(OUT_NAME);
   return 0;
 }
 

@@ -1,4 +1,5 @@
-#include <gtk/gtk.h>
+#include <cairo.h>
+#include <glib.h>
 #include <malloc.h>
 #include <math.h>
 #include "color.h"

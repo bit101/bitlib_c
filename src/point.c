@@ -1,6 +1,7 @@
 #include <math.h>
 #include <malloc.h>
-#include <gtk/gtk.h>
+#include <cairo.h>
+#include <glib.h>
 #include <stdbool.h>
 #include "point.h"
 #include "bitlib.h"

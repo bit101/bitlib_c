@@ -1,7 +1,7 @@
 #ifndef _RENDER_H_
 #define _RENDER_H_
 
-#include <gtk/gtk.h>
+#include <cairo.h>
 
 void bl_render_anim( double width, double height, double frames, double fps, char *gif_name, void (*render)(cairo_t *cr, double percent));
 void bl_render_image(double width, double height, char *png_file_name, void (*render)(cairo_t *cr));

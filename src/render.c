@@ -1,4 +1,6 @@
-#include <gtk/gtk.h>
+#include <cairo.h>
+#include <glib.h>
+#include <stdio.h>
 #include "bitlib.h"
 #include "render.h"
 

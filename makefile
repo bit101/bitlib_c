@@ -6,8 +6,8 @@ VERSION := v0.1.1
 SRC := src/*.c
 INC := include/*.h
 
-# set to anim or image:
-default: anim
+# set to gif, video or image
+default: image
 
 image: bin/test_image
 	@echo running test...
@@ -18,14 +18,23 @@ bin/test_image: libs/bitlib.a test/main.c
 	@mkdir -p bin
 	@$(CC) $(WARN) $(CFLAGS) test/main.c -Iinclude libs/bitlib.a -o bin/test_image -lm $(CLIBS)
 
-anim: bin/test_anim
-	@echo running test_anim...
-	@bin/test_anim
+gif: bin/test_gif
+	@echo running test_gif...
+	@bin/test_gif
 
-bin/test_anim: libs/bitlib.a test/anim_main.c
-	@echo compiling test/anim_main.c
+bin/test_gif: libs/bitlib.a test/gif_main.c
+	@echo compiling test/gif_main.c
 	@mkdir -p bin
-	@$(CC) $(WARN) $(CFLAGS) test/anim_main.c -Iinclude libs/bitlib.a -o bin/test_anim -lm $(CLIBS)
+	@$(CC) $(WARN) $(CFLAGS) test/gif_main.c -Iinclude libs/bitlib.a -o bin/test_gif -lm $(CLIBS)
+
+video: bin/test_video
+	@echo running test_video...
+	@bin/test_video
+
+bin/test_video: libs/bitlib.a test/video_main.c
+	@echo compiling test/video_main.c
+	@mkdir -p bin
+	@$(CC) $(WARN) $(CFLAGS) test/video_main.c -Iinclude libs/bitlib.a -o bin/test_video -lm $(CLIBS)
 
 dist: libs/bitlib.a
 	@echo assembling distribution package for version $(VERSION) ...
@@ -50,4 +59,5 @@ clean:
 	@rm -rf dist
 	@rm -f *.png
 	@rm -f *.gif
+	@rm -f *.mp4
 	@rm -f v*.zip

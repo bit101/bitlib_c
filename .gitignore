@@ -1,5 +1,6 @@
 *.png
 *.gif
+*.mp4
 bin
 build
 dist

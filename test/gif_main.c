@@ -1,4 +1,5 @@
-#include <gtk/gtk.h>
+#include <cairo.h>
+#include <glib.h>
 #include <math.h>
 #include "bitlib.h"
 
@@ -14,11 +15,13 @@ void render(cairo_t *cr, double percent) {
   cairo_translate(cr, WIDTH / 2, HEIGHT / 2);
   cairo_rotate(cr, -p * G_PI);
   cairo_scale(cr, p, p);
-  cairo_fill_rectangle(cr, -WIDTH / 2, -HEIGHT / 2, WIDTH, HEIGHT);
+  cairo_fill_rectangle(cr, -200, -200, 400, 400);
 }
 
 int main(int argc, char **argv) {
-  bl_render_anim(WIDTH, HEIGHT, FRAME_COUNT, FPS, OUT_NAME, render);
+  bl_anim *anim = bl_make_anim(WIDTH, HEIGHT, FRAME_COUNT, FPS);
+  bl_render_gif(anim, OUT_NAME, render);
+  free(anim);
   bl_view_image(OUT_NAME);
   return 0;
 }

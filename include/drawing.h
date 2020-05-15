@@ -1,7 +1,7 @@
 #ifndef _DRAWING_H_
 #define _DRAWING_H_
 
-#include <gtk/gtk.h>
+#include <cairo.h>
 #include <stdbool.h>
 #include "bitlib.h"
 

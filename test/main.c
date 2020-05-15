@@ -1,4 +1,4 @@
-#include <gtk/gtk.h>
+#include <cairo.h>
 #include <math.h>
 #include "bitlib.h"
 

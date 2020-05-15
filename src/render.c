@@ -5,15 +5,15 @@
 #include "render.h"
 
 
-void render_anim( double width, double height, double frames, double fps, bl_anim_callback render) {
-  cairo_surface_t *surface = cairo_image_surface_create(CAIRO_FORMAT_ARGB32, width, height);
+void render_anim(bl_anim *anim, bl_anim_callback render) {
+  cairo_surface_t *surface = cairo_image_surface_create(CAIRO_FORMAT_ARGB32, anim->width, anim->height);
   char frame_name[255];
   system("mkdir -p _frames");
   system("rm -f _frames/*");
 
-  for (int i = 0; i < frames; i++) {
-    double percent = (double)i / frames;
-    g_print("\r%.0f%%", (double)(i + 1) / frames * 100);
+  for (int i = 0; i < anim->frames; i++) {
+    double percent = (double)i / anim->frames;
+    g_print("\r%d/%d", i + 1, (int)anim->frames);
 
     cairo_t *cr = cairo_create(surface);
     render(cr, percent);
@@ -26,15 +26,24 @@ void render_anim( double width, double height, double frames, double fps, bl_ani
 
 }
 
-void bl_render_gif( double width, double height, double frames, double fps, char *gif_name, bl_anim_callback render) {
-  render_anim(width, height, frames, fps, render);
-  bl_convert_frames_to_gif("_frames", gif_name, fps);
+bl_anim *bl_make_anim(double width, double height, double frames, double fps) {
+  bl_anim *anim = malloc(sizeof(bl_anim));
+  anim->width = width;
+  anim->height = height;
+  anim->frames = frames;
+  anim->fps = fps;
+  return anim;
+}
+
+void bl_render_gif(bl_anim *anim, char *gif_name, bl_anim_callback render) {
+  render_anim(anim, render);
+  bl_convert_frames_to_gif("_frames", gif_name, anim->fps);
   system("rm -rf _frames");
 }
 
-void bl_render_video( double width, double height, double frames, double fps, char *mp4_name, void (*render)(cairo_t *cr, double percent)){
-  render_anim(width, height, frames, fps, render);
-  bl_convert_frames_to_video("_frames", mp4_name, fps);
+void bl_render_video(bl_anim *anim, char *mp4_name, bl_anim_callback render) {
+  render_anim(anim, render);
+  bl_convert_frames_to_video("_frames", mp4_name, anim->fps);
   system("rm -rf _frames");
 }
 

@@ -7,7 +7,7 @@ SRC := src/*.c
 INC := include/*.h
 
 # set to gif, video or image
-default: image
+default: video
 
 image: bin/test_image
 	@echo running test...

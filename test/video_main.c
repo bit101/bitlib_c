@@ -19,7 +19,9 @@ void render(cairo_t *cr, double percent) {
 }
 
 int main(int argc, char **argv) {
-  bl_render_video(WIDTH, HEIGHT, FRAME_COUNT, FPS, OUT_NAME, render);
+  bl_anim *anim = bl_make_anim(WIDTH, HEIGHT, FRAME_COUNT, FPS);
+  bl_render_video(anim, OUT_NAME, render);
+  free(anim);
   bl_vlc(OUT_NAME);
   return 0;
 }

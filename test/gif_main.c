@@ -1,7 +1,7 @@
+#include "bitlib.h"
 #include <cairo.h>
 #include <glib.h>
 #include <math.h>
-#include "bitlib.h"
 
 #define WIDTH 400
 #define HEIGHT 400
@@ -25,4 +25,3 @@ int main(int argc, char **argv) {
   bl_view_image(OUT_NAME);
   return 0;
 }
-

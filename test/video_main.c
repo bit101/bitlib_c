@@ -1,7 +1,7 @@
+#include "bitlib.h"
 #include <cairo.h>
 #include <glib.h>
 #include <math.h>
-#include "bitlib.h"
 
 #define WIDTH 1280
 #define HEIGHT 720
@@ -25,4 +25,3 @@ int main(int argc, char **argv) {
   bl_vlc(OUT_NAME);
   return 0;
 }
-

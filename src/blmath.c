@@ -1,12 +1,10 @@
+#include "blmath.h"
 #include <cairo.h>
 #include <glib.h>
 #include <math.h>
 #include <stdbool.h>
-#include "blmath.h"
 
-double bl_difference(double a, double b) {
-  return fabs(a - b);
-}
+double bl_difference(double a, double b) { return fabs(a - b); }
 
 double bl_norm(double value, double min, double max) {
   return (value - min) / (max - min);
@@ -16,7 +14,8 @@ double bl_lerp(double t, double min, double max) {
   return min + (max - min) * t;
 }
 
-double bl_map(double src_value, double src_min, double src_max, double dst_min, double dst_max) {
+double bl_map(double src_value, double src_min, double src_max, double dst_min,
+              double dst_max) {
   double norm = bl_norm(src_value, src_min, src_max);
   return bl_lerp(norm, dst_min, dst_max);
 }
@@ -62,9 +61,7 @@ double bl_cos_range(double angle, double min, double max) {
   return bl_map(cos(angle), -1, 1, min, max);
 }
 
-double bl_fract(double value) {
-  return value - floor(value);
-}
+double bl_fract(double value) { return value - floor(value); }
 
 double bl_lerp_sin(double value, double min, double max) {
   return bl_sin_range(value * G_PI * 2, min, max);

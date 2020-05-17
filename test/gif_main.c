@@ -5,7 +5,7 @@
 
 #define WIDTH 400
 #define HEIGHT 400
-#define FRAME_COUNT 60
+#define FRAME_COUNT 600
 #define FPS 30
 #define OUT_NAME "out.gif"
 
@@ -20,7 +20,7 @@ void render(cairo_t *cr, double percent) {
 
 int main(int argc, char **argv) {
   bl_anim *anim = bl_make_anim(WIDTH, HEIGHT, FRAME_COUNT, FPS);
-  bl_render_gif(anim, OUT_NAME, render);
+  bl_render_gif(anim, OUT_NAME, 4, render);
   free(anim);
   bl_view_image(OUT_NAME);
   return 0;

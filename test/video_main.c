@@ -5,7 +5,7 @@
 
 #define WIDTH 1280
 #define HEIGHT 720
-#define FRAME_COUNT 60
+#define FRAME_COUNT 300
 #define FPS 30
 #define OUT_NAME "out.mp4"
 
@@ -20,8 +20,8 @@ void render(cairo_t *cr, double percent) {
 
 int main(int argc, char **argv) {
   bl_anim *anim = bl_make_anim(WIDTH, HEIGHT, FRAME_COUNT, FPS);
-  bl_render_video(anim, OUT_NAME, render);
+  bl_render_video(anim, OUT_NAME, 4, render);
   free(anim);
-  bl_vlc(OUT_NAME);
+  bl_view_video(OUT_NAME);
   return 0;
 }

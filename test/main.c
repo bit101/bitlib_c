@@ -1,6 +1,6 @@
+#include "bitlib.h"
 #include <cairo.h>
 #include <math.h>
-#include "bitlib.h"
 
 #define WIDTH 800
 #define HEIGHT 800
@@ -16,7 +16,7 @@ void render(cairo_t *cr) {
   cairo_fill(cr);
 
   cairo_set_source_rgba(cr, 1, 1, 0, 0.5);
-  cairo_fill_heart(cr, 400, 400, 300, 300, 0); 
+  cairo_fill_heart(cr, 400, 400, 300, 300, 0);
 
   cairo_set_source_rgba(cr, 0, 1, 0, 0.5);
   cairo_grid(cr, 0, 0, 800, 800, 50, 50);
@@ -27,4 +27,3 @@ int main(int argc, char **argv) {
   bl_view_image(OUT_NAME);
   return 0;
 }
-

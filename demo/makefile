@@ -1,5 +1,4 @@
-CC := clang
-WARN := -Wno-unused-command-line-argument
+CC := gcc
 CFLAGS := `pkg-config --cflags gtk+-3.0`
 CLIBS := `pkg-config --libs gtk+-3.0`
 

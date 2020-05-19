@@ -17,10 +17,10 @@ bl_render_config setup() {
 
   // width, height, frames, fps
   bl_render_config configs[4] = {
-      {800, 800, 0, 0},                 // IMAGE
-      {400, 400, 60, 30},               // GIF
-      {1920, 1080, 60, 30},             // VIDEO
-      {1920.0 / 4, 1080.0 / 4, 60, 30}, // SMALL_VIDEO
+      {800, 800, 0, 0},     // IMAGE
+      {400, 400, 60, 30},   // GIF
+      {1920, 1080, 60, 30}, // VIDEO
+      {640, 360, 60, 30},   // SMALL_VIDEO
   };
   return configs[mode];
 }

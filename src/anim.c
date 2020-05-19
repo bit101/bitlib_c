@@ -92,7 +92,15 @@ void _convert_frames_to_video(bl_render_config *config, char *frames_dir,
                               char *file_name, double fps) {
   char command[255];
 
-  /* apparently optimized for youtube? todo: research settings. */
+  // -framerate fps
+  // -i input - the frames
+  // -s:v size for video stream - wxh
+  // -c:v codec for video stream
+  // -profile:v H.264 profile for video
+  // -crf constant rate factor (0-51: 0 = lossless, 23 = default, 51 = potato)
+  // -pix_fmt pixel format - not sure how important this is
+  // -v logging verbosity - shut up
+  // -y overwrite existing file
   sprintf(command,
           "ffmpeg -framerate %f -i %s/frame_%%04d.png -s:v %dx%d -c:v libx264 "
           "-profile:v high -crf 20 -pix_fmt yuv420p -v 0 -y %s",

@@ -5,20 +5,6 @@ VERSION := v0.2.0
 SRC := src/*.c
 INC := include/*.h
 
-default: bin/main
-	@echo running main...
-	@./bin/main
-
-bin/main: libs/bitlib.a demo/main.c sketch.o
-	@echo compiling main...
-	@mkdir -p bin
-	@$(CC) $(WARN) $(CFLAGS) demo/main.c -Iinclude libs/bitlib.a sketch.o -o bin/main -lm $(CLIBS)
-
-sketch.o: demo/sketch.c
-	@mkdir -p build
-	@$(CC) $(WARN) $(CFLAGS) -c demo/sketch.c -Iinclude -o sketch.o -lm $(CLIBS)
-
-
 dist: libs/bitlib.a
 	@echo assembling distribution package for version $(VERSION) ...
 	@mkdir -p dist
@@ -38,11 +24,6 @@ libs/bitlib.a: $(SRC) $(INC)
 clean:
 	@echo cleaning...
 	@rm -rf build
-	@rm -rf bin
 	@rm -rf libs
 	@rm -rf dist
-	@rm -f *.png
-	@rm -f *.gif
-	@rm -f *.mp4
 	@rm -f v*.zip
-	@rm -f *.o

@@ -1,0 +1,6 @@
+-DDEBUG
+-I./include
+-I/usr/include/cairo
+-I/usr/include
+-I/usr/include/glib-2.0/glib
+

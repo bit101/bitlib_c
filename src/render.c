@@ -1,89 +1,51 @@
 #include "render.h"
+#include "anim.h"
 #include "bitlib.h"
-#include <cairo.h>
 #include <glib.h>
 #include <stdio.h>
+#include <sys/stat.h>
+#include <unistd.h>
 
-void render_anim(bl_anim *anim, bl_anim_callback render) {
-  cairo_surface_t *surface = cairo_image_surface_create(
-      CAIRO_FORMAT_ARGB32, anim->width, anim->height);
-  char frame_name[255];
-  system("mkdir -p _frames");
-  system("rm -f _frames/*");
+char *frames_dir = "bitlib_c_frames";
+void _create_frame_dir();
+void _remove_frame_dir();
 
-  for (int i = 0; i < anim->frames; i++) {
-    double percent = (double)i / anim->frames;
-    g_print("\r%d/%d", i + 1, (int)anim->frames);
-
-    cairo_t *cr = cairo_create(surface);
-    render(cr, percent);
-    cairo_destroy(cr);
-
-    sprintf(frame_name, "_frames/frame_%.4d.png", i);
-    cairo_surface_write_to_png(surface, frame_name);
-  }
-  g_print("\n");
+void bl_render_gif(bl_render_config *config, char *gif_name, int threads,
+                   bl_render_callback render) {
+  _create_frame_dir();
+  _render_frames(config, gif_name, render, frames_dir, threads);
+  _convert_frames_to_gif(frames_dir, gif_name, config->fps);
+  _remove_frame_dir();
 }
 
-bl_anim *bl_make_anim(double width, double height, double frames, double fps) {
-  bl_anim *anim = malloc(sizeof(bl_anim));
-  anim->width = width;
-  anim->height = height;
-  anim->frames = frames;
-  anim->fps = fps;
-  return anim;
-}
-
-void bl_render_gif(bl_anim *anim, char *gif_name, bl_anim_callback render) {
-  render_anim(anim, render);
-  bl_convert_frames_to_gif("_frames", gif_name, anim->fps);
-  system("rm -rf _frames");
-}
-
-void bl_render_video(bl_anim *anim, char *mp4_name, bl_anim_callback render) {
-  render_anim(anim, render);
-  bl_convert_frames_to_video(anim, "_frames", mp4_name, anim->fps);
-  system("rm -rf _frames");
+void bl_render_video(bl_render_config *config, char *mp4_name, int threads,
+                     bl_render_callback render) {
+  _create_frame_dir();
+  _render_frames(config, mp4_name, render, frames_dir, threads);
+  _convert_frames_to_video(config, frames_dir, mp4_name, config->fps);
+  _remove_frame_dir();
 }
 
 void bl_render_image(double width, double height, char *png_file_name,
-                     bl_image_callback render) {
+                     bl_render_callback render) {
   cairo_surface_t *surface =
       cairo_image_surface_create(CAIRO_FORMAT_ARGB32, width, height);
   cairo_t *cr = cairo_create(surface);
-  render(cr);
+  render(cr, 1);
   cairo_surface_write_to_png(surface, png_file_name);
 }
 
-void bl_convert_frames_to_gif(char *frames_dir, char *file_name, double fps) {
+void _create_frame_dir() {
   char command[255];
-  double delay = bl_round_to(1000.0 / fps / 10.0, 4);
-  sprintf(command, "convert -delay %f -layers Optimize %s/*png %s", delay,
-          frames_dir, file_name);
+  sprintf(command, "rm -f %s/*", frames_dir);
+  // in case the dir and files are there from an aborted run
   system(command);
+  mkdir(frames_dir, S_IRWXU | S_IRWXG | S_IRWXO);
 }
 
-void bl_convert_frames_to_video(bl_anim *anim, char *frames_dir,
-                                char *file_name, double fps) {
+void _remove_frame_dir() {
   char command[255];
-
-  /* apparently optimized for youtube? todo: research settings. */
-  sprintf(command,
-          "ffmpeg -framerate %f -i %s/frame_%%04d.png -s:v %dx%d -c:v libx264 "
-          "-profile:v high -crf 20 -pix_fmt yuv420p -v 0 -y %s",
-          fps, frames_dir, (int)anim->width, (int)anim->height, file_name);
-
+  sprintf(command, "rm -f %s/*", frames_dir);
   system(command);
-}
-
-void bl_view_image(char *file_name) {
-  char command[255];
-  sprintf(command, "eog %s", file_name);
-  system(command);
-}
-
-void bl_vlc(char *file_name) {
-  char command[255];
-  sprintf(command, "vlc --verbose 0 %s", file_name);
-  system(command);
+  rmdir(frames_dir);
 }

@@ -5,35 +5,14 @@ VERSION := v0.1.1
 SRC := src/*.c
 INC := include/*.h
 
-# set to gif, video or image
-default: image
+default: bin/main
+	@echo running main...
+	@./bin/main
 
-image: bin/test_image
-	@echo running test...
-	@bin/test_image
-
-bin/test_image: libs/bitlib.a test/main.c
-	@echo compiling test/main.c
+bin/main: libs/bitlib.a demo/main.c
+	@echo compiling main...
 	@mkdir -p bin
-	@$(CC) $(WARN) $(CFLAGS) test/main.c -Iinclude libs/bitlib.a -o bin/test_image -lm $(CLIBS)
-
-gif: bin/test_gif
-	@echo running test_gif...
-	@bin/test_gif
-
-bin/test_gif: libs/bitlib.a test/gif_main.c
-	@echo compiling test/gif_main.c
-	@mkdir -p bin
-	@$(CC) $(WARN) $(CFLAGS) test/gif_main.c -Iinclude libs/bitlib.a -o bin/test_gif -lm $(CLIBS)
-
-video: bin/test_video
-	@echo running test_video...
-	@bin/test_video
-
-bin/test_video: libs/bitlib.a test/video_main.c
-	@echo compiling test/video_main.c
-	@mkdir -p bin
-	@$(CC) $(WARN) $(CFLAGS) test/video_main.c -Iinclude libs/bitlib.a -o bin/test_video -lm $(CLIBS)
+	@$(CC) $(WARN) $(CFLAGS) demo/main.c -Iinclude libs/bitlib.a -o bin/main -lm $(CLIBS)
 
 dist: libs/bitlib.a
 	@echo assembling distribution package for version $(VERSION) ...
@@ -52,6 +31,7 @@ libs/bitlib.a: $(SRC) $(INC)
 	@ld -r build/*.o -o libs/bitlib.a
 
 clean:
+	@echo cleaning...
 	@rm -rf build
 	@rm -rf bin
 	@rm -rf libs

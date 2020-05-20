@@ -8,7 +8,9 @@ CLIBS := `pkg-config --libs gtk+-3.0`
 SKETCH_O := $(SKETCH_C:.c=.o)
 
 default: main
-	@./main
+    # to squelch any internal command line output, set BL_QUIET=1
+	# any print calls in your sketch will continue to work.
+	@BL_QUIET=0 bash -c "./main"
 
 main: main.c $(SKETCH_O)
 	@$(CC) $(WARN) $(CFLAGS) -Iinclude main.c $(SKETCH_O) libs/bitlib.a -o main -lm $(CLIBS)

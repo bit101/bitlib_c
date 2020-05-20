@@ -7,9 +7,9 @@ CFLAGS := `pkg-config --cflags gtk+-3.0`
 CLIBS := `pkg-config --libs gtk+-3.0`
 SKETCH_O := $(SKETCH_C:.c=.o)
 
+# to squelch any internal command line output, set BL_QUIET=1
+# any print calls in your sketch will continue to work.
 default: main
-    # to squelch any internal command line output, set BL_QUIET=1
-	# any print calls in your sketch will continue to work.
 	@BL_QUIET=0 bash -c "./main"
 
 main: main.c $(SKETCH_O)

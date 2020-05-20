@@ -18,6 +18,14 @@ So far only tested on Linux machines.
 
 - `pkg-config` 
 
+- `imagemagick` for gif creation
+
+- `ffmpeg` for video creation
+
+- `eog` for image viewing
+
+- `vlc` for video viewing
+
 ## Make
 
 Run `make dist`:
@@ -54,6 +62,10 @@ Custom drawing code goes in the `render` function.
 
 You can create multiple sketch files. To run a different one, open `makefile` and change the value of `SKETCH_C` at the top to point to the location of the sketch you want to compile.
 
-There's no need to touch the `main.c` file or the rest of `makefile` unless you want to do something really custom.
+There's usually no need to touch the `main.c` file or the rest of `makefile`, but there are a couple of configuration items possible.
+
+- The renderer will use 4 threads by default when rendering animation frames. You can change `num_threads` in `main.c` to increase or decrease that number at your own risk.
+
+- The renderer will spit out some console logs before, during and after the rendering process. This can interfere with any logging you might be doing in your own sketch files. You can set the environmental variable `BL_QUIET` to `1` to squelch this output. This can be set in the `makefile`.
 
 

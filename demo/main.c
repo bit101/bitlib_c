@@ -16,6 +16,7 @@ void render(cairo_t *cr, double percent);
 int main(int argc, char **argv) {
   char *out_name;
   bl_render_config config = setup();
+  int num_threads = 4;
   width = config.width;
   height = config.height;
 
@@ -28,14 +29,14 @@ int main(int argc, char **argv) {
 
   case GIF:
     out_name = "out.gif";
-    bl_render_gif(&config, out_name, 4, render);
+    bl_render_gif(&config, out_name, num_threads, render);
     bl_view_image(out_name);
     break;
 
   case VIDEO:
   case SMALL_VIDEO:
     out_name = "out.mp4";
-    bl_render_video(&config, out_name, 4, render);
+    bl_render_video(&config, out_name, num_threads, render);
     bl_view_video(out_name);
     break;
 

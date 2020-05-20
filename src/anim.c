@@ -56,7 +56,10 @@ void *_thread_render_frames(void *arg) {
     cairo_surface_write_to_png(surface, frame_name);
 
     done++;
-    g_print("\r%f", done / config->frames);
+    char *bl_quiet = getenv("BL_QUIET");
+    if (bl_quiet == NULL || strcmp(bl_quiet, "1")) {
+      g_print("\r%f", done / config->frames);
+    }
   }
   free(props);
 }
@@ -64,7 +67,10 @@ void *_thread_render_frames(void *arg) {
 void _render_frames(bl_render_config *config, char *gif_name,
                     bl_render_callback render, char *tmp, int num_threads) {
   pthread_t threads[num_threads];
-  printf("rendering on %d threads\n", num_threads);
+  char *bl_quiet = getenv("BL_QUIET");
+  if (bl_quiet == NULL || strcmp(bl_quiet, "1")) {
+    g_print("rendering on %d threads\n", num_threads);
+  }
   time_t start_time = time(NULL);
   for (int i = 0; i < num_threads; i++) {
     int start = 0;
@@ -84,8 +90,10 @@ void _render_frames(bl_render_config *config, char *gif_name,
   time_t end_time = time(NULL);
   time_t elapsed = end_time - start_time;
   double spf = (double)elapsed / config->frames;
-  g_print("\n%d frames in %d seconds. %f seconds per frame\n",
-          (int)config->frames, elapsed, spf);
+  if (bl_quiet == NULL || strcmp(bl_quiet, "1")) {
+    g_print("\n%d frames in %d seconds. %f seconds per frame\n",
+            (int)config->frames, elapsed, spf);
+  }
 }
 
 void _convert_frames_to_video(bl_render_config *config, char *frames_dir,

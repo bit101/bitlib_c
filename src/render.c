@@ -44,8 +44,11 @@ void _create_frame_dir() {
 }
 
 void _remove_frame_dir() {
-  char command[255];
-  sprintf(command, "rm -f %s/*", frames_dir);
-  system(command);
-  rmdir(frames_dir);
+  char *bl_save_frames = getenv("BL_SAVE_FRAMES");
+  if (bl_save_frames == NULL || strcmp(bl_save_frames, "1")) {
+    char command[255];
+    sprintf(command, "rm -f %s/*", frames_dir);
+    system(command);
+    rmdir(frames_dir);
+  }
 }

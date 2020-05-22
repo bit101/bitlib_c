@@ -65,6 +65,8 @@ void cairo_stroke_quad_curve_to(cairo_t *cr, double x0, double y0, double x1,
                                 double y1);
 
 void cairo_fill_text(cairo_t *cr, char *text, double x, double y);
+void cairo_printf(cairo_t *cr, double x, double y, char *fmt, ...);
+
 void cairo_stroke_text(cairo_t *cr, char *text, double x, double y);
 
 void cairo_splat(cairo_t *cr, double x, double y, int num_nodes, double radius,

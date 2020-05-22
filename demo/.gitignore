@@ -1,0 +1,6 @@
+main
+bitlib_c_frames
+*.o
+*.png
+*.gif
+*.mp4

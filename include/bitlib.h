@@ -6,6 +6,7 @@
 #include "color.h"
 #include "drawing.h"
 #include "geom.h"
+#include "log_display.h"
 #include "noise.h"
 #include "point.h"
 #include "render.h"

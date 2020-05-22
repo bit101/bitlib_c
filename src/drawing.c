@@ -2,7 +2,9 @@
 #include <cairo.h>
 #include <glib.h>
 #include <math.h>
+/* #include <stdarg.h> */
 #include <stdbool.h>
+#include <stdio.h>
 
 void cairo_set_source_color(cairo_t *cr, bl_color *c) {
   cairo_set_source_rgba(cr, c->r, c->g, c->b, c->a);
@@ -14,6 +16,16 @@ void cairo_fill_text(cairo_t *cr, char *text, double x, double y) {
   cairo_show_text(cr, text);
   cairo_fill(cr);
   cairo_restore(cr);
+}
+
+void cairo_printf(cairo_t *cr, double x, double y, char *fmt, ...) {
+  va_list the_args;
+  char text[1000]; // arbitrary size. should be ok for now?
+  va_start(the_args, fmt);
+  vsprintf(text, fmt, the_args);
+  va_end(the_args);
+
+  cairo_fill_text(cr, text, x, y);
 }
 
 void cairo_stroke_text(cairo_t *cr, char *text, double x, double y) {

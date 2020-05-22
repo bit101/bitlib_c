@@ -2,12 +2,13 @@
 #include "bitlib.h"
 #include <malloc.h>
 #include <math.h>
+#include <stdlib.h>
 
 bl_log_display_data *bl_make_log_display_data(double width, double height) {
   bl_log_display_data *data = malloc(sizeof(bl_log_display_data));
   data->width = width;
   data->height = height;
-  data->hits = malloc(sizeof(double) * width * height);
+  data->hits = calloc((int)(width * height), sizeof(double));
   return data;
 }
 

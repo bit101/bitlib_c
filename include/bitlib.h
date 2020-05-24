@@ -3,6 +3,7 @@
 
 #include "anim.h"
 #include "blmath.h"
+#include "cairo_colors.h"
 #include "color.h"
 #include "drawing.h"
 #include "geom.h"

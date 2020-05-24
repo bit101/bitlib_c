@@ -1,14 +1,10 @@
 #include "bitlib.h"
-#include <cairo.h>
-#include <glib.h>
-#include <stdio.h>
-#include <stdlib.h>
 
-enum render_mode { IMAGE, GIF, VIDEO, SMALL_VIDEO } mode;
-double width, height;
+extern double width, height;
+extern enum bl_render_mode mode;
 
-bl_render_config setup();
-void render(cairo_t *cr, double percent);
+extern bl_render_config setup();
+extern void render(cairo_t *cr, double percent);
 
 ////////////////////////////////////////
 // MAIN

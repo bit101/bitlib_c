@@ -1,11 +1,9 @@
 #include "bitlib.h"
 #include <cairo.h>
 #include <glib.h>
-#include <stdio.h>
-#include <stdlib.h>
 
 double width, height;
-enum render_mode { IMAGE, GIF, VIDEO, SMALL_VIDEO } mode;
+enum bl_render_mode mode;
 
 ////////////////////////////////////////
 // SETUP
@@ -13,14 +11,14 @@ enum render_mode { IMAGE, GIF, VIDEO, SMALL_VIDEO } mode;
 
 bl_render_config setup() {
   // IMAGE, GIF, VIDEO, SMALL_VIDEO
-  mode = GIF;
+  mode = IMAGE;
 
-  // width, height, frames, fps
+  // width, height, frames (fps*seconds), fps
   bl_render_config configs[4] = {
-      {800, 800, 0, 0},     // IMAGE
-      {400, 400, 60, 30},   // GIF
-      {1920, 1080, 60, 30}, // VIDEO
-      {640.0, 360, 60, 30}, // SMALL_VIDEO
+      {800, 800, 0, 0},         // IMAGE
+      {400, 400, 30 * 2, 30},   // GIF
+      {1920, 1080, 30 * 2, 30}, // VIDEO
+      {640.0, 360, 30 * 2, 30}, // SMALL_VIDEO
   };
   return configs[mode];
 }

@@ -1,4 +1,4 @@
-#include "color.h"
+#include "bitlib.h"
 #include <cairo.h>
 #include <glib.h>
 #include <malloc.h>
@@ -57,6 +57,8 @@ bl_color *bl_color_random_rgb() {
 
 bl_color *bl_color_hsv(double h, double s, double v) {
   h = h / 360.0;
+  s = bl_clamp(s, 0, 1);
+  v = bl_clamp(v, 0, 1);
   double i = floor(h * 6.0);
   double f = h * 6.0 - i;
   double p = v * (1.0 - s);

@@ -3,6 +3,8 @@
 
 #include <cairo.h>
 
+enum bl_render_mode { IMAGE, GIF, VIDEO, SMALL_VIDEO };
+
 typedef struct _bl_render_config {
   double width;
   double height;

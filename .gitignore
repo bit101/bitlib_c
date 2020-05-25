@@ -7,3 +7,4 @@ build
 dist
 libs
 v*.zip
+docs/latex

@@ -121,7 +121,21 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
+<p>An interface for a render callback function.</p>
+<p>Create a function conforming to this interface and pass it to <code>bl_render_image</code>, <code>bl_render_gif</code> or <code>bl_render_video</code>. This function will get called once for an image, or once per frame for a gif or video.</p>
+<p>For an image, the <code>percent</code> value will always be 1. For animations it will interpolate between 0 and 1 for the first through the last frames. Use percent to alter the drawing code on each frame.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cairo_t</td><td>*cr The cairo context your render function will draw to. </td></tr>
+    <tr><td class="paramname">double</td><td>percent The percent of the way through the full animation.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p><b>Examples</b> </p><pre class="fragment">void render(cairo_t *cr, double percent) {
+    // draw to cr here
+}
+bl_render_gif(config, "out.gif", 4, render);
+</pre> 
 </div>
 </div>
 <a id="adf7f0737d797110c459f339fa73c97d5"></a>
@@ -135,6 +149,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>A struct to hold information about the render being done. </p>
 
 </div>
 </div>
@@ -150,6 +165,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>An enum to specify the type of render (image, gif, video or small video) being done. </p>
 <table class="fieldtable">
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a8bb42b7487dcf73ad52406dbc7e52dcda3501d25cdde2b141c20edb67965fb692"></a>IMAGE&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a8bb42b7487dcf73ad52406dbc7e52dcda8551767fb508ed14b8eff110d81bb437"></a>GIF&#160;</td><td class="fielddoc"></td></tr>
@@ -197,7 +213,18 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
+<p>Renders multiple frames of an animation and saves them to an animated gif.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">bl_render_config</td><td>*config The configuration file for the animation. </td></tr>
+    <tr><td class="paramname">char</td><td>*gif_name The path of the output gif. </td></tr>
+    <tr><td class="paramname">int</td><td>threads How many threads to use for rendering all the frames. </td></tr>
+    <tr><td class="paramname">bl_render_callback</td><td>render The callback function that will do the drawing for each frame.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p><b>Examples</b> </p><pre class="fragment">bl_render_gif(config, "out.gif", 4, render);
+</pre> 
 </div>
 </div>
 <a id="af6c7e85d030a405ac7e584789e6bab19"></a>
@@ -237,7 +264,17 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
+<p>Renders an image and saves it as a png.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">bl_render_config</td><td>*config The configuration file for the image. </td></tr>
+    <tr><td class="paramname">char</td><td>*png_file_name The path of the output png. </td></tr>
+    <tr><td class="paramname">bl_render_callback</td><td>render The callback function that will draw the image.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p><b>Examples</b> </p><pre class="fragment">bl_render_image(config, "out.png", render);
+</pre> 
 </div>
 </div>
 <a id="a9609664e10b7613a977c6fd59d175a4d"></a>
@@ -277,7 +314,18 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
+<p>Renders multiple frames of an animation and saves them to an mp4 video file.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">bl_render_config</td><td>*config The configuration file for the animation. </td></tr>
+    <tr><td class="paramname">char</td><td>*mp4_name The path of the output video. </td></tr>
+    <tr><td class="paramname">int</td><td>threads How many threads to use for rendering all the frames. </td></tr>
+    <tr><td class="paramname">bl_render_callback</td><td>render The callback function that will do the drawing for each frame.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p><b>Examples</b> </p><pre class="fragment">bl_render_video(config, "out.mp4", 4, render);
+</pre> 
 </div>
 </div>
 </div><!-- contents -->

@@ -140,6 +140,21 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Returns whether or not two circles are intersecting.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">double</td><td>cx0 The x position of the first circle. </td></tr>
+    <tr><td class="paramname">double</td><td>cy0 The y position of the first circle. </td></tr>
+    <tr><td class="paramname">double</td><td>cr0 The radius of the first circle. </td></tr>
+    <tr><td class="paramname">double</td><td>cx1 The x position of the second circle. </td></tr>
+    <tr><td class="paramname">double</td><td>cy1 The y position of the second circle. </td></tr>
+    <tr><td class="paramname">double</td><td>cr1 The radius of the second circle. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>double</dd></dl>
+<p><b>Examples</b></p>
+<p>bool collision = bl_circle_intersect(100, 100, 50, 150, 150, 100); </p>
 
 </div>
 </div>
@@ -180,7 +195,19 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
+<p>Returns the distance between two x, y points.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">double</td><td>x0 The x value of the first point. </td></tr>
+    <tr><td class="paramname">double</td><td>y0 The y value of the first point. </td></tr>
+    <tr><td class="paramname">double</td><td>x1 The x value of the second point. </td></tr>
+    <tr><td class="paramname">double</td><td>y1 The y value of the second point. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>double</dd></dl>
+<p><b>Examples</b> </p><pre class="fragment">double dist = bl_distance_xy(100, 100, 200, 200);
+</pre> 
 </div>
 </div>
 <a id="a9cc87ecc423a12bf77cc412fa586751d"></a>
@@ -226,7 +253,20 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
+<p>Returns whether or not an x, y point is within a circle.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">double</td><td>x The x value of the point. </td></tr>
+    <tr><td class="paramname">double</td><td>y The y value of the point. </td></tr>
+    <tr><td class="paramname">double</td><td>cx The x position of the circle. </td></tr>
+    <tr><td class="paramname">double</td><td>cy The y position of the circle. </td></tr>
+    <tr><td class="paramname">double</td><td>cr The radius of the circle. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>bool</dd></dl>
+<p><b>Examples</b> </p><pre class="fragment">bool in_circle = bl_xy_in_circle(100, 100, 150, 150, 100);
+</pre> 
 </div>
 </div>
 <a id="aca6b7ec103400c8ea1e58c241db08dce"></a>
@@ -278,7 +318,21 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
+<p>Returns whether or not an x, y point is within a rectangle.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">double</td><td>x The x value of the point. </td></tr>
+    <tr><td class="paramname">double</td><td>y The y value of the point. </td></tr>
+    <tr><td class="paramname">double</td><td>rx The x position of the rectangle. </td></tr>
+    <tr><td class="paramname">double</td><td>ry The y position of the rectangle. </td></tr>
+    <tr><td class="paramname">double</td><td>rw The width of the rectangle. </td></tr>
+    <tr><td class="paramname">double</td><td>rh The height of the rectangle. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>double</dd></dl>
+<p><b>Examples</b> </p><pre class="fragment">bool in_rect = bl_xy_in_rect(100, 100, 50, 50, 200, 300);
+</pre> 
 </div>
 </div>
 <a id="adb01c8751d23339d6cac0ed1c888f8d5"></a>
@@ -306,7 +360,17 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
+<p>Returns the magnitude (distance from origin) of an x, y point.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">double</td><td>x The x value of the point. </td></tr>
+    <tr><td class="paramname">double</td><td>y The y value of the point. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>double</dd></dl>
+<p><b>Examples</b> </p><pre class="fragment">double mag = bl_xy_magnitude(100, 200);
+</pre> 
 </div>
 </div>
 </div><!-- contents -->

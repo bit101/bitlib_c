@@ -108,6 +108,8 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>A structure to hold information about quantitative draws to a bitmap.</p>
+<p>Rather than directly drawing each pixel, you mark it as hit in this data struct. When you are done markeing pixels, you can get the value for each pixel which will be calculated on a logarithmic scale based on the pixel that got the most hits. </p>
 
 </div>
 </div>
@@ -143,7 +145,18 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
+<p>Marks a pixel as hit in a <code>bl_log_display_data</code> instance.</p>
+<p>Hits are cumulative and will later be scaled logarithmically.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">bl_log_display_data</td><td>*data The <code>bl_log_display_data</code> to add to. </td></tr>
+    <tr><td class="paramname">double</td><td>x The x value of the pixel to add. </td></tr>
+    <tr><td class="paramname">double</td><td>y The y value of the pixel to add.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p><b>Examples</b> </p><pre class="fragment">bl_log_display_add(data, 100, 100);
+</pre> 
 </div>
 </div>
 <a id="aaa10bcb54cf0abbc953772594ffdeb27"></a>
@@ -177,6 +190,17 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Gets the logarithmically scaled value for a pixel.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">bl_log_display_data</td><td>*data The <code>bl_log_display_data</code> to retrieve a value from. </td></tr>
+    <tr><td class="paramname">double</td><td>x The x value of the pixel. </td></tr>
+    <tr><td class="paramname">double</td><td>y The y value of the pixel. returns double</td></tr>
+  </table>
+  </dd>
+</dl>
+<p><b>Examples</b></p>
+<p>double value = bl_log_display_get_value(data, 100, 100); </p>
 
 </div>
 </div>
@@ -205,7 +229,18 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
+<p>Creates an instance of <code>bl_log_display_data</code>.</p>
+<p>Be sure to <code>free</code> the instance when you are done.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">double</td><td>width The width of the bitmap you will be drawing to. </td></tr>
+    <tr><td class="paramname">double</td><td>height The height of the bitmap you will be drawing to. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>bl_log_display_data*</dd></dl>
+<p><b>Examples</b> </p><pre class="fragment">bl_log_display_data *data = bl_make_log_display_data(400, 400);
+</pre> 
 </div>
 </div>
 </div><!-- contents -->

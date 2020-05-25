@@ -98,7 +98,16 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
+<p>Displays an image.</p>
+<p>This implementation uses eog (Eye of Gnome) image viewer on Linux.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">char</td><td>*file_name The path of the image to display.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p><b>Examples</b> </p><pre class="fragment">bl_view_image("out.png");
+</pre> 
 </div>
 </div>
 <a id="a29df7cf59d8f87b328e093ef849518f9"></a>
@@ -116,7 +125,16 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
+<p>Displays a video.</p>
+<p>This implementation uses vlc video player.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">char</td><td>*file_name The path of the video to display.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p><b>Examples</b> </p><pre class="fragment">bl_view_video("out.mp4");
+</pre> 
 </div>
 </div>
 </div><!-- contents -->

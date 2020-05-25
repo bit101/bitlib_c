@@ -1,6 +1,7 @@
-*.png
-*.gif
-*.mp4
+./*.png
+./*.gif
+./*.mp4
+bitlib_c_frames
 bin
 build
 dist

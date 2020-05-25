@@ -128,7 +128,15 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
+<p>Clears the cairo context to black.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cairo_t</td><td>*cr The cairo context.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p><b>Examples</b> </p><pre class="fragment">cairo_clear_black(cr);
+</pre> 
 </div>
 </div>
 <a id="ae5701478406a07453da949a703401cb9"></a>
@@ -156,7 +164,18 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
+<p>Clears the cairo context to a color specified by an instance of <code>bl_color</code>.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cairo_t</td><td>*cr The cairo context. </td></tr>
+    <tr><td class="paramname">bl_color</td><td>*c The color to use.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p><b>Examples</b> </p><pre class="fragment">bl_color *c = bl_color_hsv(90, 1, 0.5);
+cairo_clear_color(cr, c);
+free(c);
+</pre> 
 </div>
 </div>
 <a id="a2328ffaa004f9d2b0b59ea888c49c44c"></a>
@@ -184,7 +203,16 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
+<p>Clears the cairo context to a shade of grey.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cairo_t</td><td>*cr The cairo context. </td></tr>
+    <tr><td class="paramname">double</td><td>g A value from 0 to 1 representing a shade of grey.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p><b>Examples</b> </p><pre class="fragment">cairo_clear_grey(cr, 0.5);
+</pre> 
 </div>
 </div>
 <a id="abc8057c910ab8cd7749892c2f87173f2"></a>
@@ -224,7 +252,18 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
+<p>Clears the cairo context to color specified with hue, saturation and value.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cairo_t</td><td>*cr The cairo context. </td></tr>
+    <tr><td class="paramname">double</td><td>h The hue. </td></tr>
+    <tr><td class="paramname">double</td><td>s The saturation. </td></tr>
+    <tr><td class="paramname">double</td><td>v The value.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p><b>Examples</b> </p><pre class="fragment">cairo_clear_hsv(cr, 90, 1, 0.5);
+</pre> 
 </div>
 </div>
 <a id="a643e2a067f98174adec19ce5db27bbc1"></a>
@@ -242,7 +281,15 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
+<p>Clears the cairo context to a random shade of grey.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cairo_t</td><td>*cr The cairo context.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p><b>Examples</b> </p><pre class="fragment">cairo_clear_random_grey(cr);
+</pre> 
 </div>
 </div>
 <a id="a8a8cb12389d3ec325cb134ab147d4882"></a>
@@ -260,7 +307,15 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
+<p>Clears the cairo context to a random rgb color.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cairo_t</td><td>*cr The cairo context.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p><b>Examples</b> </p><pre class="fragment">cairo_clear_random_rgb(cr);
+</pre> 
 </div>
 </div>
 <a id="aaed97a1710af6eac4cced4fdf00b9868"></a>
@@ -300,7 +355,18 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
+<p>Clears the cairo context to an rgb color value.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cairo_t</td><td>*cr The cairo context. </td></tr>
+    <tr><td class="paramname">double</td><td>r The red value. </td></tr>
+    <tr><td class="paramname">double</td><td>g The green value. </td></tr>
+    <tr><td class="paramname">double</td><td>b The blue value.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p><b>Examples</b> </p><pre class="fragment">cairo_clear_rgb(cr, 1, 1, 1);
+</pre> 
 </div>
 </div>
 <a id="a70b90fe3d97d1acd8d6a3d08919ee377"></a>
@@ -346,7 +412,19 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
+<p>Clears the cairo context to an rgba color value.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cairo_t</td><td>*cr The cairo context. </td></tr>
+    <tr><td class="paramname">double</td><td>r The red value. </td></tr>
+    <tr><td class="paramname">double</td><td>g The green value. </td></tr>
+    <tr><td class="paramname">double</td><td>b The blue value. </td></tr>
+    <tr><td class="paramname">double</td><td>a The alpha value.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p><b>Examples</b> </p><pre class="fragment">cairo_clear_rgba(cr, 1, 1, 1, 0.5);
+</pre> 
 </div>
 </div>
 <a id="ae54e088e0a988dd48e13b6af6e4cdea3"></a>
@@ -364,7 +442,15 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
+<p>Clears the cairo context to white.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cairo_t</td><td>*cr The cairo context.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p><b>Examples</b> </p><pre class="fragment">cairo_clear_white(cr);
+</pre> 
 </div>
 </div>
 <a id="a8c0df1b42da035bf1988d23bc711c1f2"></a>
@@ -382,7 +468,15 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
+<p>Sets the drawing source color to black.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cairo_t</td><td>*cr The cairo context.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p><b>Examples</b> </p><pre class="fragment">cairo_set_source_black(cr);
+</pre> 
 </div>
 </div>
 <a id="a1b915d99fe2196e051fd615677f2137d"></a>
@@ -410,7 +504,18 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
+<p>Sets the drawing source color using an instance of <code>bl_color</code>.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cairo_t</td><td>*cr The cairo context. </td></tr>
+    <tr><td class="paramname">bl_color</td><td>*c The color to use.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p><b>Examples</b> </p><pre class="fragment">bl_color *c = bl_color_hsv(90, 1, 0.5);
+cairo_set_source_color(cr, c);
+free(c);
+</pre> 
 </div>
 </div>
 <a id="a993e7e0d511ae591ae56fa4fed49c0ce"></a>
@@ -438,7 +543,16 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
+<p>Sets the drawing source color to a shade of grey.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cairo_t</td><td>*cr The cairo context. </td></tr>
+    <tr><td class="paramname">double</td><td>g A value from 0 to 1 representing a shade of grey.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p><b>Examples</b> </p><pre class="fragment">cairo_set_source_grey(cr, 0.5);
+</pre> 
 </div>
 </div>
 <a id="a1397cbb1b1c7aa0bf193a90e76fca1fe"></a>
@@ -478,7 +592,18 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
+<p>Sets the drawing source color using hue, saturation and value.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cairo_t</td><td>*cr The cairo context. </td></tr>
+    <tr><td class="paramname">double</td><td>h The hue. </td></tr>
+    <tr><td class="paramname">double</td><td>s The saturation. </td></tr>
+    <tr><td class="paramname">double</td><td>v The value.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p><b>Examples</b> </p><pre class="fragment">cairo_set_source_hsv(90, 1, 0.5);
+</pre> 
 </div>
 </div>
 <a id="a7c73b2fcea2785fd6afb2cc071cacfea"></a>
@@ -496,7 +621,15 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
+<p>Sets the drawing source color to a random shade of grey.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cairo_t</td><td>*cr The cairo context.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p><b>Examples</b> </p><pre class="fragment">cairo_set_source_random_grey(cr);
+</pre> 
 </div>
 </div>
 <a id="a9b8a25af755cb23f205489826525ec57"></a>
@@ -514,7 +647,15 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
+<p>Sets the drawing source color to a random rgb value.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cairo_t</td><td>*cr The cairo context.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p><b>Examples</b> </p><pre class="fragment">cairo_set_source_random_rgb(cr);
+</pre> 
 </div>
 </div>
 <a id="a446dfb2fa609258fc5e3a9abd171911b"></a>
@@ -532,7 +673,15 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
+<p>Sets the drawing source color to white.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cairo_t</td><td>*cr The cairo context.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p><b>Examples</b> </p><pre class="fragment">cairo_set_source_white(cr);
+</pre> 
 </div>
 </div>
 </div><!-- contents -->

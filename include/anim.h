@@ -6,7 +6,9 @@
 
 /**
  * Creates animation/image config
+ *
  * Creates an instance of `bl_render_config` for creating an animation or image.
+ *
  * @param double width The width of the image or animation.
  * @param double height The height of the image or animation.
  * @param double frames The number of frames in the animation.
@@ -20,6 +22,7 @@ bl_render_config *bl_make_render_config(double width, double height,
 /**
  * Renders each frame of an animation into png files in a folder. Internal use
  * only.
+ *
  * @param bl_render_config *config Contains information on how to render the
  * frames.
  * @param char *gif_name The output file name.
@@ -34,6 +37,7 @@ void _render_frames(bl_render_config *config, char *gif_name,
 /**
  * Converts the frames in the temp folder into an animated gif. Internal use
  * only.
+ *
  * @param char *frames_dir Where the frames are stored.
  * @param char *file_name The name of the output file.
  * @param double fps. Frames per second for the animation.
@@ -42,6 +46,7 @@ void _convert_frames_to_gif(char *frames_dir, char *file_name, double fps);
 
 /**
  * Converts the frames in the temp folder into a video. Internal use only.
+ *
  * @param char *frames_dir Where the frames are stored.
  * @param char *file_name The name of the output file.
  * @param double fps. Frames per second for the animation.

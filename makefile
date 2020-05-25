@@ -21,9 +21,13 @@ libs/bitlib.a: $(SRC) $(INC)
 	@mv *.o build/
 	@ld -r build/*.o -o libs/bitlib.a
 
+docs: $(INC)
+	@doxygen Doxyfile
+
 clean:
 	@echo cleaning...
 	@rm -rf build
 	@rm -rf libs
 	@rm -rf dist
 	@rm -f v*.zip
+	@rm -rf docs

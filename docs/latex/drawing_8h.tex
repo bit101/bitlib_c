@@ -1,0 +1,380 @@
+\hypertarget{drawing_8h}{}\doxysection{include/drawing.h File Reference}
+\label{drawing_8h}\index{include/drawing.h@{include/drawing.h}}
+{\ttfamily \#include \char`\"{}bitlib.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}point.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$cairo.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{drawing_8h_a632dbdb3f74e04238d813e9c2b01e88d}{cairo\+\_\+plot}} (cairo\+\_\+t $\ast$cr, double x, double y)
+\item 
+void \mbox{\hyperlink{drawing_8h_acbdcd2bed80203349037ca90a28dc83c}{cairo\+\_\+line}} (cairo\+\_\+t $\ast$cr, double x0, double y0, double x1, double y1)
+\item 
+void \mbox{\hyperlink{drawing_8h_abbbe558100dc9aa6b21dccf2521990b4}{cairo\+\_\+line\+\_\+through}} (cairo\+\_\+t $\ast$cr, double x0, double y0, double x1, double y1, double overlap)
+\item 
+void \mbox{\hyperlink{drawing_8h_afacb099113fabb91f74b45436a61ca37}{cairo\+\_\+ray}} (cairo\+\_\+t $\ast$cr, double x, double y, double angle, double offset, double length)
+\item 
+void \mbox{\hyperlink{drawing_8h_a38b45fedc7571177d57402bc57ac2b6c}{cairo\+\_\+stroke\+\_\+rectangle}} (cairo\+\_\+t $\ast$cr, double x, double y, double w, double h)
+\item 
+void \mbox{\hyperlink{drawing_8h_ab84cee3c10d6e9a493583003d5d315d1}{cairo\+\_\+fill\+\_\+rectangle}} (cairo\+\_\+t $\ast$cr, double x, double y, double w, double h)
+\item 
+void \mbox{\hyperlink{drawing_8h_aa75fbca3f8e026377b00fad21b416f04}{cairo\+\_\+round\+\_\+rectangle}} (cairo\+\_\+t $\ast$cr, double x, double y, double w, double h, double r)
+\item 
+void \mbox{\hyperlink{drawing_8h_aaf29fda004f41a6c01f02c67b3db546c}{cairo\+\_\+stroke\+\_\+round\+\_\+rectangle}} (cairo\+\_\+t $\ast$cr, double x, double y, double w, double h, double r)
+\item 
+void \mbox{\hyperlink{drawing_8h_ab82fcf652bc193d8c3c41b91357b760c}{cairo\+\_\+fill\+\_\+round\+\_\+rectangle}} (cairo\+\_\+t $\ast$cr, double x, double y, double w, double h, double r)
+\item 
+void \mbox{\hyperlink{drawing_8h_a710503e9314ab3e1745b94eab8ca4b17}{cairo\+\_\+circle}} (cairo\+\_\+t $\ast$cr, double x, double y, double r)
+\item 
+void \mbox{\hyperlink{drawing_8h_a4e554cd419c4f01cd58195c42d4e98b7}{cairo\+\_\+stroke\+\_\+circle}} (cairo\+\_\+t $\ast$cr, double x, double y, double r)
+\item 
+void \mbox{\hyperlink{drawing_8h_af57b48f56fc05f9d8acd7c4c9a7ee512}{cairo\+\_\+fill\+\_\+circle}} (cairo\+\_\+t $\ast$cr, double x, double y, double r)
+\item 
+void \mbox{\hyperlink{drawing_8h_a88f93839dd0e1e4512281836320cd1ec}{cairo\+\_\+ellipse}} (cairo\+\_\+t $\ast$cr, double x, double y, double xr, double yr)
+\item 
+void \mbox{\hyperlink{drawing_8h_a689aa87a2e35c803a072dc38cd570732}{cairo\+\_\+stroke\+\_\+ellipse}} (cairo\+\_\+t $\ast$cr, double x, double y, double xr, double yr)
+\item 
+void \mbox{\hyperlink{drawing_8h_a60c6e2f15d0ea99f62e68605214abf18}{cairo\+\_\+fill\+\_\+ellipse}} (cairo\+\_\+t $\ast$cr, double x, double y, double xr, double yr)
+\item 
+void \mbox{\hyperlink{drawing_8h_afa3b32aa1a137e13a96b038b389d6aaf}{cairo\+\_\+path}} (cairo\+\_\+t $\ast$cr, \mbox{\hyperlink{point_8h_ab79247fa4d5908a1a949449d52da2329}{bl\+\_\+point\+\_\+list}} $\ast$path)
+\item 
+void \mbox{\hyperlink{drawing_8h_ad438f09ec3c70e7a064ceefc4e398364}{cairo\+\_\+stroke\+\_\+path}} (cairo\+\_\+t $\ast$cr, \mbox{\hyperlink{point_8h_ab79247fa4d5908a1a949449d52da2329}{bl\+\_\+point\+\_\+list}} $\ast$path, bool close)
+\item 
+void \mbox{\hyperlink{drawing_8h_a764124c78714a932a7b550d9d084a7a5}{cairo\+\_\+fill\+\_\+path}} (cairo\+\_\+t $\ast$cr, \mbox{\hyperlink{point_8h_ab79247fa4d5908a1a949449d52da2329}{bl\+\_\+point\+\_\+list}} $\ast$path)
+\item 
+void \mbox{\hyperlink{drawing_8h_a4a71462e28cea8d3d4e833376f702627}{cairo\+\_\+polygon}} (cairo\+\_\+t $\ast$cr, double x, double y, double r, int sides, double rotation)
+\item 
+void \mbox{\hyperlink{drawing_8h_a49dc7cc8ce235778f2b4e58d00c1fb33}{cairo\+\_\+stroke\+\_\+polygon}} (cairo\+\_\+t $\ast$cr, double x, double y, double r, int sides, double rotation)
+\item 
+void \mbox{\hyperlink{drawing_8h_a9313586df13a83838e85770d8bf25f57}{cairo\+\_\+fill\+\_\+polygon}} (cairo\+\_\+t $\ast$cr, double x, double y, double r, int sides, double rotation)
+\item 
+void \mbox{\hyperlink{drawing_8h_a6291108d2dd3a5b045f1917f6bc7ee13}{cairo\+\_\+star}} (cairo\+\_\+t $\ast$cr, double x, double y, double r0, double r1, int points, double rotation)
+\item 
+void \mbox{\hyperlink{drawing_8h_a107055cfba198997ec78e688da82e780}{cairo\+\_\+stroke\+\_\+star}} (cairo\+\_\+t $\ast$cr, double x, double y, double r0, double r1, int points, double rotation)
+\item 
+void \mbox{\hyperlink{drawing_8h_a8f0731670a2d579482117558e7b957b1}{cairo\+\_\+fill\+\_\+star}} (cairo\+\_\+t $\ast$cr, double x, double y, double r0, double r1, int points, double rotation)
+\item 
+void \mbox{\hyperlink{drawing_8h_aa1d21b26245e7e8a863d13fcfade2b44}{cairo\+\_\+stroke\+\_\+curve\+\_\+to}} (cairo\+\_\+t $\ast$cr, double x0, double y0, double x1, double y1, double x2, double y2)
+\item 
+void \mbox{\hyperlink{drawing_8h_ab7c2c9206018cb3214a094eac9fcb1fc}{cairo\+\_\+quad\+\_\+curve\+\_\+to}} (cairo\+\_\+t $\ast$cr, double x0, double y0, double x1, double y1)
+\item 
+void \mbox{\hyperlink{drawing_8h_a09d4530e539b96352e89eac467763523}{cairo\+\_\+stroke\+\_\+quad\+\_\+curve\+\_\+to}} (cairo\+\_\+t $\ast$cr, double x0, double y0, double x1, double y1)
+\item 
+void \mbox{\hyperlink{drawing_8h_a5f6041f94cf0350a3ebd569e362824d6}{cairo\+\_\+fill\+\_\+text}} (cairo\+\_\+t $\ast$cr, char $\ast$text, double x, double y)
+\item 
+void \mbox{\hyperlink{drawing_8h_acc41fe01aac6a74b4a7d0a13e12cd5cd}{cairo\+\_\+printf}} (cairo\+\_\+t $\ast$cr, double x, double y, char $\ast$fmt,...)
+\item 
+void \mbox{\hyperlink{drawing_8h_af70e66f28dfa7597bde9100c34da4a19}{cairo\+\_\+stroke\+\_\+text}} (cairo\+\_\+t $\ast$cr, char $\ast$text, double x, double y)
+\item 
+void \mbox{\hyperlink{drawing_8h_a6c67b1944e5b8a6e930ac91b6c00430b}{cairo\+\_\+splat}} (cairo\+\_\+t $\ast$cr, double x, double y, int num\+\_\+nodes, double radius, double inner\+\_\+radius, double variation)
+\item 
+void \mbox{\hyperlink{drawing_8h_a271fd00a59b60517a0bba6445ba6944c}{cairo\+\_\+stroke\+\_\+splat}} (cairo\+\_\+t $\ast$cr, double x, double y, int num\+\_\+nodes, double radius, double inner\+\_\+radius, double variation)
+\item 
+void \mbox{\hyperlink{drawing_8h_a8a29199aa2da1828ed46c6166daa547d}{cairo\+\_\+fill\+\_\+splat}} (cairo\+\_\+t $\ast$cr, double x, double y, int num\+\_\+nodes, double radius, double inner\+\_\+radius, double variation)
+\item 
+void \mbox{\hyperlink{drawing_8h_a680e668715f48ee2db3b138906b76409}{cairo\+\_\+multi\+\_\+loop}} (cairo\+\_\+t $\ast$cr, \mbox{\hyperlink{point_8h_ab79247fa4d5908a1a949449d52da2329}{bl\+\_\+point\+\_\+list}} $\ast$path)
+\item 
+void \mbox{\hyperlink{drawing_8h_a3da8ad71e0a0eaf7e35e232c862e3035}{cairo\+\_\+stroke\+\_\+multi\+\_\+loop}} (cairo\+\_\+t $\ast$cr, \mbox{\hyperlink{point_8h_ab79247fa4d5908a1a949449d52da2329}{bl\+\_\+point\+\_\+list}} $\ast$path)
+\item 
+void \mbox{\hyperlink{drawing_8h_aed8c847fd37e95a49bdd5c461081cb27}{cairo\+\_\+fill\+\_\+multi\+\_\+loop}} (cairo\+\_\+t $\ast$cr, \mbox{\hyperlink{point_8h_ab79247fa4d5908a1a949449d52da2329}{bl\+\_\+point\+\_\+list}} $\ast$path)
+\item 
+void \mbox{\hyperlink{drawing_8h_ae380a1ccf806b85542f776c600138136}{cairo\+\_\+multi\+\_\+curve}} (cairo\+\_\+t $\ast$cr, \mbox{\hyperlink{point_8h_ab79247fa4d5908a1a949449d52da2329}{bl\+\_\+point\+\_\+list}} $\ast$path)
+\item 
+void \mbox{\hyperlink{drawing_8h_a1f2ac5a50e56941fafa9ad8ba8329240}{cairo\+\_\+stroke\+\_\+multi\+\_\+curve}} (cairo\+\_\+t $\ast$cr, \mbox{\hyperlink{point_8h_ab79247fa4d5908a1a949449d52da2329}{bl\+\_\+point\+\_\+list}} $\ast$path)
+\item 
+void \mbox{\hyperlink{drawing_8h_a206f9c5f8fde426a3628ac08f5e1d395}{cairo\+\_\+fill\+\_\+multi\+\_\+curve}} (cairo\+\_\+t $\ast$cr, \mbox{\hyperlink{point_8h_ab79247fa4d5908a1a949449d52da2329}{bl\+\_\+point\+\_\+list}} $\ast$path)
+\item 
+void \mbox{\hyperlink{drawing_8h_a33582f1e501e4c8ecd6ec3408865497c}{cairo\+\_\+draw\+\_\+points}} (cairo\+\_\+t $\ast$cr, \mbox{\hyperlink{point_8h_ab79247fa4d5908a1a949449d52da2329}{bl\+\_\+point\+\_\+list}} $\ast$path, double radius)
+\item 
+void \mbox{\hyperlink{drawing_8h_a270a02eabbb632a03890cfdb38393cf0}{cairo\+\_\+fractal\+\_\+line}} (cairo\+\_\+t $\ast$cr, double x0, double y0, double x1, double y1, double roughness, int iterations)
+\item 
+void \mbox{\hyperlink{drawing_8h_ab954a44809e8801b442408c5fe63d9bd}{cairo\+\_\+stroke\+\_\+fractal\+\_\+line}} (cairo\+\_\+t $\ast$cr, double x0, double y0, double x1, double y1, double roughness, int iterations)
+\item 
+void \mbox{\hyperlink{drawing_8h_aca4b04a7c9f0421a7c189991e0834fbf}{cairo\+\_\+heart}} (cairo\+\_\+t $\ast$cr, double x, double y, double w, double h, double r)
+\item 
+void \mbox{\hyperlink{drawing_8h_a7afa2722e23bca398f0411755972e58e}{cairo\+\_\+stroke\+\_\+heart}} (cairo\+\_\+t $\ast$cr, double x, double y, double w, double h, double r)
+\item 
+void \mbox{\hyperlink{drawing_8h_a837d7e78eb6d1760b93255c8bb1654cc}{cairo\+\_\+fill\+\_\+heart}} (cairo\+\_\+t $\ast$cr, double x, double y, double w, double h, double r)
+\item 
+void \mbox{\hyperlink{drawing_8h_a4bd4d7d32e018c5560dd16503d31cbb6}{cairo\+\_\+grid}} (cairo\+\_\+t $\ast$cr, double x, double y, double w, double h, double xres, double yres)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{drawing_8h_a710503e9314ab3e1745b94eab8ca4b17}\label{drawing_8h_a710503e9314ab3e1745b94eab8ca4b17}} 
+\index{drawing.h@{drawing.h}!cairo\_circle@{cairo\_circle}}
+\index{cairo\_circle@{cairo\_circle}!drawing.h@{drawing.h}}
+\doxysubsubsection{\texorpdfstring{cairo\_circle()}{cairo\_circle()}}
+{\footnotesize\ttfamily void cairo\+\_\+circle (\begin{DoxyParamCaption}\item[{cairo\+\_\+t $\ast$}]{cr,  }\item[{double}]{x,  }\item[{double}]{y,  }\item[{double}]{r }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{drawing_8h_a33582f1e501e4c8ecd6ec3408865497c}\label{drawing_8h_a33582f1e501e4c8ecd6ec3408865497c}} 
+\index{drawing.h@{drawing.h}!cairo\_draw\_points@{cairo\_draw\_points}}
+\index{cairo\_draw\_points@{cairo\_draw\_points}!drawing.h@{drawing.h}}
+\doxysubsubsection{\texorpdfstring{cairo\_draw\_points()}{cairo\_draw\_points()}}
+{\footnotesize\ttfamily void cairo\+\_\+draw\+\_\+points (\begin{DoxyParamCaption}\item[{cairo\+\_\+t $\ast$}]{cr,  }\item[{\mbox{\hyperlink{point_8h_ab79247fa4d5908a1a949449d52da2329}{bl\+\_\+point\+\_\+list}} $\ast$}]{path,  }\item[{double}]{radius }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{drawing_8h_a88f93839dd0e1e4512281836320cd1ec}\label{drawing_8h_a88f93839dd0e1e4512281836320cd1ec}} 
+\index{drawing.h@{drawing.h}!cairo\_ellipse@{cairo\_ellipse}}
+\index{cairo\_ellipse@{cairo\_ellipse}!drawing.h@{drawing.h}}
+\doxysubsubsection{\texorpdfstring{cairo\_ellipse()}{cairo\_ellipse()}}
+{\footnotesize\ttfamily void cairo\+\_\+ellipse (\begin{DoxyParamCaption}\item[{cairo\+\_\+t $\ast$}]{cr,  }\item[{double}]{x,  }\item[{double}]{y,  }\item[{double}]{xr,  }\item[{double}]{yr }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{drawing_8h_af57b48f56fc05f9d8acd7c4c9a7ee512}\label{drawing_8h_af57b48f56fc05f9d8acd7c4c9a7ee512}} 
+\index{drawing.h@{drawing.h}!cairo\_fill\_circle@{cairo\_fill\_circle}}
+\index{cairo\_fill\_circle@{cairo\_fill\_circle}!drawing.h@{drawing.h}}
+\doxysubsubsection{\texorpdfstring{cairo\_fill\_circle()}{cairo\_fill\_circle()}}
+{\footnotesize\ttfamily void cairo\+\_\+fill\+\_\+circle (\begin{DoxyParamCaption}\item[{cairo\+\_\+t $\ast$}]{cr,  }\item[{double}]{x,  }\item[{double}]{y,  }\item[{double}]{r }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{drawing_8h_a60c6e2f15d0ea99f62e68605214abf18}\label{drawing_8h_a60c6e2f15d0ea99f62e68605214abf18}} 
+\index{drawing.h@{drawing.h}!cairo\_fill\_ellipse@{cairo\_fill\_ellipse}}
+\index{cairo\_fill\_ellipse@{cairo\_fill\_ellipse}!drawing.h@{drawing.h}}
+\doxysubsubsection{\texorpdfstring{cairo\_fill\_ellipse()}{cairo\_fill\_ellipse()}}
+{\footnotesize\ttfamily void cairo\+\_\+fill\+\_\+ellipse (\begin{DoxyParamCaption}\item[{cairo\+\_\+t $\ast$}]{cr,  }\item[{double}]{x,  }\item[{double}]{y,  }\item[{double}]{xr,  }\item[{double}]{yr }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{drawing_8h_a837d7e78eb6d1760b93255c8bb1654cc}\label{drawing_8h_a837d7e78eb6d1760b93255c8bb1654cc}} 
+\index{drawing.h@{drawing.h}!cairo\_fill\_heart@{cairo\_fill\_heart}}
+\index{cairo\_fill\_heart@{cairo\_fill\_heart}!drawing.h@{drawing.h}}
+\doxysubsubsection{\texorpdfstring{cairo\_fill\_heart()}{cairo\_fill\_heart()}}
+{\footnotesize\ttfamily void cairo\+\_\+fill\+\_\+heart (\begin{DoxyParamCaption}\item[{cairo\+\_\+t $\ast$}]{cr,  }\item[{double}]{x,  }\item[{double}]{y,  }\item[{double}]{w,  }\item[{double}]{h,  }\item[{double}]{r }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{drawing_8h_a206f9c5f8fde426a3628ac08f5e1d395}\label{drawing_8h_a206f9c5f8fde426a3628ac08f5e1d395}} 
+\index{drawing.h@{drawing.h}!cairo\_fill\_multi\_curve@{cairo\_fill\_multi\_curve}}
+\index{cairo\_fill\_multi\_curve@{cairo\_fill\_multi\_curve}!drawing.h@{drawing.h}}
+\doxysubsubsection{\texorpdfstring{cairo\_fill\_multi\_curve()}{cairo\_fill\_multi\_curve()}}
+{\footnotesize\ttfamily void cairo\+\_\+fill\+\_\+multi\+\_\+curve (\begin{DoxyParamCaption}\item[{cairo\+\_\+t $\ast$}]{cr,  }\item[{\mbox{\hyperlink{point_8h_ab79247fa4d5908a1a949449d52da2329}{bl\+\_\+point\+\_\+list}} $\ast$}]{path }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{drawing_8h_aed8c847fd37e95a49bdd5c461081cb27}\label{drawing_8h_aed8c847fd37e95a49bdd5c461081cb27}} 
+\index{drawing.h@{drawing.h}!cairo\_fill\_multi\_loop@{cairo\_fill\_multi\_loop}}
+\index{cairo\_fill\_multi\_loop@{cairo\_fill\_multi\_loop}!drawing.h@{drawing.h}}
+\doxysubsubsection{\texorpdfstring{cairo\_fill\_multi\_loop()}{cairo\_fill\_multi\_loop()}}
+{\footnotesize\ttfamily void cairo\+\_\+fill\+\_\+multi\+\_\+loop (\begin{DoxyParamCaption}\item[{cairo\+\_\+t $\ast$}]{cr,  }\item[{\mbox{\hyperlink{point_8h_ab79247fa4d5908a1a949449d52da2329}{bl\+\_\+point\+\_\+list}} $\ast$}]{path }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{drawing_8h_a764124c78714a932a7b550d9d084a7a5}\label{drawing_8h_a764124c78714a932a7b550d9d084a7a5}} 
+\index{drawing.h@{drawing.h}!cairo\_fill\_path@{cairo\_fill\_path}}
+\index{cairo\_fill\_path@{cairo\_fill\_path}!drawing.h@{drawing.h}}
+\doxysubsubsection{\texorpdfstring{cairo\_fill\_path()}{cairo\_fill\_path()}}
+{\footnotesize\ttfamily void cairo\+\_\+fill\+\_\+path (\begin{DoxyParamCaption}\item[{cairo\+\_\+t $\ast$}]{cr,  }\item[{\mbox{\hyperlink{point_8h_ab79247fa4d5908a1a949449d52da2329}{bl\+\_\+point\+\_\+list}} $\ast$}]{path }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{drawing_8h_a9313586df13a83838e85770d8bf25f57}\label{drawing_8h_a9313586df13a83838e85770d8bf25f57}} 
+\index{drawing.h@{drawing.h}!cairo\_fill\_polygon@{cairo\_fill\_polygon}}
+\index{cairo\_fill\_polygon@{cairo\_fill\_polygon}!drawing.h@{drawing.h}}
+\doxysubsubsection{\texorpdfstring{cairo\_fill\_polygon()}{cairo\_fill\_polygon()}}
+{\footnotesize\ttfamily void cairo\+\_\+fill\+\_\+polygon (\begin{DoxyParamCaption}\item[{cairo\+\_\+t $\ast$}]{cr,  }\item[{double}]{x,  }\item[{double}]{y,  }\item[{double}]{r,  }\item[{int}]{sides,  }\item[{double}]{rotation }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{drawing_8h_ab84cee3c10d6e9a493583003d5d315d1}\label{drawing_8h_ab84cee3c10d6e9a493583003d5d315d1}} 
+\index{drawing.h@{drawing.h}!cairo\_fill\_rectangle@{cairo\_fill\_rectangle}}
+\index{cairo\_fill\_rectangle@{cairo\_fill\_rectangle}!drawing.h@{drawing.h}}
+\doxysubsubsection{\texorpdfstring{cairo\_fill\_rectangle()}{cairo\_fill\_rectangle()}}
+{\footnotesize\ttfamily void cairo\+\_\+fill\+\_\+rectangle (\begin{DoxyParamCaption}\item[{cairo\+\_\+t $\ast$}]{cr,  }\item[{double}]{x,  }\item[{double}]{y,  }\item[{double}]{w,  }\item[{double}]{h }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{drawing_8h_ab82fcf652bc193d8c3c41b91357b760c}\label{drawing_8h_ab82fcf652bc193d8c3c41b91357b760c}} 
+\index{drawing.h@{drawing.h}!cairo\_fill\_round\_rectangle@{cairo\_fill\_round\_rectangle}}
+\index{cairo\_fill\_round\_rectangle@{cairo\_fill\_round\_rectangle}!drawing.h@{drawing.h}}
+\doxysubsubsection{\texorpdfstring{cairo\_fill\_round\_rectangle()}{cairo\_fill\_round\_rectangle()}}
+{\footnotesize\ttfamily void cairo\+\_\+fill\+\_\+round\+\_\+rectangle (\begin{DoxyParamCaption}\item[{cairo\+\_\+t $\ast$}]{cr,  }\item[{double}]{x,  }\item[{double}]{y,  }\item[{double}]{w,  }\item[{double}]{h,  }\item[{double}]{r }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{drawing_8h_a8a29199aa2da1828ed46c6166daa547d}\label{drawing_8h_a8a29199aa2da1828ed46c6166daa547d}} 
+\index{drawing.h@{drawing.h}!cairo\_fill\_splat@{cairo\_fill\_splat}}
+\index{cairo\_fill\_splat@{cairo\_fill\_splat}!drawing.h@{drawing.h}}
+\doxysubsubsection{\texorpdfstring{cairo\_fill\_splat()}{cairo\_fill\_splat()}}
+{\footnotesize\ttfamily void cairo\+\_\+fill\+\_\+splat (\begin{DoxyParamCaption}\item[{cairo\+\_\+t $\ast$}]{cr,  }\item[{double}]{x,  }\item[{double}]{y,  }\item[{int}]{num\+\_\+nodes,  }\item[{double}]{radius,  }\item[{double}]{inner\+\_\+radius,  }\item[{double}]{variation }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{drawing_8h_a8f0731670a2d579482117558e7b957b1}\label{drawing_8h_a8f0731670a2d579482117558e7b957b1}} 
+\index{drawing.h@{drawing.h}!cairo\_fill\_star@{cairo\_fill\_star}}
+\index{cairo\_fill\_star@{cairo\_fill\_star}!drawing.h@{drawing.h}}
+\doxysubsubsection{\texorpdfstring{cairo\_fill\_star()}{cairo\_fill\_star()}}
+{\footnotesize\ttfamily void cairo\+\_\+fill\+\_\+star (\begin{DoxyParamCaption}\item[{cairo\+\_\+t $\ast$}]{cr,  }\item[{double}]{x,  }\item[{double}]{y,  }\item[{double}]{r0,  }\item[{double}]{r1,  }\item[{int}]{points,  }\item[{double}]{rotation }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{drawing_8h_a5f6041f94cf0350a3ebd569e362824d6}\label{drawing_8h_a5f6041f94cf0350a3ebd569e362824d6}} 
+\index{drawing.h@{drawing.h}!cairo\_fill\_text@{cairo\_fill\_text}}
+\index{cairo\_fill\_text@{cairo\_fill\_text}!drawing.h@{drawing.h}}
+\doxysubsubsection{\texorpdfstring{cairo\_fill\_text()}{cairo\_fill\_text()}}
+{\footnotesize\ttfamily void cairo\+\_\+fill\+\_\+text (\begin{DoxyParamCaption}\item[{cairo\+\_\+t $\ast$}]{cr,  }\item[{char $\ast$}]{text,  }\item[{double}]{x,  }\item[{double}]{y }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{drawing_8h_a270a02eabbb632a03890cfdb38393cf0}\label{drawing_8h_a270a02eabbb632a03890cfdb38393cf0}} 
+\index{drawing.h@{drawing.h}!cairo\_fractal\_line@{cairo\_fractal\_line}}
+\index{cairo\_fractal\_line@{cairo\_fractal\_line}!drawing.h@{drawing.h}}
+\doxysubsubsection{\texorpdfstring{cairo\_fractal\_line()}{cairo\_fractal\_line()}}
+{\footnotesize\ttfamily void cairo\+\_\+fractal\+\_\+line (\begin{DoxyParamCaption}\item[{cairo\+\_\+t $\ast$}]{cr,  }\item[{double}]{x0,  }\item[{double}]{y0,  }\item[{double}]{x1,  }\item[{double}]{y1,  }\item[{double}]{roughness,  }\item[{int}]{iterations }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{drawing_8h_a4bd4d7d32e018c5560dd16503d31cbb6}\label{drawing_8h_a4bd4d7d32e018c5560dd16503d31cbb6}} 
+\index{drawing.h@{drawing.h}!cairo\_grid@{cairo\_grid}}
+\index{cairo\_grid@{cairo\_grid}!drawing.h@{drawing.h}}
+\doxysubsubsection{\texorpdfstring{cairo\_grid()}{cairo\_grid()}}
+{\footnotesize\ttfamily void cairo\+\_\+grid (\begin{DoxyParamCaption}\item[{cairo\+\_\+t $\ast$}]{cr,  }\item[{double}]{x,  }\item[{double}]{y,  }\item[{double}]{w,  }\item[{double}]{h,  }\item[{double}]{xres,  }\item[{double}]{yres }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{drawing_8h_aca4b04a7c9f0421a7c189991e0834fbf}\label{drawing_8h_aca4b04a7c9f0421a7c189991e0834fbf}} 
+\index{drawing.h@{drawing.h}!cairo\_heart@{cairo\_heart}}
+\index{cairo\_heart@{cairo\_heart}!drawing.h@{drawing.h}}
+\doxysubsubsection{\texorpdfstring{cairo\_heart()}{cairo\_heart()}}
+{\footnotesize\ttfamily void cairo\+\_\+heart (\begin{DoxyParamCaption}\item[{cairo\+\_\+t $\ast$}]{cr,  }\item[{double}]{x,  }\item[{double}]{y,  }\item[{double}]{w,  }\item[{double}]{h,  }\item[{double}]{r }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{drawing_8h_acbdcd2bed80203349037ca90a28dc83c}\label{drawing_8h_acbdcd2bed80203349037ca90a28dc83c}} 
+\index{drawing.h@{drawing.h}!cairo\_line@{cairo\_line}}
+\index{cairo\_line@{cairo\_line}!drawing.h@{drawing.h}}
+\doxysubsubsection{\texorpdfstring{cairo\_line()}{cairo\_line()}}
+{\footnotesize\ttfamily void cairo\+\_\+line (\begin{DoxyParamCaption}\item[{cairo\+\_\+t $\ast$}]{cr,  }\item[{double}]{x0,  }\item[{double}]{y0,  }\item[{double}]{x1,  }\item[{double}]{y1 }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{drawing_8h_abbbe558100dc9aa6b21dccf2521990b4}\label{drawing_8h_abbbe558100dc9aa6b21dccf2521990b4}} 
+\index{drawing.h@{drawing.h}!cairo\_line\_through@{cairo\_line\_through}}
+\index{cairo\_line\_through@{cairo\_line\_through}!drawing.h@{drawing.h}}
+\doxysubsubsection{\texorpdfstring{cairo\_line\_through()}{cairo\_line\_through()}}
+{\footnotesize\ttfamily void cairo\+\_\+line\+\_\+through (\begin{DoxyParamCaption}\item[{cairo\+\_\+t $\ast$}]{cr,  }\item[{double}]{x0,  }\item[{double}]{y0,  }\item[{double}]{x1,  }\item[{double}]{y1,  }\item[{double}]{overlap }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{drawing_8h_ae380a1ccf806b85542f776c600138136}\label{drawing_8h_ae380a1ccf806b85542f776c600138136}} 
+\index{drawing.h@{drawing.h}!cairo\_multi\_curve@{cairo\_multi\_curve}}
+\index{cairo\_multi\_curve@{cairo\_multi\_curve}!drawing.h@{drawing.h}}
+\doxysubsubsection{\texorpdfstring{cairo\_multi\_curve()}{cairo\_multi\_curve()}}
+{\footnotesize\ttfamily void cairo\+\_\+multi\+\_\+curve (\begin{DoxyParamCaption}\item[{cairo\+\_\+t $\ast$}]{cr,  }\item[{\mbox{\hyperlink{point_8h_ab79247fa4d5908a1a949449d52da2329}{bl\+\_\+point\+\_\+list}} $\ast$}]{path }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{drawing_8h_a680e668715f48ee2db3b138906b76409}\label{drawing_8h_a680e668715f48ee2db3b138906b76409}} 
+\index{drawing.h@{drawing.h}!cairo\_multi\_loop@{cairo\_multi\_loop}}
+\index{cairo\_multi\_loop@{cairo\_multi\_loop}!drawing.h@{drawing.h}}
+\doxysubsubsection{\texorpdfstring{cairo\_multi\_loop()}{cairo\_multi\_loop()}}
+{\footnotesize\ttfamily void cairo\+\_\+multi\+\_\+loop (\begin{DoxyParamCaption}\item[{cairo\+\_\+t $\ast$}]{cr,  }\item[{\mbox{\hyperlink{point_8h_ab79247fa4d5908a1a949449d52da2329}{bl\+\_\+point\+\_\+list}} $\ast$}]{path }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{drawing_8h_afa3b32aa1a137e13a96b038b389d6aaf}\label{drawing_8h_afa3b32aa1a137e13a96b038b389d6aaf}} 
+\index{drawing.h@{drawing.h}!cairo\_path@{cairo\_path}}
+\index{cairo\_path@{cairo\_path}!drawing.h@{drawing.h}}
+\doxysubsubsection{\texorpdfstring{cairo\_path()}{cairo\_path()}}
+{\footnotesize\ttfamily void cairo\+\_\+path (\begin{DoxyParamCaption}\item[{cairo\+\_\+t $\ast$}]{cr,  }\item[{\mbox{\hyperlink{point_8h_ab79247fa4d5908a1a949449d52da2329}{bl\+\_\+point\+\_\+list}} $\ast$}]{path }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{drawing_8h_a632dbdb3f74e04238d813e9c2b01e88d}\label{drawing_8h_a632dbdb3f74e04238d813e9c2b01e88d}} 
+\index{drawing.h@{drawing.h}!cairo\_plot@{cairo\_plot}}
+\index{cairo\_plot@{cairo\_plot}!drawing.h@{drawing.h}}
+\doxysubsubsection{\texorpdfstring{cairo\_plot()}{cairo\_plot()}}
+{\footnotesize\ttfamily void cairo\+\_\+plot (\begin{DoxyParamCaption}\item[{cairo\+\_\+t $\ast$}]{cr,  }\item[{double}]{x,  }\item[{double}]{y }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{drawing_8h_a4a71462e28cea8d3d4e833376f702627}\label{drawing_8h_a4a71462e28cea8d3d4e833376f702627}} 
+\index{drawing.h@{drawing.h}!cairo\_polygon@{cairo\_polygon}}
+\index{cairo\_polygon@{cairo\_polygon}!drawing.h@{drawing.h}}
+\doxysubsubsection{\texorpdfstring{cairo\_polygon()}{cairo\_polygon()}}
+{\footnotesize\ttfamily void cairo\+\_\+polygon (\begin{DoxyParamCaption}\item[{cairo\+\_\+t $\ast$}]{cr,  }\item[{double}]{x,  }\item[{double}]{y,  }\item[{double}]{r,  }\item[{int}]{sides,  }\item[{double}]{rotation }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{drawing_8h_acc41fe01aac6a74b4a7d0a13e12cd5cd}\label{drawing_8h_acc41fe01aac6a74b4a7d0a13e12cd5cd}} 
+\index{drawing.h@{drawing.h}!cairo\_printf@{cairo\_printf}}
+\index{cairo\_printf@{cairo\_printf}!drawing.h@{drawing.h}}
+\doxysubsubsection{\texorpdfstring{cairo\_printf()}{cairo\_printf()}}
+{\footnotesize\ttfamily void cairo\+\_\+printf (\begin{DoxyParamCaption}\item[{cairo\+\_\+t $\ast$}]{cr,  }\item[{double}]{x,  }\item[{double}]{y,  }\item[{char $\ast$}]{fmt,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{drawing_8h_ab7c2c9206018cb3214a094eac9fcb1fc}\label{drawing_8h_ab7c2c9206018cb3214a094eac9fcb1fc}} 
+\index{drawing.h@{drawing.h}!cairo\_quad\_curve\_to@{cairo\_quad\_curve\_to}}
+\index{cairo\_quad\_curve\_to@{cairo\_quad\_curve\_to}!drawing.h@{drawing.h}}
+\doxysubsubsection{\texorpdfstring{cairo\_quad\_curve\_to()}{cairo\_quad\_curve\_to()}}
+{\footnotesize\ttfamily void cairo\+\_\+quad\+\_\+curve\+\_\+to (\begin{DoxyParamCaption}\item[{cairo\+\_\+t $\ast$}]{cr,  }\item[{double}]{x0,  }\item[{double}]{y0,  }\item[{double}]{x1,  }\item[{double}]{y1 }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{drawing_8h_afacb099113fabb91f74b45436a61ca37}\label{drawing_8h_afacb099113fabb91f74b45436a61ca37}} 
+\index{drawing.h@{drawing.h}!cairo\_ray@{cairo\_ray}}
+\index{cairo\_ray@{cairo\_ray}!drawing.h@{drawing.h}}
+\doxysubsubsection{\texorpdfstring{cairo\_ray()}{cairo\_ray()}}
+{\footnotesize\ttfamily void cairo\+\_\+ray (\begin{DoxyParamCaption}\item[{cairo\+\_\+t $\ast$}]{cr,  }\item[{double}]{x,  }\item[{double}]{y,  }\item[{double}]{angle,  }\item[{double}]{offset,  }\item[{double}]{length }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{drawing_8h_aa75fbca3f8e026377b00fad21b416f04}\label{drawing_8h_aa75fbca3f8e026377b00fad21b416f04}} 
+\index{drawing.h@{drawing.h}!cairo\_round\_rectangle@{cairo\_round\_rectangle}}
+\index{cairo\_round\_rectangle@{cairo\_round\_rectangle}!drawing.h@{drawing.h}}
+\doxysubsubsection{\texorpdfstring{cairo\_round\_rectangle()}{cairo\_round\_rectangle()}}
+{\footnotesize\ttfamily void cairo\+\_\+round\+\_\+rectangle (\begin{DoxyParamCaption}\item[{cairo\+\_\+t $\ast$}]{cr,  }\item[{double}]{x,  }\item[{double}]{y,  }\item[{double}]{w,  }\item[{double}]{h,  }\item[{double}]{r }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{drawing_8h_a6c67b1944e5b8a6e930ac91b6c00430b}\label{drawing_8h_a6c67b1944e5b8a6e930ac91b6c00430b}} 
+\index{drawing.h@{drawing.h}!cairo\_splat@{cairo\_splat}}
+\index{cairo\_splat@{cairo\_splat}!drawing.h@{drawing.h}}
+\doxysubsubsection{\texorpdfstring{cairo\_splat()}{cairo\_splat()}}
+{\footnotesize\ttfamily void cairo\+\_\+splat (\begin{DoxyParamCaption}\item[{cairo\+\_\+t $\ast$}]{cr,  }\item[{double}]{x,  }\item[{double}]{y,  }\item[{int}]{num\+\_\+nodes,  }\item[{double}]{radius,  }\item[{double}]{inner\+\_\+radius,  }\item[{double}]{variation }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{drawing_8h_a6291108d2dd3a5b045f1917f6bc7ee13}\label{drawing_8h_a6291108d2dd3a5b045f1917f6bc7ee13}} 
+\index{drawing.h@{drawing.h}!cairo\_star@{cairo\_star}}
+\index{cairo\_star@{cairo\_star}!drawing.h@{drawing.h}}
+\doxysubsubsection{\texorpdfstring{cairo\_star()}{cairo\_star()}}
+{\footnotesize\ttfamily void cairo\+\_\+star (\begin{DoxyParamCaption}\item[{cairo\+\_\+t $\ast$}]{cr,  }\item[{double}]{x,  }\item[{double}]{y,  }\item[{double}]{r0,  }\item[{double}]{r1,  }\item[{int}]{points,  }\item[{double}]{rotation }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{drawing_8h_a4e554cd419c4f01cd58195c42d4e98b7}\label{drawing_8h_a4e554cd419c4f01cd58195c42d4e98b7}} 
+\index{drawing.h@{drawing.h}!cairo\_stroke\_circle@{cairo\_stroke\_circle}}
+\index{cairo\_stroke\_circle@{cairo\_stroke\_circle}!drawing.h@{drawing.h}}
+\doxysubsubsection{\texorpdfstring{cairo\_stroke\_circle()}{cairo\_stroke\_circle()}}
+{\footnotesize\ttfamily void cairo\+\_\+stroke\+\_\+circle (\begin{DoxyParamCaption}\item[{cairo\+\_\+t $\ast$}]{cr,  }\item[{double}]{x,  }\item[{double}]{y,  }\item[{double}]{r }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{drawing_8h_aa1d21b26245e7e8a863d13fcfade2b44}\label{drawing_8h_aa1d21b26245e7e8a863d13fcfade2b44}} 
+\index{drawing.h@{drawing.h}!cairo\_stroke\_curve\_to@{cairo\_stroke\_curve\_to}}
+\index{cairo\_stroke\_curve\_to@{cairo\_stroke\_curve\_to}!drawing.h@{drawing.h}}
+\doxysubsubsection{\texorpdfstring{cairo\_stroke\_curve\_to()}{cairo\_stroke\_curve\_to()}}
+{\footnotesize\ttfamily void cairo\+\_\+stroke\+\_\+curve\+\_\+to (\begin{DoxyParamCaption}\item[{cairo\+\_\+t $\ast$}]{cr,  }\item[{double}]{x0,  }\item[{double}]{y0,  }\item[{double}]{x1,  }\item[{double}]{y1,  }\item[{double}]{x2,  }\item[{double}]{y2 }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{drawing_8h_a689aa87a2e35c803a072dc38cd570732}\label{drawing_8h_a689aa87a2e35c803a072dc38cd570732}} 
+\index{drawing.h@{drawing.h}!cairo\_stroke\_ellipse@{cairo\_stroke\_ellipse}}
+\index{cairo\_stroke\_ellipse@{cairo\_stroke\_ellipse}!drawing.h@{drawing.h}}
+\doxysubsubsection{\texorpdfstring{cairo\_stroke\_ellipse()}{cairo\_stroke\_ellipse()}}
+{\footnotesize\ttfamily void cairo\+\_\+stroke\+\_\+ellipse (\begin{DoxyParamCaption}\item[{cairo\+\_\+t $\ast$}]{cr,  }\item[{double}]{x,  }\item[{double}]{y,  }\item[{double}]{xr,  }\item[{double}]{yr }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{drawing_8h_ab954a44809e8801b442408c5fe63d9bd}\label{drawing_8h_ab954a44809e8801b442408c5fe63d9bd}} 
+\index{drawing.h@{drawing.h}!cairo\_stroke\_fractal\_line@{cairo\_stroke\_fractal\_line}}
+\index{cairo\_stroke\_fractal\_line@{cairo\_stroke\_fractal\_line}!drawing.h@{drawing.h}}
+\doxysubsubsection{\texorpdfstring{cairo\_stroke\_fractal\_line()}{cairo\_stroke\_fractal\_line()}}
+{\footnotesize\ttfamily void cairo\+\_\+stroke\+\_\+fractal\+\_\+line (\begin{DoxyParamCaption}\item[{cairo\+\_\+t $\ast$}]{cr,  }\item[{double}]{x0,  }\item[{double}]{y0,  }\item[{double}]{x1,  }\item[{double}]{y1,  }\item[{double}]{roughness,  }\item[{int}]{iterations }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{drawing_8h_a7afa2722e23bca398f0411755972e58e}\label{drawing_8h_a7afa2722e23bca398f0411755972e58e}} 
+\index{drawing.h@{drawing.h}!cairo\_stroke\_heart@{cairo\_stroke\_heart}}
+\index{cairo\_stroke\_heart@{cairo\_stroke\_heart}!drawing.h@{drawing.h}}
+\doxysubsubsection{\texorpdfstring{cairo\_stroke\_heart()}{cairo\_stroke\_heart()}}
+{\footnotesize\ttfamily void cairo\+\_\+stroke\+\_\+heart (\begin{DoxyParamCaption}\item[{cairo\+\_\+t $\ast$}]{cr,  }\item[{double}]{x,  }\item[{double}]{y,  }\item[{double}]{w,  }\item[{double}]{h,  }\item[{double}]{r }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{drawing_8h_a1f2ac5a50e56941fafa9ad8ba8329240}\label{drawing_8h_a1f2ac5a50e56941fafa9ad8ba8329240}} 
+\index{drawing.h@{drawing.h}!cairo\_stroke\_multi\_curve@{cairo\_stroke\_multi\_curve}}
+\index{cairo\_stroke\_multi\_curve@{cairo\_stroke\_multi\_curve}!drawing.h@{drawing.h}}
+\doxysubsubsection{\texorpdfstring{cairo\_stroke\_multi\_curve()}{cairo\_stroke\_multi\_curve()}}
+{\footnotesize\ttfamily void cairo\+\_\+stroke\+\_\+multi\+\_\+curve (\begin{DoxyParamCaption}\item[{cairo\+\_\+t $\ast$}]{cr,  }\item[{\mbox{\hyperlink{point_8h_ab79247fa4d5908a1a949449d52da2329}{bl\+\_\+point\+\_\+list}} $\ast$}]{path }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{drawing_8h_a3da8ad71e0a0eaf7e35e232c862e3035}\label{drawing_8h_a3da8ad71e0a0eaf7e35e232c862e3035}} 
+\index{drawing.h@{drawing.h}!cairo\_stroke\_multi\_loop@{cairo\_stroke\_multi\_loop}}
+\index{cairo\_stroke\_multi\_loop@{cairo\_stroke\_multi\_loop}!drawing.h@{drawing.h}}
+\doxysubsubsection{\texorpdfstring{cairo\_stroke\_multi\_loop()}{cairo\_stroke\_multi\_loop()}}
+{\footnotesize\ttfamily void cairo\+\_\+stroke\+\_\+multi\+\_\+loop (\begin{DoxyParamCaption}\item[{cairo\+\_\+t $\ast$}]{cr,  }\item[{\mbox{\hyperlink{point_8h_ab79247fa4d5908a1a949449d52da2329}{bl\+\_\+point\+\_\+list}} $\ast$}]{path }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{drawing_8h_ad438f09ec3c70e7a064ceefc4e398364}\label{drawing_8h_ad438f09ec3c70e7a064ceefc4e398364}} 
+\index{drawing.h@{drawing.h}!cairo\_stroke\_path@{cairo\_stroke\_path}}
+\index{cairo\_stroke\_path@{cairo\_stroke\_path}!drawing.h@{drawing.h}}
+\doxysubsubsection{\texorpdfstring{cairo\_stroke\_path()}{cairo\_stroke\_path()}}
+{\footnotesize\ttfamily void cairo\+\_\+stroke\+\_\+path (\begin{DoxyParamCaption}\item[{cairo\+\_\+t $\ast$}]{cr,  }\item[{\mbox{\hyperlink{point_8h_ab79247fa4d5908a1a949449d52da2329}{bl\+\_\+point\+\_\+list}} $\ast$}]{path,  }\item[{bool}]{close }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{drawing_8h_a49dc7cc8ce235778f2b4e58d00c1fb33}\label{drawing_8h_a49dc7cc8ce235778f2b4e58d00c1fb33}} 
+\index{drawing.h@{drawing.h}!cairo\_stroke\_polygon@{cairo\_stroke\_polygon}}
+\index{cairo\_stroke\_polygon@{cairo\_stroke\_polygon}!drawing.h@{drawing.h}}
+\doxysubsubsection{\texorpdfstring{cairo\_stroke\_polygon()}{cairo\_stroke\_polygon()}}
+{\footnotesize\ttfamily void cairo\+\_\+stroke\+\_\+polygon (\begin{DoxyParamCaption}\item[{cairo\+\_\+t $\ast$}]{cr,  }\item[{double}]{x,  }\item[{double}]{y,  }\item[{double}]{r,  }\item[{int}]{sides,  }\item[{double}]{rotation }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{drawing_8h_a09d4530e539b96352e89eac467763523}\label{drawing_8h_a09d4530e539b96352e89eac467763523}} 
+\index{drawing.h@{drawing.h}!cairo\_stroke\_quad\_curve\_to@{cairo\_stroke\_quad\_curve\_to}}
+\index{cairo\_stroke\_quad\_curve\_to@{cairo\_stroke\_quad\_curve\_to}!drawing.h@{drawing.h}}
+\doxysubsubsection{\texorpdfstring{cairo\_stroke\_quad\_curve\_to()}{cairo\_stroke\_quad\_curve\_to()}}
+{\footnotesize\ttfamily void cairo\+\_\+stroke\+\_\+quad\+\_\+curve\+\_\+to (\begin{DoxyParamCaption}\item[{cairo\+\_\+t $\ast$}]{cr,  }\item[{double}]{x0,  }\item[{double}]{y0,  }\item[{double}]{x1,  }\item[{double}]{y1 }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{drawing_8h_a38b45fedc7571177d57402bc57ac2b6c}\label{drawing_8h_a38b45fedc7571177d57402bc57ac2b6c}} 
+\index{drawing.h@{drawing.h}!cairo\_stroke\_rectangle@{cairo\_stroke\_rectangle}}
+\index{cairo\_stroke\_rectangle@{cairo\_stroke\_rectangle}!drawing.h@{drawing.h}}
+\doxysubsubsection{\texorpdfstring{cairo\_stroke\_rectangle()}{cairo\_stroke\_rectangle()}}
+{\footnotesize\ttfamily void cairo\+\_\+stroke\+\_\+rectangle (\begin{DoxyParamCaption}\item[{cairo\+\_\+t $\ast$}]{cr,  }\item[{double}]{x,  }\item[{double}]{y,  }\item[{double}]{w,  }\item[{double}]{h }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{drawing_8h_aaf29fda004f41a6c01f02c67b3db546c}\label{drawing_8h_aaf29fda004f41a6c01f02c67b3db546c}} 
+\index{drawing.h@{drawing.h}!cairo\_stroke\_round\_rectangle@{cairo\_stroke\_round\_rectangle}}
+\index{cairo\_stroke\_round\_rectangle@{cairo\_stroke\_round\_rectangle}!drawing.h@{drawing.h}}
+\doxysubsubsection{\texorpdfstring{cairo\_stroke\_round\_rectangle()}{cairo\_stroke\_round\_rectangle()}}
+{\footnotesize\ttfamily void cairo\+\_\+stroke\+\_\+round\+\_\+rectangle (\begin{DoxyParamCaption}\item[{cairo\+\_\+t $\ast$}]{cr,  }\item[{double}]{x,  }\item[{double}]{y,  }\item[{double}]{w,  }\item[{double}]{h,  }\item[{double}]{r }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{drawing_8h_a271fd00a59b60517a0bba6445ba6944c}\label{drawing_8h_a271fd00a59b60517a0bba6445ba6944c}} 
+\index{drawing.h@{drawing.h}!cairo\_stroke\_splat@{cairo\_stroke\_splat}}
+\index{cairo\_stroke\_splat@{cairo\_stroke\_splat}!drawing.h@{drawing.h}}
+\doxysubsubsection{\texorpdfstring{cairo\_stroke\_splat()}{cairo\_stroke\_splat()}}
+{\footnotesize\ttfamily void cairo\+\_\+stroke\+\_\+splat (\begin{DoxyParamCaption}\item[{cairo\+\_\+t $\ast$}]{cr,  }\item[{double}]{x,  }\item[{double}]{y,  }\item[{int}]{num\+\_\+nodes,  }\item[{double}]{radius,  }\item[{double}]{inner\+\_\+radius,  }\item[{double}]{variation }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{drawing_8h_a107055cfba198997ec78e688da82e780}\label{drawing_8h_a107055cfba198997ec78e688da82e780}} 
+\index{drawing.h@{drawing.h}!cairo\_stroke\_star@{cairo\_stroke\_star}}
+\index{cairo\_stroke\_star@{cairo\_stroke\_star}!drawing.h@{drawing.h}}
+\doxysubsubsection{\texorpdfstring{cairo\_stroke\_star()}{cairo\_stroke\_star()}}
+{\footnotesize\ttfamily void cairo\+\_\+stroke\+\_\+star (\begin{DoxyParamCaption}\item[{cairo\+\_\+t $\ast$}]{cr,  }\item[{double}]{x,  }\item[{double}]{y,  }\item[{double}]{r0,  }\item[{double}]{r1,  }\item[{int}]{points,  }\item[{double}]{rotation }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{drawing_8h_af70e66f28dfa7597bde9100c34da4a19}\label{drawing_8h_af70e66f28dfa7597bde9100c34da4a19}} 
+\index{drawing.h@{drawing.h}!cairo\_stroke\_text@{cairo\_stroke\_text}}
+\index{cairo\_stroke\_text@{cairo\_stroke\_text}!drawing.h@{drawing.h}}
+\doxysubsubsection{\texorpdfstring{cairo\_stroke\_text()}{cairo\_stroke\_text()}}
+{\footnotesize\ttfamily void cairo\+\_\+stroke\+\_\+text (\begin{DoxyParamCaption}\item[{cairo\+\_\+t $\ast$}]{cr,  }\item[{char $\ast$}]{text,  }\item[{double}]{x,  }\item[{double}]{y }\end{DoxyParamCaption})}
+

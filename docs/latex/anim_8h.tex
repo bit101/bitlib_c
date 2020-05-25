@@ -1,0 +1,87 @@
+\hypertarget{anim_8h}{}\doxysection{include/anim.h File Reference}
+\label{anim_8h}\index{include/anim.h@{include/anim.h}}
+{\ttfamily \#include \char`\"{}render.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$cairo.\+h$>$}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{render_8h_adf7f0737d797110c459f339fa73c97d5}{bl\+\_\+render\+\_\+config}} $\ast$ \mbox{\hyperlink{anim_8h_a2df08c6592aa2460e28102fffa89b7a0}{bl\+\_\+make\+\_\+render\+\_\+config}} (double width, double height, double frames, double fps)
+\item 
+void \mbox{\hyperlink{anim_8h_a69c9a2f15b55c1db5fa32593559d8737}{\+\_\+render\+\_\+frames}} (\mbox{\hyperlink{render_8h_adf7f0737d797110c459f339fa73c97d5}{bl\+\_\+render\+\_\+config}} $\ast$config, char $\ast$gif\+\_\+name, \mbox{\hyperlink{render_8h_a8f62220ca89bf374e39206926aec3214}{bl\+\_\+render\+\_\+callback}} render, char $\ast$tmp, int num\+\_\+threads)
+\item 
+void \mbox{\hyperlink{anim_8h_ad136e163d954580a45b0857c76418a56}{\+\_\+convert\+\_\+frames\+\_\+to\+\_\+gif}} (char $\ast$frames\+\_\+dir, char $\ast$file\+\_\+name, double fps)
+\item 
+void \mbox{\hyperlink{anim_8h_af8e8b99067da36e037f476243c7c4382}{\+\_\+convert\+\_\+frames\+\_\+to\+\_\+video}} (\mbox{\hyperlink{render_8h_adf7f0737d797110c459f339fa73c97d5}{bl\+\_\+render\+\_\+config}} $\ast$config, char $\ast$frames\+\_\+dir, char $\ast$file\+\_\+name, double fps)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{anim_8h_ad136e163d954580a45b0857c76418a56}\label{anim_8h_ad136e163d954580a45b0857c76418a56}} 
+\index{anim.h@{anim.h}!\_convert\_frames\_to\_gif@{\_convert\_frames\_to\_gif}}
+\index{\_convert\_frames\_to\_gif@{\_convert\_frames\_to\_gif}!anim.h@{anim.h}}
+\doxysubsubsection{\texorpdfstring{\_convert\_frames\_to\_gif()}{\_convert\_frames\_to\_gif()}}
+{\footnotesize\ttfamily void \+\_\+convert\+\_\+frames\+\_\+to\+\_\+gif (\begin{DoxyParamCaption}\item[{char $\ast$}]{frames\+\_\+dir,  }\item[{char $\ast$}]{file\+\_\+name,  }\item[{double}]{fps }\end{DoxyParamCaption})}
+
+Converts the frames in the temp folder into an animated gif. Internal use only. 
+\begin{DoxyParams}{Parameters}
+{\em char} & $\ast$frames\+\_\+dir Where the frames are stored. \\
+\hline
+{\em char} & $\ast$file\+\_\+name The name of the output file. \\
+\hline
+{\em double} & fps. Frames per second for the animation. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{anim_8h_af8e8b99067da36e037f476243c7c4382}\label{anim_8h_af8e8b99067da36e037f476243c7c4382}} 
+\index{anim.h@{anim.h}!\_convert\_frames\_to\_video@{\_convert\_frames\_to\_video}}
+\index{\_convert\_frames\_to\_video@{\_convert\_frames\_to\_video}!anim.h@{anim.h}}
+\doxysubsubsection{\texorpdfstring{\_convert\_frames\_to\_video()}{\_convert\_frames\_to\_video()}}
+{\footnotesize\ttfamily void \+\_\+convert\+\_\+frames\+\_\+to\+\_\+video (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{render_8h_adf7f0737d797110c459f339fa73c97d5}{bl\+\_\+render\+\_\+config}} $\ast$}]{config,  }\item[{char $\ast$}]{frames\+\_\+dir,  }\item[{char $\ast$}]{file\+\_\+name,  }\item[{double}]{fps }\end{DoxyParamCaption})}
+
+Converts the frames in the temp folder into a video. Internal use only. 
+\begin{DoxyParams}{Parameters}
+{\em char} & $\ast$frames\+\_\+dir Where the frames are stored. \\
+\hline
+{\em char} & $\ast$file\+\_\+name The name of the output file. \\
+\hline
+{\em double} & fps. Frames per second for the animation. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{anim_8h_a69c9a2f15b55c1db5fa32593559d8737}\label{anim_8h_a69c9a2f15b55c1db5fa32593559d8737}} 
+\index{anim.h@{anim.h}!\_render\_frames@{\_render\_frames}}
+\index{\_render\_frames@{\_render\_frames}!anim.h@{anim.h}}
+\doxysubsubsection{\texorpdfstring{\_render\_frames()}{\_render\_frames()}}
+{\footnotesize\ttfamily void \+\_\+render\+\_\+frames (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{render_8h_adf7f0737d797110c459f339fa73c97d5}{bl\+\_\+render\+\_\+config}} $\ast$}]{config,  }\item[{char $\ast$}]{gif\+\_\+name,  }\item[{\mbox{\hyperlink{render_8h_a8f62220ca89bf374e39206926aec3214}{bl\+\_\+render\+\_\+callback}}}]{render,  }\item[{char $\ast$}]{tmp,  }\item[{int}]{num\+\_\+threads }\end{DoxyParamCaption})}
+
+Renders each frame of an animation into png files in a folder. Internal use only. 
+\begin{DoxyParams}{Parameters}
+{\em bl\+\_\+render\+\_\+config} & $\ast$config Contains information on how to render the frames. \\
+\hline
+{\em char} & $\ast$gif\+\_\+name The output file name. \\
+\hline
+{\em bl\+\_\+render\+\_\+callback} & $\ast$render The function that draws each frame. \\
+\hline
+{\em char} & $\ast$tmp The file to store the frames in. Usually deleted post-\/render. \\
+\hline
+{\em int} & num\+\_\+threads How many threads to use to render this animation. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{anim_8h_a2df08c6592aa2460e28102fffa89b7a0}\label{anim_8h_a2df08c6592aa2460e28102fffa89b7a0}} 
+\index{anim.h@{anim.h}!bl\_make\_render\_config@{bl\_make\_render\_config}}
+\index{bl\_make\_render\_config@{bl\_make\_render\_config}!anim.h@{anim.h}}
+\doxysubsubsection{\texorpdfstring{bl\_make\_render\_config()}{bl\_make\_render\_config()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{render_8h_adf7f0737d797110c459f339fa73c97d5}{bl\+\_\+render\+\_\+config}}$\ast$ bl\+\_\+make\+\_\+render\+\_\+config (\begin{DoxyParamCaption}\item[{double}]{width,  }\item[{double}]{height,  }\item[{double}]{frames,  }\item[{double}]{fps }\end{DoxyParamCaption})}
+
+Creates animation/image config Creates an instance of {\ttfamily bl\+\_\+render\+\_\+config} for creating an animation or image. 
+\begin{DoxyParams}{Parameters}
+{\em double} & width The width of the image or animation. \\
+\hline
+{\em double} & height The height of the image or animation. \\
+\hline
+{\em double} & frames The number of frames in the animation. Equal to the fps $\ast$ seconds of animation. \\
+\hline
+{\em double} & fps Frames per second of the animation. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bl\+\_\+render\+\_\+config 
+\end{DoxyReturn}

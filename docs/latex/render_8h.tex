@@ -1,0 +1,96 @@
+\hypertarget{render_8h}{}\doxysection{include/render.h File Reference}
+\label{render_8h}\index{include/render.h@{include/render.h}}
+{\ttfamily \#include $<$cairo.\+h$>$}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct__bl__render__config}{\+\_\+bl\+\_\+render\+\_\+config}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{struct__bl__render__config}{\+\_\+bl\+\_\+render\+\_\+config}} \mbox{\hyperlink{render_8h_adf7f0737d797110c459f339fa73c97d5}{bl\+\_\+render\+\_\+config}}
+\item 
+typedef void($\ast$ \mbox{\hyperlink{render_8h_a8f62220ca89bf374e39206926aec3214}{bl\+\_\+render\+\_\+callback}}) (cairo\+\_\+t $\ast$cr, double percent)
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{render_8h_a8bb42b7487dcf73ad52406dbc7e52dcd}{bl\+\_\+render\+\_\+mode}} \{ \mbox{\hyperlink{render_8h_a8bb42b7487dcf73ad52406dbc7e52dcda3501d25cdde2b141c20edb67965fb692}{I\+M\+A\+GE}}, 
+\mbox{\hyperlink{render_8h_a8bb42b7487dcf73ad52406dbc7e52dcda8551767fb508ed14b8eff110d81bb437}{G\+IF}}, 
+\mbox{\hyperlink{render_8h_a8bb42b7487dcf73ad52406dbc7e52dcda0e1e918a80f84992ae08463f076d5dc8}{V\+I\+D\+EO}}, 
+\mbox{\hyperlink{render_8h_a8bb42b7487dcf73ad52406dbc7e52dcdab467605d76c3f50109ead920a2fe2823}{S\+M\+A\+L\+L\+\_\+\+V\+I\+D\+EO}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{render_8h_a8238290968b4c6ac9e7e18978bc94ede}{bl\+\_\+render\+\_\+gif}} (\mbox{\hyperlink{render_8h_adf7f0737d797110c459f339fa73c97d5}{bl\+\_\+render\+\_\+config}} $\ast$config, char $\ast$gif\+\_\+name, int threads, \mbox{\hyperlink{render_8h_a8f62220ca89bf374e39206926aec3214}{bl\+\_\+render\+\_\+callback}} render)
+\item 
+void \mbox{\hyperlink{render_8h_a9609664e10b7613a977c6fd59d175a4d}{bl\+\_\+render\+\_\+video}} (\mbox{\hyperlink{render_8h_adf7f0737d797110c459f339fa73c97d5}{bl\+\_\+render\+\_\+config}} $\ast$config, char $\ast$mp4\+\_\+name, int threads, \mbox{\hyperlink{render_8h_a8f62220ca89bf374e39206926aec3214}{bl\+\_\+render\+\_\+callback}} render)
+\item 
+void \mbox{\hyperlink{render_8h_af6c7e85d030a405ac7e584789e6bab19}{bl\+\_\+render\+\_\+image}} (double width, double height, char $\ast$png\+\_\+file\+\_\+name, \mbox{\hyperlink{render_8h_a8f62220ca89bf374e39206926aec3214}{bl\+\_\+render\+\_\+callback}} render)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{render_8h_a8f62220ca89bf374e39206926aec3214}\label{render_8h_a8f62220ca89bf374e39206926aec3214}} 
+\index{render.h@{render.h}!bl\_render\_callback@{bl\_render\_callback}}
+\index{bl\_render\_callback@{bl\_render\_callback}!render.h@{render.h}}
+\doxysubsubsection{\texorpdfstring{bl\_render\_callback}{bl\_render\_callback}}
+{\footnotesize\ttfamily typedef void($\ast$ bl\+\_\+render\+\_\+callback) (cairo\+\_\+t $\ast$cr, double percent)}
+
+\mbox{\Hypertarget{render_8h_adf7f0737d797110c459f339fa73c97d5}\label{render_8h_adf7f0737d797110c459f339fa73c97d5}} 
+\index{render.h@{render.h}!bl\_render\_config@{bl\_render\_config}}
+\index{bl\_render\_config@{bl\_render\_config}!render.h@{render.h}}
+\doxysubsubsection{\texorpdfstring{bl\_render\_config}{bl\_render\_config}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct__bl__render__config}{\+\_\+bl\+\_\+render\+\_\+config}} \mbox{\hyperlink{render_8h_adf7f0737d797110c459f339fa73c97d5}{bl\+\_\+render\+\_\+config}}}
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{render_8h_a8bb42b7487dcf73ad52406dbc7e52dcd}\label{render_8h_a8bb42b7487dcf73ad52406dbc7e52dcd}} 
+\index{render.h@{render.h}!bl\_render\_mode@{bl\_render\_mode}}
+\index{bl\_render\_mode@{bl\_render\_mode}!render.h@{render.h}}
+\doxysubsubsection{\texorpdfstring{bl\_render\_mode}{bl\_render\_mode}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{render_8h_a8bb42b7487dcf73ad52406dbc7e52dcd}{bl\+\_\+render\+\_\+mode}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{IMAGE@{IMAGE}!render.h@{render.h}}\index{render.h@{render.h}!IMAGE@{IMAGE}}}\mbox{\Hypertarget{render_8h_a8bb42b7487dcf73ad52406dbc7e52dcda3501d25cdde2b141c20edb67965fb692}\label{render_8h_a8bb42b7487dcf73ad52406dbc7e52dcda3501d25cdde2b141c20edb67965fb692}} 
+I\+M\+A\+GE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{GIF@{GIF}!render.h@{render.h}}\index{render.h@{render.h}!GIF@{GIF}}}\mbox{\Hypertarget{render_8h_a8bb42b7487dcf73ad52406dbc7e52dcda8551767fb508ed14b8eff110d81bb437}\label{render_8h_a8bb42b7487dcf73ad52406dbc7e52dcda8551767fb508ed14b8eff110d81bb437}} 
+G\+IF&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{VIDEO@{VIDEO}!render.h@{render.h}}\index{render.h@{render.h}!VIDEO@{VIDEO}}}\mbox{\Hypertarget{render_8h_a8bb42b7487dcf73ad52406dbc7e52dcda0e1e918a80f84992ae08463f076d5dc8}\label{render_8h_a8bb42b7487dcf73ad52406dbc7e52dcda0e1e918a80f84992ae08463f076d5dc8}} 
+V\+I\+D\+EO&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SMALL\_VIDEO@{SMALL\_VIDEO}!render.h@{render.h}}\index{render.h@{render.h}!SMALL\_VIDEO@{SMALL\_VIDEO}}}\mbox{\Hypertarget{render_8h_a8bb42b7487dcf73ad52406dbc7e52dcdab467605d76c3f50109ead920a2fe2823}\label{render_8h_a8bb42b7487dcf73ad52406dbc7e52dcdab467605d76c3f50109ead920a2fe2823}} 
+S\+M\+A\+L\+L\+\_\+\+V\+I\+D\+EO&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{render_8h_a8238290968b4c6ac9e7e18978bc94ede}\label{render_8h_a8238290968b4c6ac9e7e18978bc94ede}} 
+\index{render.h@{render.h}!bl\_render\_gif@{bl\_render\_gif}}
+\index{bl\_render\_gif@{bl\_render\_gif}!render.h@{render.h}}
+\doxysubsubsection{\texorpdfstring{bl\_render\_gif()}{bl\_render\_gif()}}
+{\footnotesize\ttfamily void bl\+\_\+render\+\_\+gif (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{render_8h_adf7f0737d797110c459f339fa73c97d5}{bl\+\_\+render\+\_\+config}} $\ast$}]{config,  }\item[{char $\ast$}]{gif\+\_\+name,  }\item[{int}]{threads,  }\item[{\mbox{\hyperlink{render_8h_a8f62220ca89bf374e39206926aec3214}{bl\+\_\+render\+\_\+callback}}}]{render }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{render_8h_af6c7e85d030a405ac7e584789e6bab19}\label{render_8h_af6c7e85d030a405ac7e584789e6bab19}} 
+\index{render.h@{render.h}!bl\_render\_image@{bl\_render\_image}}
+\index{bl\_render\_image@{bl\_render\_image}!render.h@{render.h}}
+\doxysubsubsection{\texorpdfstring{bl\_render\_image()}{bl\_render\_image()}}
+{\footnotesize\ttfamily void bl\+\_\+render\+\_\+image (\begin{DoxyParamCaption}\item[{double}]{width,  }\item[{double}]{height,  }\item[{char $\ast$}]{png\+\_\+file\+\_\+name,  }\item[{\mbox{\hyperlink{render_8h_a8f62220ca89bf374e39206926aec3214}{bl\+\_\+render\+\_\+callback}}}]{render }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{render_8h_a9609664e10b7613a977c6fd59d175a4d}\label{render_8h_a9609664e10b7613a977c6fd59d175a4d}} 
+\index{render.h@{render.h}!bl\_render\_video@{bl\_render\_video}}
+\index{bl\_render\_video@{bl\_render\_video}!render.h@{render.h}}
+\doxysubsubsection{\texorpdfstring{bl\_render\_video()}{bl\_render\_video()}}
+{\footnotesize\ttfamily void bl\+\_\+render\+\_\+video (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{render_8h_adf7f0737d797110c459f339fa73c97d5}{bl\+\_\+render\+\_\+config}} $\ast$}]{config,  }\item[{char $\ast$}]{mp4\+\_\+name,  }\item[{int}]{threads,  }\item[{\mbox{\hyperlink{render_8h_a8f62220ca89bf374e39206926aec3214}{bl\+\_\+render\+\_\+callback}}}]{render }\end{DoxyParamCaption})}
+

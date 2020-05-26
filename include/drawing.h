@@ -836,4 +836,77 @@ void cairo_fill_heart(cairo_t *cr, double x, double y, double w, double h,
 void cairo_grid(cairo_t *cr, double x, double y, double w, double h,
                 double xres, double yres);
 
+/**
+ * Creates a hexagonal grid.
+ *
+ * Using a slightly smaller value for `res_1` than `res_0` draws all the
+ * hexagons spaced out from each other. This is especially useful when filling a
+ * hex grid.
+ *
+ * It is recommended to use `cairo_stroke_hex_grid` or `cairo_fill_hex_grid`
+ * rather than this function, as the other two also apply a clipping rectangle
+ * to the specified grid area.
+ *
+ * @param cairo_t *cr The cairo context.
+ * @param double x The x position of the grid.
+ * @param double y The y position of the grid.
+ * @param double w The width of the grid.
+ * @param double h The height of the grid.
+ * @param double res_0 The resolution (hex radius) of the grid itself.
+ * @param double res_1 The resolution (hex radius) of each individual drawn
+ * hexagon.
+ *
+ * **Examples**
+ *
+ *     cairo_hex_grid(cr, 0, 0, 500, 500, 30, 28);
+ *     cairo_fill(cr);
+ */
+void cairo_hex_grid(cairo_t *cr, double x, double y, double w, double h,
+                    double res_0, double res_1);
+
+/**
+ * Strokes a hexagonal grid.
+ *
+ * Using a slightly smaller value for `res_1` than `res_0` draws all the
+ * hexagons spaced out from each other. This is especially useful when filling a
+ * hex grid.
+ *
+ * @param cairo_t *cr The cairo context.
+ * @param double x The x position of the grid.
+ * @param double y The y position of the grid.
+ * @param double w The width of the grid.
+ * @param double h The height of the grid.
+ * @param double res_0 The resolution (hex radius) of the grid itself.
+ * @param double res_1 The resolution (hex radius) of each individual drawn
+ * hexagon.
+ *
+ * **Examples**
+ *
+ *     cairo_stroke_hex_grid(cr, 0, 0, 500, 500, 30, 28);
+ */
+void cairo_fill_hex_grid(cairo_t *cr, double x, double y, double w, double h,
+                         double res_0, double res_1);
+
+/**
+ * Fills a hexagonal grid.
+ *
+ * Using a slightly smaller value for `res_1` than `res_0` draws all the
+ * hexagons spaced out from each other. This is especially useful when filling a
+ * hex grid.
+ *
+ * @param cairo_t *cr The cairo context.
+ * @param double x The x position of the grid.
+ * @param double y The y position of the grid.
+ * @param double w The width of the grid.
+ * @param double h The height of the grid.
+ * @param double res_0 The resolution (hex radius) of the grid itself.
+ * @param double res_1 The resolution (hex radius) of each individual drawn
+ * hexagon.
+ *
+ * **Examples**
+ *
+ *     cairo_fill_hex_grid(cr, 0, 0, 500, 500, 30, 28);
+ */
+void cairo_stroke_hex_grid(cairo_t *cr, double x, double y, double w, double h,
+                           double res_0, double res_1);
 #endif

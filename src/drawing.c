@@ -165,6 +165,7 @@ void cairo_polygon(cairo_t *cr, double x, double y, double r, int sides,
   double angle;
   cairo_save(cr);
   cairo_translate(cr, x, y);
+  cairo_rotate(cr, rotation);
   cairo_move_to(cr, r, 0);
   for (int i = 0; i < sides; i++) {
     angle = G_PI * 2 / (double)sides * (double)i;
@@ -451,4 +452,41 @@ void cairo_grid(cairo_t *cr, double x, double y, double w, double h,
     cairo_line_to(cr, x + w, i);
   }
   cairo_stroke(cr);
+}
+
+void cairo_hex_grid(cairo_t *cr, double x, double y, double w, double h,
+                    double res_0, double res_1) {
+  double sin_60_r = sin(G_PI / 3) * res_0;
+  double x_inc = 2 * sin_60_r;
+  double y_inc = res_0 * 1.5;
+  double offset = 0;
+
+  for (double yy = y; yy < y + h + y_inc; yy += y_inc) {
+    for (double xx = x; xx < x + w + x_inc; xx += x_inc) {
+      cairo_polygon(cr, xx + offset, yy, res_1, 6, G_PI / 2);
+    }
+    if (offset == 0) {
+      offset = sin_60_r;
+    } else {
+      offset = 0;
+    }
+  }
+}
+void cairo_fill_hex_grid(cairo_t *cr, double x, double y, double w, double h,
+                         double res_0, double res_1) {
+  cairo_save(cr);
+  cairo_rectangle(cr, x, y, w, h);
+  cairo_clip(cr);
+  cairo_hex_grid(cr, x, y, w, h, res_0, res_1);
+  cairo_fill(cr);
+  cairo_restore(cr);
+}
+void cairo_stroke_hex_grid(cairo_t *cr, double x, double y, double w, double h,
+                           double res_0, double res_1) {
+  cairo_save(cr);
+  cairo_rectangle(cr, x, y, w, h);
+  cairo_clip(cr);
+  cairo_hex_grid(cr, x, y, w, h, res_0, res_1);
+  cairo_stroke(cr);
+  cairo_restore(cr);
 }

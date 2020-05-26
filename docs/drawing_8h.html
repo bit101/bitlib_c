@@ -173,6 +173,12 @@ Functions</h2></td></tr>
 <tr class="separator:a837d7e78eb6d1760b93255c8bb1654cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4bd4d7d32e018c5560dd16503d31cbb6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="drawing_8h.html#a4bd4d7d32e018c5560dd16503d31cbb6">cairo_grid</a> (cairo_t *cr, double x, double y, double w, double h, double xres, double yres)</td></tr>
 <tr class="separator:a4bd4d7d32e018c5560dd16503d31cbb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4af97d86e281ff208aed6e35015740ed"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="drawing_8h.html#a4af97d86e281ff208aed6e35015740ed">cairo_hex_grid</a> (cairo_t *cr, double x, double y, double w, double h, double res_0, double res_1)</td></tr>
+<tr class="separator:a4af97d86e281ff208aed6e35015740ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a10fc827cfa990b807592574a9bce1748"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="drawing_8h.html#a10fc827cfa990b807592574a9bce1748">cairo_fill_hex_grid</a> (cairo_t *cr, double x, double y, double w, double h, double res_0, double res_1)</td></tr>
+<tr class="separator:a10fc827cfa990b807592574a9bce1748"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1800b9dda34e7c4b7ba3b58e57244e1d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="drawing_8h.html#a1800b9dda34e7c4b7ba3b58e57244e1d">cairo_stroke_hex_grid</a> (cairo_t *cr, double x, double y, double w, double h, double res_0, double res_1)</td></tr>
+<tr class="separator:a1800b9dda34e7c4b7ba3b58e57244e1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="a710503e9314ab3e1745b94eab8ca4b17"></a>
@@ -505,6 +511,79 @@ bl_point_list_destroy(path);
   </dd>
 </dl>
 <p><b>Examples</b> </p><pre class="fragment">cairo_fill_heart(cr, 100, 100, 50, 50, 0);
+</pre> 
+</div>
+</div>
+<a id="a10fc827cfa990b807592574a9bce1748"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a10fc827cfa990b807592574a9bce1748">&#9670;&nbsp;</a></span>cairo_fill_hex_grid()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void cairo_fill_hex_grid </td>
+          <td>(</td>
+          <td class="paramtype">cairo_t *&#160;</td>
+          <td class="paramname"><em>cr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>w</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>h</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>res_0</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>res_1</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Strokes a hexagonal grid.</p>
+<p>Using a slightly smaller value for <code>res_1</code> than <code>res_0</code> draws all the hexagons spaced out from each other. This is especially useful when filling a hex grid.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cairo_t</td><td>*cr The cairo context. </td></tr>
+    <tr><td class="paramname">double</td><td>x The x position of the grid. </td></tr>
+    <tr><td class="paramname">double</td><td>y The y position of the grid. </td></tr>
+    <tr><td class="paramname">double</td><td>w The width of the grid. </td></tr>
+    <tr><td class="paramname">double</td><td>h The height of the grid. </td></tr>
+    <tr><td class="paramname">double</td><td>res_0 The resolution (hex radius) of the grid itself. </td></tr>
+    <tr><td class="paramname">double</td><td>res_1 The resolution (hex radius) of each individual drawn hexagon.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p><b>Examples</b> </p><pre class="fragment">cairo_stroke_hex_grid(cr, 0, 0, 500, 500, 30, 28);
 </pre> 
 </div>
 </div>
@@ -1227,6 +1306,81 @@ cairo_stroke(cr);
   </dd>
 </dl>
 <p><b>Examples</b> </p><pre class="fragment">cairo_heart(cr, 100, 100, 50, 50, 0);
+</pre> 
+</div>
+</div>
+<a id="a4af97d86e281ff208aed6e35015740ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4af97d86e281ff208aed6e35015740ed">&#9670;&nbsp;</a></span>cairo_hex_grid()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void cairo_hex_grid </td>
+          <td>(</td>
+          <td class="paramtype">cairo_t *&#160;</td>
+          <td class="paramname"><em>cr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>w</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>h</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>res_0</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>res_1</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Creates a hexagonal grid.</p>
+<p>Using a slightly smaller value for <code>res_1</code> than <code>res_0</code> draws all the hexagons spaced out from each other. This is especially useful when filling a hex grid.</p>
+<p>It is recommended to use <code>cairo_stroke_hex_grid</code> or <code>cairo_fill_hex_grid</code> rather than this function, as the other two also apply a clipping rectangle to the specified grid area.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cairo_t</td><td>*cr The cairo context. </td></tr>
+    <tr><td class="paramname">double</td><td>x The x position of the grid. </td></tr>
+    <tr><td class="paramname">double</td><td>y The y position of the grid. </td></tr>
+    <tr><td class="paramname">double</td><td>w The width of the grid. </td></tr>
+    <tr><td class="paramname">double</td><td>h The height of the grid. </td></tr>
+    <tr><td class="paramname">double</td><td>res_0 The resolution (hex radius) of the grid itself. </td></tr>
+    <tr><td class="paramname">double</td><td>res_1 The resolution (hex radius) of each individual drawn hexagon.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p><b>Examples</b> </p><pre class="fragment">cairo_hex_grid(cr, 0, 0, 500, 500, 30, 28);
+cairo_fill(cr);
 </pre> 
 </div>
 </div>
@@ -2308,6 +2462,79 @@ cairo_stroke_curve_to(200, 0, 300, 300, 400, 100);
   </dd>
 </dl>
 <p><b>Examples</b> </p><pre class="fragment">cairo_stroke_heart(cr, 100, 100, 50, 50, 0);
+</pre> 
+</div>
+</div>
+<a id="a1800b9dda34e7c4b7ba3b58e57244e1d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1800b9dda34e7c4b7ba3b58e57244e1d">&#9670;&nbsp;</a></span>cairo_stroke_hex_grid()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void cairo_stroke_hex_grid </td>
+          <td>(</td>
+          <td class="paramtype">cairo_t *&#160;</td>
+          <td class="paramname"><em>cr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>w</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>h</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>res_0</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>res_1</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Fills a hexagonal grid.</p>
+<p>Using a slightly smaller value for <code>res_1</code> than <code>res_0</code> draws all the hexagons spaced out from each other. This is especially useful when filling a hex grid.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cairo_t</td><td>*cr The cairo context. </td></tr>
+    <tr><td class="paramname">double</td><td>x The x position of the grid. </td></tr>
+    <tr><td class="paramname">double</td><td>y The y position of the grid. </td></tr>
+    <tr><td class="paramname">double</td><td>w The width of the grid. </td></tr>
+    <tr><td class="paramname">double</td><td>h The height of the grid. </td></tr>
+    <tr><td class="paramname">double</td><td>res_0 The resolution (hex radius) of the grid itself. </td></tr>
+    <tr><td class="paramname">double</td><td>res_1 The resolution (hex radius) of each individual drawn hexagon.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p><b>Examples</b> </p><pre class="fragment">cairo_fill_hex_grid(cr, 0, 0, 500, 500, 30, 28);
 </pre> 
 </div>
 </div>

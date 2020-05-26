@@ -68,4 +68,6 @@ There's usually no need to touch the `main.c` file or the rest of `makefile`, bu
 
 - The renderer will spit out some console logs before, during and after the rendering process. This can interfere with any logging you might be doing in your own sketch files. You can set the environmental variable `BL_QUIET` to `1` to squelch this output. This can be set in the `makefile`.
 
+## API Docs
 
+[bitlib_c documentation](https://bit101.github.io/bitlib_c/index.html)

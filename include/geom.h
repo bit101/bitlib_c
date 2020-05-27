@@ -81,4 +81,39 @@ double bl_xy_magnitude(double x, double y);
  */
 bool bl_circle_intersect(double cx0, double cy0, double cr0, double cx1, double cy1, double cr1);
 
+/**
+ * Returns a one-dimensional Bezier interpolation of four other values.
+ *
+ * Normally this would be applied to both the x and y values of a 2d point.
+ *
+ * @param double x0 The first point.
+ * @param double x1 The second point.
+ * @param double x2 The third point.
+ * @param double x3 The fourth point.
+ * @param double t The interpolation value.
+ *
+ * **Examples**
+ *
+ *     double x = bl_bezier(100, 200, 300, 400, 0.4);
+ *     double y = bl_bezier(100, 0, 300, 100, 0.4);
+ */
+double bl_bezier(double x0, double x1, double x2, double x3, double t);
+
+/**
+ * Returns a one-dimensional quadratic Bezier interpolation of three other
+ * values.
+ *
+ * Normally this would be applied to both the x and y values of a 2d point.
+ *
+ * @param double x0 The first point.
+ * @param double x1 The second point.
+ * @param double x2 The third point.
+ * @param double t The interpolation value.
+ *
+ * **Examples**
+ *
+ *     double x = bl_quadratic_bezier(100, 200, 300, 0.4);
+ *     double y = bl_quadratic_bezier(100, 0, 300, 0.4);
+ */
+double bl_quadratic_bezier(double x0, double x1, double x2, double t);
 #endif

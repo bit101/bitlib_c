@@ -87,8 +87,7 @@ double bl_lerp(double t, double min, double max);
  *     // 40 is 50% of the way between 30 and 50
  *     // 500 is 50% of the way between 0 and 1000
  */
-double bl_map(double src_value, double src_min, double src_max, double dst_min,
-              double dst_max);
+double bl_map(double src_value, double src_min, double src_max, double dst_min, double dst_max);
 
 /**
  * Returns the input value if it is within a range, or wraps it around the range

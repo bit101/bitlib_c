@@ -1,10 +1,10 @@
 #ifndef _DRAWING_H_
 #define _DRAWING_H_
 
-#include "bitlib.h"
-#include "point.h"
 #include <cairo.h>
 #include <stdbool.h>
+#include "bitlib.h"
+#include "point.h"
 
 /**
  * Plots a single point.
@@ -19,7 +19,7 @@
  *
  *     cairo_plot(cr, 100, 100);
  */
-void cairo_plot(cairo_t *cr, double x, double y);
+void cairo_plot(cairo_t* cr, double x, double y);
 
 /**
  * Draws a line between two x, y points.
@@ -37,7 +37,7 @@ void cairo_plot(cairo_t *cr, double x, double y);
  *
  *     cairo_line(cr, 100, 100, 200, 200);
  */
-void cairo_line(cairo_t *cr, double x0, double y0, double x1, double y1);
+void cairo_line(cairo_t* cr, double x0, double y0, double x1, double y1);
 
 /**
  * Draws a line through two x, y points, overlapping each by a specified amount.
@@ -58,8 +58,7 @@ void cairo_line(cairo_t *cr, double x0, double y0, double x1, double y1);
  *
  *     cairo_line_through(cr, 100, 100, 200, 200, 100);
  */
-void cairo_line_through(cairo_t *cr, double x0, double y0, double x1, double y1,
-                        double overlap);
+void cairo_line_through(cairo_t* cr, double x0, double y0, double x1, double y1, double overlap);
 
 /**
  * Draws a line segment from an x, y point at a specified length and angle.
@@ -79,8 +78,7 @@ void cairo_line_through(cairo_t *cr, double x0, double y0, double x1, double y1,
  *
  *     cairo_ray(cr, 100, 100, G_PI / 2, 0, 100);
  */
-void cairo_ray(cairo_t *cr, double x, double y, double angle, double offset,
-               double length);
+void cairo_ray(cairo_t* cr, double x, double y, double angle, double offset, double length);
 
 /**
  * Draws the stroked outline of a rectangle.
@@ -95,8 +93,7 @@ void cairo_ray(cairo_t *cr, double x, double y, double angle, double offset,
  *
  *     cairo_stroke_rectangle(cr, 100, 100, 200, 300);
  */
-void cairo_stroke_rectangle(cairo_t *cr, double x, double y, double w,
-                            double h);
+void cairo_stroke_rectangle(cairo_t* cr, double x, double y, double w, double h);
 
 /**
  * Draws a filled rectangle.
@@ -111,7 +108,7 @@ void cairo_stroke_rectangle(cairo_t *cr, double x, double y, double w,
  *
  *     cairo_fill_rectangle(cr, 100, 100, 200, 300);
  */
-void cairo_fill_rectangle(cairo_t *cr, double x, double y, double w, double h);
+void cairo_fill_rectangle(cairo_t* cr, double x, double y, double w, double h);
 
 /**
  * Creates a rectangle with rounded corners.
@@ -127,8 +124,7 @@ void cairo_fill_rectangle(cairo_t *cr, double x, double y, double w, double h);
  *
  *     cairo_round_rectangle(cr, 100, 100, 200, 300, 20);
  */
-void cairo_round_rectangle(cairo_t *cr, double x, double y, double w, double h,
-                           double r);
+void cairo_round_rectangle(cairo_t* cr, double x, double y, double w, double h, double r);
 
 /**
  * Draws the stroked outline of a rounded rectangle.
@@ -144,8 +140,7 @@ void cairo_round_rectangle(cairo_t *cr, double x, double y, double w, double h,
  *
  *     cairo_stroke_round_rectangle(cr, 100, 100, 200, 300, 20);
  */
-void cairo_stroke_round_rectangle(cairo_t *cr, double x, double y, double w,
-                                  double h, double r);
+void cairo_stroke_round_rectangle(cairo_t* cr, double x, double y, double w, double h, double r);
 
 /**
  * Draws a filled rounded rectangle.
@@ -161,8 +156,7 @@ void cairo_stroke_round_rectangle(cairo_t *cr, double x, double y, double w,
  *
  *     cairo_fill_round_rectangle(cr, 100, 100, 200, 300, 20);
  */
-void cairo_fill_round_rectangle(cairo_t *cr, double x, double y, double w,
-                                double h, double r);
+void cairo_fill_round_rectangle(cairo_t* cr, double x, double y, double w, double h, double r);
 
 /**
  * Creates a circle.
@@ -176,7 +170,7 @@ void cairo_fill_round_rectangle(cairo_t *cr, double x, double y, double w,
  *
  *     cairo_circle(cr, 100, 100, 50);
  */
-void cairo_circle(cairo_t *cr, double x, double y, double r);
+void cairo_circle(cairo_t* cr, double x, double y, double r);
 
 /**
  * Draws the stroked outline of a circle.
@@ -190,7 +184,7 @@ void cairo_circle(cairo_t *cr, double x, double y, double r);
  *
  *     cairo_stroke_circle(cr, 100, 100, 50);
  */
-void cairo_stroke_circle(cairo_t *cr, double x, double y, double r);
+void cairo_stroke_circle(cairo_t* cr, double x, double y, double r);
 
 /**
  * Draws a filled circle.
@@ -204,7 +198,7 @@ void cairo_stroke_circle(cairo_t *cr, double x, double y, double r);
  *
  *     cairo_fill_circle(cr, 100, 100, 50);
  */
-void cairo_fill_circle(cairo_t *cr, double x, double y, double r);
+void cairo_fill_circle(cairo_t* cr, double x, double y, double r);
 
 /**
  * Creates an ellipse.
@@ -222,7 +216,7 @@ void cairo_fill_circle(cairo_t *cr, double x, double y, double r);
  *
  *     cairo_ellipse(cr, 100, 100, 50, 75);
  */
-void cairo_ellipse(cairo_t *cr, double x, double y, double xr, double yr);
+void cairo_ellipse(cairo_t* cr, double x, double y, double xr, double yr);
 
 /**
  * Draws the stroked outline of an ellipse.
@@ -237,8 +231,7 @@ void cairo_ellipse(cairo_t *cr, double x, double y, double xr, double yr);
  *
  *     cairo_stroke_ellipse(cr, 100, 100, 50, 75);
  */
-void cairo_stroke_ellipse(cairo_t *cr, double x, double y, double xr,
-                          double yr);
+void cairo_stroke_ellipse(cairo_t* cr, double x, double y, double xr, double yr);
 
 /**
  * Draws a filled ellipse.
@@ -253,7 +246,7 @@ void cairo_stroke_ellipse(cairo_t *cr, double x, double y, double xr,
  *
  *     cairo_fill_ellipse(cr, 100, 100, 50, 75);
  */
-void cairo_fill_ellipse(cairo_t *cr, double x, double y, double xr, double yr);
+void cairo_fill_ellipse(cairo_t* cr, double x, double y, double xr, double yr);
 
 /**
  * Creates a path by connecting a series of points.
@@ -277,7 +270,7 @@ void cairo_fill_ellipse(cairo_t *cr, double x, double y, double xr, double yr);
  *     bl_point_list_destroy(path);
  *
  */
-void cairo_path(cairo_t *cr, bl_point_list *path);
+void cairo_path(cairo_t* cr, bl_point_list* path);
 
 /**
  * Draws the stroked shape of a path of connected points.
@@ -300,7 +293,7 @@ void cairo_path(cairo_t *cr, bl_point_list *path);
  *     cairo_stroke_path(cr, path, true);
  *     bl_point_list_destroy(path);
  */
-void cairo_stroke_path(cairo_t *cr, bl_point_list *path, bool close);
+void cairo_stroke_path(cairo_t* cr, bl_point_list* path, bool close);
 
 /**
  * Draws a filled path of connected points.
@@ -322,7 +315,7 @@ void cairo_stroke_path(cairo_t *cr, bl_point_list *path, bool close);
  *     cairo_fill_path(cr, path);
  *     bl_point_list_destroy(path);
  */
-void cairo_fill_path(cairo_t *cr, bl_point_list *path);
+void cairo_fill_path(cairo_t* cr, bl_point_list* path);
 
 /**
  * Creates a regular polygon with the specified number of sides.
@@ -339,8 +332,7 @@ void cairo_fill_path(cairo_t *cr, bl_point_list *path);
  *     cairo_polygon(cr, 100, 100, 50, 5, 0);
  *
  */
-void cairo_polygon(cairo_t *cr, double x, double y, double r, int sides,
-                   double rotation);
+void cairo_polygon(cairo_t* cr, double x, double y, double r, int sides, double rotation);
 
 /**
  * Draws the stroked outline of a regular polygon.
@@ -356,8 +348,7 @@ void cairo_polygon(cairo_t *cr, double x, double y, double r, int sides,
  *
  *     cairo_stroke_polygon(cr, 100, 100, 50, 5, 0);
  */
-void cairo_stroke_polygon(cairo_t *cr, double x, double y, double r, int sides,
-                          double rotation);
+void cairo_stroke_polygon(cairo_t* cr, double x, double y, double r, int sides, double rotation);
 
 /**
  * Draws a filled regular polygon.
@@ -373,8 +364,7 @@ void cairo_stroke_polygon(cairo_t *cr, double x, double y, double r, int sides,
  *
  *     cairo_fill_polygon(cr, 100, 100, 50, 5, 0);
  */
-void cairo_fill_polygon(cairo_t *cr, double x, double y, double r, int sides,
-                        double rotation);
+void cairo_fill_polygon(cairo_t* cr, double x, double y, double r, int sides, double rotation);
 
 /**
  * Creates a star shape with the specified number of points.
@@ -395,8 +385,7 @@ void cairo_fill_polygon(cairo_t *cr, double x, double y, double r, int sides,
  *
  *     cairo_star(cr, 100, 100, 60, 20, 5, 0);
  */
-void cairo_star(cairo_t *cr, double x, double y, double r0, double r1,
-                int points, double rotation);
+void cairo_star(cairo_t* cr, double x, double y, double r0, double r1, int points, double rotation);
 
 /**
  * Draws the stroked outline of a star.
@@ -413,8 +402,7 @@ void cairo_star(cairo_t *cr, double x, double y, double r0, double r1,
  *
  *     cairo_stroke_star(cr, 100, 100, 60, 20, 5, 0);
  */
-void cairo_stroke_star(cairo_t *cr, double x, double y, double r0, double r1,
-                       int points, double rotation);
+void cairo_stroke_star(cairo_t* cr, double x, double y, double r0, double r1, int points, double rotation);
 
 /**
  * Draws a filled star.
@@ -431,8 +419,7 @@ void cairo_stroke_star(cairo_t *cr, double x, double y, double r0, double r1,
  *
  *     cairo_fill_star(cr, 100, 100, 60, 20, 5, 0);
  */
-void cairo_fill_star(cairo_t *cr, double x, double y, double r0, double r1,
-                     int points, double rotation);
+void cairo_fill_star(cairo_t* cr, double x, double y, double r0, double r1, int points, double rotation);
 
 /**
  * Draws the stroke of a Bezier curve.
@@ -451,8 +438,7 @@ void cairo_fill_star(cairo_t *cr, double x, double y, double r0, double r1,
  *     cairo_stroke_curve_to(200, 0, 300, 300, 400, 100);
  *
  */
-void cairo_stroke_curve_to(cairo_t *cr, double x0, double y0, double x1,
-                           double y1, double x2, double y2);
+void cairo_stroke_curve_to(cairo_t* cr, double x0, double y0, double x1, double y1, double x2, double y2);
 
 /**
  * Creates a quadratic curve.
@@ -469,8 +455,7 @@ void cairo_stroke_curve_to(cairo_t *cr, double x0, double y0, double x1,
  *     cairo_quad_curve_to(200, 0, 300, 100);
  *     cairo_stroke();
  */
-void cairo_quad_curve_to(cairo_t *cr, double x0, double y0, double x1,
-                         double y1);
+void cairo_quad_curve_to(cairo_t* cr, double x0, double y0, double x1, double y1);
 
 /**
  * Draws the stroke of a quadratic curve.
@@ -486,8 +471,7 @@ void cairo_quad_curve_to(cairo_t *cr, double x0, double y0, double x1,
  *     cairo_move_to(cr, 100, 100);
  *     cairo_stroke_quad_curve_to(200, 0, 300, 100);
  */
-void cairo_stroke_quad_curve_to(cairo_t *cr, double x0, double y0, double x1,
-                                double y1);
+void cairo_stroke_quad_curve_to(cairo_t* cr, double x0, double y0, double x1, double y1);
 
 /**
  * Draws the specified text with a fill.
@@ -502,7 +486,7 @@ void cairo_stroke_quad_curve_to(cairo_t *cr, double x0, double y0, double x1,
  *     cairo_fill_text(cr, "hello world", 100, 100);
  *
  */
-void cairo_fill_text(cairo_t *cr, char *text, double x, double y);
+void cairo_fill_text(cairo_t* cr, char* text, double x, double y);
 
 /**
  * Draws text using a format string and variables.
@@ -519,7 +503,7 @@ void cairo_fill_text(cairo_t *cr, char *text, double x, double y);
  *
  *     cairo_printf(cr, 100, 100, "hello %s %d", "world", 2020);
  */
-void cairo_printf(cairo_t *cr, double x, double y, char *fmt, ...);
+void cairo_printf(cairo_t* cr, double x, double y, char* fmt, ...);
 
 /**
  * Draws the specified text with a stroke.
@@ -534,7 +518,7 @@ void cairo_printf(cairo_t *cr, double x, double y, char *fmt, ...);
  *
  *     cairo_stroke_text(cr, "hello world", 100, 100);
  */
-void cairo_stroke_text(cairo_t *cr, char *text, double x, double y);
+void cairo_stroke_text(cairo_t* cr, char* text, double x, double y);
 
 /**
  * Creates a splat shape.
@@ -557,8 +541,7 @@ void cairo_stroke_text(cairo_t *cr, char *text, double x, double y);
  *
  *     cairo_splat(cr, 200, 200, 6, 100, 20, 0.2);
  */
-void cairo_splat(cairo_t *cr, double x, double y, int num_nodes, double radius,
-                 double inner_radius, double variation);
+void cairo_splat(cairo_t* cr, double x, double y, int num_nodes, double radius, double inner_radius, double variation);
 
 /**
  * Draws the stroked outline of a splat shape.
@@ -577,8 +560,13 @@ void cairo_splat(cairo_t *cr, double x, double y, int num_nodes, double radius,
  *
  *     cairo_stroke_splat(cr, 200, 200, 6, 100, 20, 0.2);
  */
-void cairo_stroke_splat(cairo_t *cr, double x, double y, int num_nodes,
-                        double radius, double inner_radius, double variation);
+void cairo_stroke_splat(cairo_t* cr,
+                        double x,
+                        double y,
+                        int num_nodes,
+                        double radius,
+                        double inner_radius,
+                        double variation);
 
 /**
  * Draws a filled splat shape.
@@ -596,8 +584,13 @@ void cairo_stroke_splat(cairo_t *cr, double x, double y, int num_nodes,
  *
  *     cairo_fill_splat(cr, 200, 200, 6, 100, 20, 0.2);
  */
-void cairo_fill_splat(cairo_t *cr, double x, double y, int num_nodes,
-                      double radius, double inner_radius, double variation);
+void cairo_fill_splat(cairo_t* cr,
+                      double x,
+                      double y,
+                      int num_nodes,
+                      double radius,
+                      double inner_radius,
+                      double variation);
 
 /**
  * Creates a smooth, closed curve through a list of points.
@@ -618,7 +611,7 @@ void cairo_fill_splat(cairo_t *cr, double x, double y, int num_nodes,
  *     cairo_stroke(cr);
  *     bl_point_list_destroy(path);
  */
-void cairo_multi_loop(cairo_t *cr, bl_point_list *path);
+void cairo_multi_loop(cairo_t* cr, bl_point_list* path);
 
 /**
  * Draws the stroked outline of a smooth closed curve through a list of points.
@@ -635,7 +628,7 @@ void cairo_multi_loop(cairo_t *cr, bl_point_list *path);
  *     cairo_stroke_multi_loop(cr, path);
  *     bl_point_list_destroy(path);
  */
-void cairo_stroke_multi_loop(cairo_t *cr, bl_point_list *path);
+void cairo_stroke_multi_loop(cairo_t* cr, bl_point_list* path);
 
 /**
  * Draws a filled smooth closed curve through a list of points.
@@ -652,7 +645,7 @@ void cairo_stroke_multi_loop(cairo_t *cr, bl_point_list *path);
  *     cairo_fill_multi_loop(cr, path);
  *     bl_point_list_destroy(path);
  */
-void cairo_fill_multi_loop(cairo_t *cr, bl_point_list *path);
+void cairo_fill_multi_loop(cairo_t* cr, bl_point_list* path);
 
 /**
  * Creates an open smooth curve through a list of points.
@@ -670,7 +663,7 @@ void cairo_fill_multi_loop(cairo_t *cr, bl_point_list *path);
  *     cairo_stroke(cr);
  *     bl_point_list_destroy(path);
  */
-void cairo_multi_curve(cairo_t *cr, bl_point_list *path);
+void cairo_multi_curve(cairo_t* cr, bl_point_list* path);
 
 /**
  * Draws the stroked path of an open smooth curve through a list of points.
@@ -690,7 +683,7 @@ void cairo_multi_curve(cairo_t *cr, bl_point_list *path);
  *     cairo_stroke_multi_curve(cr, path);
  *     bl_point_list_destroy(path);
  */
-void cairo_stroke_multi_curve(cairo_t *cr, bl_point_list *path);
+void cairo_stroke_multi_curve(cairo_t* cr, bl_point_list* path);
 
 /**
  * Draws a filled, open smooth curve through a list of points.
@@ -706,7 +699,7 @@ void cairo_stroke_multi_curve(cairo_t *cr, bl_point_list *path);
  *     cairo_fill_multi_curve(cr, path);
  *     bl_point_list_destroy(path);
  */
-void cairo_fill_multi_curve(cairo_t *cr, bl_point_list *path);
+void cairo_fill_multi_curve(cairo_t* cr, bl_point_list* path);
 
 /**
  * Draws a filled circle for each point in a list.
@@ -724,7 +717,7 @@ void cairo_fill_multi_curve(cairo_t *cr, bl_point_list *path);
  *     cairo_draw_points(cr, path);
  *     bl_point_list_destroy(path);
  */
-void cairo_draw_points(cairo_t *cr, bl_point_list *path, double radius);
+void cairo_draw_points(cairo_t* cr, bl_point_list* path, double radius);
 
 /**
  * Creates a fractal line between two points.
@@ -745,8 +738,7 @@ void cairo_draw_points(cairo_t *cr, bl_point_list *path, double radius);
  *     cairo_fractal_line(cr, 100, 100, 200, 200, 0.4, 5);
  *     cairo_stroke(cr);
  */
-void cairo_fractal_line(cairo_t *cr, double x0, double y0, double x1, double y1,
-                        double roughness, int iterations);
+void cairo_fractal_line(cairo_t* cr, double x0, double y0, double x1, double y1, double roughness, int iterations);
 
 /**
  * Draws the stroked path of a fractal line between two points.
@@ -764,8 +756,13 @@ void cairo_fractal_line(cairo_t *cr, double x0, double y0, double x1, double y1,
  *
  *     cairo_stroke_fractal_line(cr, 100, 100, 200, 200, 0.4, 5);
  */
-void cairo_stroke_fractal_line(cairo_t *cr, double x0, double y0, double x1,
-                               double y1, double roughness, int iterations);
+void cairo_stroke_fractal_line(cairo_t* cr,
+                               double x0,
+                               double y0,
+                               double x1,
+                               double y1,
+                               double roughness,
+                               int iterations);
 
 /**
  * Creates a heart shape.
@@ -781,7 +778,7 @@ void cairo_stroke_fractal_line(cairo_t *cr, double x0, double y0, double x1,
  *
  *     cairo_heart(cr, 100, 100, 50, 50, 0);
  */
-void cairo_heart(cairo_t *cr, double x, double y, double w, double h, double r);
+void cairo_heart(cairo_t* cr, double x, double y, double w, double h, double r);
 
 /**
  * Draws the stroked outline of a heart shape.
@@ -797,8 +794,7 @@ void cairo_heart(cairo_t *cr, double x, double y, double w, double h, double r);
  *
  *     cairo_stroke_heart(cr, 100, 100, 50, 50, 0);
  */
-void cairo_stroke_heart(cairo_t *cr, double x, double y, double w, double h,
-                        double r);
+void cairo_stroke_heart(cairo_t* cr, double x, double y, double w, double h, double r);
 
 /**
  * Draws a filled heart shape.
@@ -814,8 +810,7 @@ void cairo_stroke_heart(cairo_t *cr, double x, double y, double w, double h,
  *
  *     cairo_fill_heart(cr, 100, 100, 50, 50, 0);
  */
-void cairo_fill_heart(cairo_t *cr, double x, double y, double w, double h,
-                      double r);
+void cairo_fill_heart(cairo_t* cr, double x, double y, double w, double h, double r);
 
 /**
  * Draws a stroked grid.
@@ -833,8 +828,7 @@ void cairo_fill_heart(cairo_t *cr, double x, double y, double w, double h,
  *     cairo_grid(0, 0, 500, 500, 10, 10);
  *     cairo_stroke(cr);
  */
-void cairo_grid(cairo_t *cr, double x, double y, double w, double h,
-                double xres, double yres);
+void cairo_grid(cairo_t* cr, double x, double y, double w, double h, double xres, double yres);
 
 /**
  * Creates a hexagonal grid.
@@ -861,8 +855,7 @@ void cairo_grid(cairo_t *cr, double x, double y, double w, double h,
  *     cairo_hex_grid(cr, 0, 0, 500, 500, 30, 28);
  *     cairo_fill(cr);
  */
-void cairo_hex_grid(cairo_t *cr, double x, double y, double w, double h,
-                    double res_0, double res_1);
+void cairo_hex_grid(cairo_t* cr, double x, double y, double w, double h, double res_0, double res_1);
 
 /**
  * Strokes a hexagonal grid.
@@ -884,8 +877,7 @@ void cairo_hex_grid(cairo_t *cr, double x, double y, double w, double h,
  *
  *     cairo_stroke_hex_grid(cr, 0, 0, 500, 500, 30, 28);
  */
-void cairo_fill_hex_grid(cairo_t *cr, double x, double y, double w, double h,
-                         double res_0, double res_1);
+void cairo_fill_hex_grid(cairo_t* cr, double x, double y, double w, double h, double res_0, double res_1);
 
 /**
  * Fills a hexagonal grid.
@@ -907,6 +899,5 @@ void cairo_fill_hex_grid(cairo_t *cr, double x, double y, double w, double h,
  *
  *     cairo_fill_hex_grid(cr, 0, 0, 500, 500, 30, 28);
  */
-void cairo_stroke_hex_grid(cairo_t *cr, double x, double y, double w, double h,
-                           double res_0, double res_1);
+void cairo_stroke_hex_grid(cairo_t* cr, double x, double y, double w, double h, double res_0, double res_1);
 #endif

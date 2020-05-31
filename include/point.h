@@ -9,15 +9,15 @@
 typedef struct Point {
   double x;
   double y;
-  struct Point *next;
+  struct Point* next;
 } bl_point;
 
 /**
  * A struct holding the head and tail of a linked list.
  */
 typedef struct Point_List {
-  struct Point *head;
-  struct Point *tail;
+  struct Point* head;
+  struct Point* tail;
 } bl_point_list;
 
 /**
@@ -29,7 +29,7 @@ typedef struct Point_List {
  *
  *     bl_point_list *path = bl_make_point_list();
  */
-bl_point_list *bl_make_point_list();
+bl_point_list* bl_make_point_list();
 
 /**
  * Adds an x, y point to a point list.
@@ -42,7 +42,7 @@ bl_point_list *bl_make_point_list();
  *
  *     bl_add_point_xy(path, 100, 100);
  */
-void bl_add_point_xy(bl_point_list *list, double x, double y);
+void bl_add_point_xy(bl_point_list* list, double x, double y);
 
 /**
  * Adds a point to a point list.
@@ -55,7 +55,7 @@ void bl_add_point_xy(bl_point_list *list, double x, double y);
  *     bl_point *p = bl_make_point(100, 100);
  *     bl_add_point(path, p);
  */
-void bl_add_point(bl_point_list *list, bl_point *p);
+void bl_add_point(bl_point_list* list, bl_point* p);
 
 /**
  * Returns the number of points in a point list.
@@ -67,7 +67,7 @@ void bl_add_point(bl_point_list *list, bl_point *p);
  *
  *     int count = bl_point_list_count(path);
  */
-int bl_point_list_count(bl_point_list *list);
+int bl_point_list_count(bl_point_list* list);
 
 /**
  * Frees the memory for each point in a point list and for the list itself.
@@ -78,7 +78,7 @@ int bl_point_list_count(bl_point_list *list);
  *
  *     bl_point_list_destroy(path);
  */
-void bl_point_list_destroy(bl_point_list *list);
+void bl_point_list_destroy(bl_point_list* list);
 
 /**
  * Creates a new point.
@@ -91,7 +91,7 @@ void bl_point_list_destroy(bl_point_list *list);
  *
  *     bl_point *p = bl_make_point(100, 100);
  */
-bl_point *bl_make_point(double x, double y);
+bl_point* bl_make_point(double x, double y);
 
 /**
  * Returns a new point interpolated between two other points.
@@ -107,7 +107,7 @@ bl_point *bl_make_point(double x, double y);
  *     bl_point *p1 = bl_make_point(200, 500);
  *     bl_point *p2 = bl_lerp_point(0.35, p0, p1);
  */
-bl_point *bl_lerp_point(double t, bl_point *p0, bl_point *p1);
+bl_point* bl_lerp_point(double t, bl_point* p0, bl_point* p1);
 
 /**
  * Returns a random point withint a defined rectangle.
@@ -122,7 +122,7 @@ bl_point *bl_lerp_point(double t, bl_point *p0, bl_point *p1);
  *
  *     bl_point *p = bl_random_point(0, 0, 500, 500);
  */
-bl_point *bl_random_point(double x, double y, double w, double h);
+bl_point* bl_random_point(double x, double y, double w, double h);
 
 /**
  * Returns a random point within a defined circle.
@@ -136,7 +136,7 @@ bl_point *bl_random_point(double x, double y, double w, double h);
  *
  *     bl_point *p = bl_random_point_in_circle(100, 100, 50);
  */
-bl_point *bl_random_point_in_circle(double x, double y, double r);
+bl_point* bl_random_point_in_circle(double x, double y, double r);
 
 /**
  * Returns a random point that will be within a triangle defined by three
@@ -154,7 +154,7 @@ bl_point *bl_random_point_in_circle(double x, double y, double r);
  *     bl_point *p2 = bl_make_point(140, 300);
  *     bl_point *p3 = bl_random_point_in_triangle(p0, p1, p2);
  */
-bl_point *bl_random_point_in_triangle(bl_point *p0, bl_point *p1, bl_point *p2);
+bl_point* bl_random_point_in_triangle(bl_point* p0, bl_point* p1, bl_point* p2);
 
 /**
  * Returns a new point based on an angle and radius.
@@ -167,7 +167,7 @@ bl_point *bl_random_point_in_triangle(bl_point *p0, bl_point *p1, bl_point *p2);
  *
  *     bl_point *p = bl_point_from_polar(G_PI / 4, 100);
  */
-bl_point *bl_point_from_polar(double angle, double radius);
+bl_point* bl_point_from_polar(double angle, double radius);
 
 /**
  * Returns the distance between two points.
@@ -182,7 +182,7 @@ bl_point *bl_point_from_polar(double angle, double radius);
  *     bl_point *p1 = bl_make_point(140, 300);
  *     double dist = bl_point_distance(p0, p1);
  */
-double bl_point_distance(bl_point *p0, bl_point *p1);
+double bl_point_distance(bl_point* p0, bl_point* p1);
 
 /**
  * Returns the magnitude (distance from origin) of a point.
@@ -195,7 +195,7 @@ double bl_point_distance(bl_point *p0, bl_point *p1);
  *     bl_point *p = bl_make_point(200, 150);
  *     double mag = bl_point_magnitude(p);
  */
-double bl_point_magnitude(bl_point *p);
+double bl_point_magnitude(bl_point* p);
 
 /**
  * Returns the angle from the origin to a point.
@@ -208,7 +208,7 @@ double bl_point_magnitude(bl_point *p);
  *     bl_point *p = bl_make_point(200, 150);
  *     double angle = bl_point_angle(p);
  */
-double bl_point_angle(bl_point *p);
+double bl_point_angle(bl_point* p);
 
 /**
  * Translates a point.
@@ -222,7 +222,7 @@ double bl_point_angle(bl_point *p);
  *     bl_point *p = bl_make_point(200, 150);
  *     bl_point_translate(p, 100, 50);
  */
-void bl_point_translate(bl_point *p, double x, double y);
+void bl_point_translate(bl_point* p, double x, double y);
 
 /**
  * Scales a point from the origin.
@@ -236,7 +236,7 @@ void bl_point_translate(bl_point *p, double x, double y);
  *     bl_point *p = bl_make_point(200, 150);
  *     bl_point_scale(p, 2, 3);
  */
-void bl_point_scale(bl_point *p, double sx, double sy);
+void bl_point_scale(bl_point* p, double sx, double sy);
 
 /**
  * Rotates a point around the origin.
@@ -249,7 +249,7 @@ void bl_point_scale(bl_point *p, double sx, double sy);
  *     bl_point *p = bl_make_point(200, 150);
  *     bl_point_rotate(p, G_PI / 4);
  */
-void bl_point_rotate(bl_point *p, double angle);
+void bl_point_rotate(bl_point* p, double angle);
 
 /**
  * Returns the dot product of two angles formed by four points.
@@ -268,7 +268,7 @@ void bl_point_rotate(bl_point *p, double angle);
  *     bl_point *p3 = bl_make_point(140, 300);
  *     double dp = bl_dot_product(p0, p1, p2, p3);
  */
-double bl_dot_product(bl_point *p0, bl_point *p1, bl_point *p2, bl_point *p3);
+double bl_dot_product(bl_point* p0, bl_point* p1, bl_point* p2, bl_point* p3);
 
 /**
  * Returns the angle between two lines defined by four points.
@@ -287,7 +287,7 @@ double bl_dot_product(bl_point *p0, bl_point *p1, bl_point *p2, bl_point *p3);
  *     bl_point *p3 = bl_make_point(140, 300);
  *     double angle = bl_angle_between(p0, p1, p2, p3);
  */
-double bl_angle_between(bl_point *p0, bl_point *p1, bl_point *p2, bl_point *p3);
+double bl_angle_between(bl_point* p0, bl_point* p1, bl_point* p2, bl_point* p3);
 
 /**
  * Returns a point on a Bezier curve.
@@ -311,8 +311,7 @@ double bl_angle_between(bl_point *p0, bl_point *p1, bl_point *p2, bl_point *p3);
  *     bl_point *p3 = bl_make_point(400, 300);
  *     bl_point *p4 = bl_bezier_point(p0, p1, p2, p3, 0.2);
  */
-bl_point *bl_bezier_point(bl_point *p0, bl_point *p1, bl_point *p2,
-                          bl_point *p3, double t);
+bl_point* bl_bezier_point(bl_point* p0, bl_point* p1, bl_point* p2, bl_point* p3, double t);
 
 /**
  * Returns a point on a quadratic Bezier curve.
@@ -334,8 +333,7 @@ bl_point *bl_bezier_point(bl_point *p0, bl_point *p1, bl_point *p2,
  *     bl_point *p2 = bl_make_point(300, 100);
  *     bl_point *p4 = bl_quadratic_point(p0, p1, p2, p3, 0.2);
  */
-bl_point *bl_quadratic_point(bl_point *p0, bl_point *p1, bl_point *p2,
-                             double t);
+bl_point* bl_quadratic_point(bl_point* p0, bl_point* p1, bl_point* p2, double t);
 
 /**
  * Returns whether or not too line segments intersect.
@@ -354,8 +352,7 @@ bl_point *bl_quadratic_point(bl_point *p0, bl_point *p1, bl_point *p2,
  *     bl_point *p3 = bl_make_point(400, 300);
  *     bool intersect = bl_segment_intersect(p0, p1, p2, p3);
  */
-bl_point *bl_segment_intersect(bl_point *p0, bl_point *p1, bl_point *p2,
-                               bl_point *p3);
+bl_point* bl_segment_intersect(bl_point* p0, bl_point* p1, bl_point* p2, bl_point* p3);
 
 /**
  * Given the specified point and circle, finds another point on the circle that
@@ -373,7 +370,6 @@ bl_point *bl_segment_intersect(bl_point *p0, bl_point *p1, bl_point *p2,
  *     bl_point *p0 = bl_make_point(100, 100);
  *     bl_point *tangent = bl_tangent_point_to_circle(p, 200, 100, 50, false);
  */
-bl_point *bl_tangent_point_to_circle(bl_point *p, double x, double y, double r,
-                                     bool anticlockwise);
+bl_point* bl_tangent_point_to_circle(bl_point* p, double x, double y, double r, bool anticlockwise);
 
 #endif

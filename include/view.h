@@ -12,7 +12,7 @@
  *
  *     bl_view_image("out.png");
  */
-void bl_view_image(char *file_name);
+void bl_view_image(char* file_name);
 
 /**
  * Displays a video.
@@ -25,6 +25,6 @@ void bl_view_image(char *file_name);
  *
  *     bl_view_video("out.mp4");
  */
-void bl_view_video(char *file_name);
+void bl_view_video(char* file_name);
 
 #endif

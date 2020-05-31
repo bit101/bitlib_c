@@ -1,8 +1,8 @@
 #ifndef _CAIRO_COLORS_H_
 #define _CAIRO_COLORS_H_
 
-#include "color.h"
 #include <cairo.h>
+#include "color.h"
 
 /**
  * Sets the drawing source color using an instance of `bl_color`.
@@ -16,7 +16,7 @@
  *     cairo_set_source_color(cr, c);
  *     free(c);
  */
-void cairo_set_source_color(cairo_t *cr, bl_color *c);
+void cairo_set_source_color(cairo_t* cr, bl_color* c);
 
 /**
  * Sets the drawing source color to a shade of grey.
@@ -28,7 +28,7 @@ void cairo_set_source_color(cairo_t *cr, bl_color *c);
  *
  *     cairo_set_source_grey(cr, 0.5);
  */
-void cairo_set_source_grey(cairo_t *cr, double g);
+void cairo_set_source_grey(cairo_t* cr, double g);
 
 /**
  * Sets the drawing source color to white.
@@ -39,7 +39,7 @@ void cairo_set_source_grey(cairo_t *cr, double g);
  *
  *     cairo_set_source_white(cr);
  */
-void cairo_set_source_white(cairo_t *cr);
+void cairo_set_source_white(cairo_t* cr);
 
 /**
  * Sets the drawing source color to black.
@@ -50,7 +50,7 @@ void cairo_set_source_white(cairo_t *cr);
  *
  *     cairo_set_source_black(cr);
  */
-void cairo_set_source_black(cairo_t *cr);
+void cairo_set_source_black(cairo_t* cr);
 
 /**
  * Sets the drawing source color using hue, saturation and value.
@@ -64,7 +64,7 @@ void cairo_set_source_black(cairo_t *cr);
  *
  *     cairo_set_source_hsv(90, 1, 0.5);
  */
-void cairo_set_source_hsv(cairo_t *cr, double h, double s, double v);
+void cairo_set_source_hsv(cairo_t* cr, double h, double s, double v);
 
 /**
  * Sets the drawing source color to a random rgb value.
@@ -75,7 +75,7 @@ void cairo_set_source_hsv(cairo_t *cr, double h, double s, double v);
  *
  *     cairo_set_source_random_rgb(cr);
  */
-void cairo_set_source_random_rgb(cairo_t *cr);
+void cairo_set_source_random_rgb(cairo_t* cr);
 
 /**
  * Sets the drawing source color to a random shade of grey.
@@ -86,7 +86,7 @@ void cairo_set_source_random_rgb(cairo_t *cr);
  *
  *     cairo_set_source_random_grey(cr);
  */
-void cairo_set_source_random_grey(cairo_t *cr);
+void cairo_set_source_random_grey(cairo_t* cr);
 
 /**
  * Clears the cairo context to an rgba color value.
@@ -101,7 +101,7 @@ void cairo_set_source_random_grey(cairo_t *cr);
  *
  *     cairo_clear_rgba(cr, 1, 1, 1, 0.5);
  */
-void cairo_clear_rgba(cairo_t *cr, double r, double g, double b, double a);
+void cairo_clear_rgba(cairo_t* cr, double r, double g, double b, double a);
 
 /**
  * Clears the cairo context to an rgb color value.
@@ -115,7 +115,7 @@ void cairo_clear_rgba(cairo_t *cr, double r, double g, double b, double a);
  *
  *     cairo_clear_rgb(cr, 1, 1, 1);
  */
-void cairo_clear_rgb(cairo_t *cr, double r, double g, double b);
+void cairo_clear_rgb(cairo_t* cr, double r, double g, double b);
 
 /**
  * Clears the cairo context to a color specified by an instance of `bl_color`.
@@ -129,7 +129,7 @@ void cairo_clear_rgb(cairo_t *cr, double r, double g, double b);
  *     cairo_clear_color(cr, c);
  *     free(c);
  */
-void cairo_clear_color(cairo_t *cr, bl_color *c);
+void cairo_clear_color(cairo_t* cr, bl_color* c);
 
 /**
  * Clears the cairo context to a shade of grey.
@@ -141,7 +141,7 @@ void cairo_clear_color(cairo_t *cr, bl_color *c);
  *
  *     cairo_clear_grey(cr, 0.5);
  */
-void cairo_clear_grey(cairo_t *cr, double g);
+void cairo_clear_grey(cairo_t* cr, double g);
 
 /**
  * Clears the cairo context to white.
@@ -152,7 +152,7 @@ void cairo_clear_grey(cairo_t *cr, double g);
  *
  *     cairo_clear_white(cr);
  */
-void cairo_clear_white(cairo_t *cr);
+void cairo_clear_white(cairo_t* cr);
 
 /**
  * Clears the cairo context to black.
@@ -163,7 +163,7 @@ void cairo_clear_white(cairo_t *cr);
  *
  *     cairo_clear_black(cr);
  */
-void cairo_clear_black(cairo_t *cr);
+void cairo_clear_black(cairo_t* cr);
 
 /**
  * Clears the cairo context to color specified with hue, saturation and value.
@@ -177,7 +177,7 @@ void cairo_clear_black(cairo_t *cr);
  *
  *     cairo_clear_hsv(cr, 90, 1, 0.5);
  */
-void cairo_clear_hsv(cairo_t *cr, double h, double s, double v);
+void cairo_clear_hsv(cairo_t* cr, double h, double s, double v);
 
 /**
  * Clears the cairo context to a random rgb color.
@@ -188,7 +188,7 @@ void cairo_clear_hsv(cairo_t *cr, double h, double s, double v);
  *
  *     cairo_clear_random_rgb(cr);
  */
-void cairo_clear_random_rgb(cairo_t *cr);
+void cairo_clear_random_rgb(cairo_t* cr);
 
 /**
  * Clears the cairo context to a random shade of grey.
@@ -199,5 +199,5 @@ void cairo_clear_random_rgb(cairo_t *cr);
  *
  *     cairo_clear_random_grey(cr);
  */
-void cairo_clear_random_grey(cairo_t *cr);
+void cairo_clear_random_grey(cairo_t* cr);
 #endif

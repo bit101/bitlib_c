@@ -1,21 +1,20 @@
 #include "anim.h"
-#include "bitlib.h"
-#include "render.h"
 #include <glib.h>
 #include <stdio.h>
 #include <time.h>
+#include "bitlib.h"
+#include "render.h"
 
 typedef struct _render_props {
-  bl_render_config *config;
+  bl_render_config* config;
   int start_frame;
   int end_frame;
-  char *tmp;
+  char* tmp;
   bl_render_callback render;
 } render_props;
 
-bl_render_config *bl_make_render_config(double width, double height,
-                                        double frames, double fps) {
-  bl_render_config *config = malloc(sizeof(bl_render_config));
+bl_render_config* bl_make_render_config(double width, double height, double frames, double fps) {
+  bl_render_config* config = malloc(sizeof(bl_render_config));
   config->width = width;
   config->height = height;
   config->frames = frames;
@@ -23,10 +22,12 @@ bl_render_config *bl_make_render_config(double width, double height,
   return config;
 }
 
-render_props *_make_render_props(bl_render_config *config, int start_frame,
-                                 int end_frame, char *tmp,
+render_props* _make_render_props(bl_render_config* config,
+                                 int start_frame,
+                                 int end_frame,
+                                 char* tmp,
                                  bl_render_callback render) {
-  render_props *props = malloc(sizeof(render_props));
+  render_props* props = malloc(sizeof(render_props));
   props->config = config;
   props->start_frame = start_frame;
   props->end_frame = end_frame;
@@ -35,19 +36,18 @@ render_props *_make_render_props(bl_render_config *config, int start_frame,
   return props;
 }
 
-void *_thread_render_frames(void *arg) {
-  render_props *props = (render_props *)arg;
-  bl_render_config *config = props->config;
+void* _thread_render_frames(void* arg) {
+  render_props* props = (render_props*)arg;
+  bl_render_config* config = props->config;
   static double done = 0;
   char frame_name[255];
   int last_frame = fmin(config->frames, props->end_frame);
 
-  cairo_surface_t *surface = cairo_image_surface_create(
-      CAIRO_FORMAT_ARGB32, config->width, config->height);
+  cairo_surface_t* surface = cairo_image_surface_create(CAIRO_FORMAT_ARGB32, config->width, config->height);
 
   for (int i = props->start_frame; i < last_frame; i++) {
     double percent = (double)i / config->frames;
-    cairo_t *cr = cairo_create(surface);
+    cairo_t* cr = cairo_create(surface);
 
     props->render(cr, percent);
     cairo_destroy(cr);
@@ -56,7 +56,7 @@ void *_thread_render_frames(void *arg) {
     cairo_surface_write_to_png(surface, frame_name);
 
     done++;
-    char *bl_quiet = getenv("BL_QUIET");
+    char* bl_quiet = getenv("BL_QUIET");
     if (bl_quiet == NULL || strcmp(bl_quiet, "1")) {
       g_print("\r%f", done / config->frames);
     }
@@ -64,10 +64,9 @@ void *_thread_render_frames(void *arg) {
   free(props);
 }
 
-void _render_frames(bl_render_config *config, char *gif_name,
-                    bl_render_callback render, char *tmp, int num_threads) {
+void _render_frames(bl_render_config* config, char* gif_name, bl_render_callback render, char* tmp, int num_threads) {
   pthread_t threads[num_threads];
-  char *bl_quiet = getenv("BL_QUIET");
+  char* bl_quiet = getenv("BL_QUIET");
   if (bl_quiet == NULL || strcmp(bl_quiet, "1")) {
     g_print("rendering on %d threads\n", num_threads);
   }
@@ -80,7 +79,7 @@ void _render_frames(bl_render_config *config, char *gif_name,
       start = batch * i;
       end = start + batch;
     }
-    render_props *props = _make_render_props(config, start, end, tmp, render);
+    render_props* props = _make_render_props(config, start, end, tmp, render);
     pthread_create(&threads[i], NULL, _thread_render_frames, props);
   }
 
@@ -91,13 +90,11 @@ void _render_frames(bl_render_config *config, char *gif_name,
   time_t elapsed = end_time - start_time;
   double spf = (double)elapsed / config->frames;
   if (bl_quiet == NULL || strcmp(bl_quiet, "1")) {
-    g_print("\n%d frames in %d seconds. %f seconds per frame\n",
-            (int)config->frames, elapsed, spf);
+    g_print("\n%d frames in %d seconds. %f seconds per frame\n", (int)config->frames, elapsed, spf);
   }
 }
 
-void _convert_frames_to_video(bl_render_config *config, char *frames_dir,
-                              char *file_name, double fps) {
+void _convert_frames_to_video(bl_render_config* config, char* frames_dir, char* file_name, double fps) {
   char command[255];
 
   // -framerate fps
@@ -117,10 +114,9 @@ void _convert_frames_to_video(bl_render_config *config, char *frames_dir,
   system(command);
 }
 
-void _convert_frames_to_gif(char *frames_dir, char *file_name, double fps) {
+void _convert_frames_to_gif(char* frames_dir, char* file_name, double fps) {
   char command[255];
   double delay = bl_round_to(1000.0 / fps / 10.0, 4);
-  sprintf(command, "convert -delay %f -layers Optimize %s/*png %s", delay,
-          frames_dir, file_name);
+  sprintf(command, "convert -delay %f -layers Optimize %s/*png %s", delay, frames_dir, file_name);
   system(command);
 }

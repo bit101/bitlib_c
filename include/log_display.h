@@ -10,7 +10,7 @@
  * got the most hits.
  */
 typedef struct _bl_bl_log_display_data {
-  double *hits;
+  double* hits;
   double width;
   double height;
   double max;
@@ -29,7 +29,7 @@ typedef struct _bl_bl_log_display_data {
  *
  *     bl_log_display_data *data = bl_make_log_display_data(400, 400);
  */
-bl_log_display_data *bl_make_log_display_data(double width, double height);
+bl_log_display_data* bl_make_log_display_data(double width, double height);
 
 /**
  * Marks a pixel as hit in a `bl_log_display_data` instance.
@@ -44,7 +44,7 @@ bl_log_display_data *bl_make_log_display_data(double width, double height);
  *
  *     bl_log_display_add(data, 100, 100);
  */
-void bl_log_display_add(bl_log_display_data *data, double x, double y);
+void bl_log_display_add(bl_log_display_data* data, double x, double y);
 
 /**
  * Gets the logarithmically scaled value for a pixel.
@@ -59,6 +59,6 @@ void bl_log_display_add(bl_log_display_data *data, double x, double y);
  *
  * double value = bl_log_display_get_value(data, 100, 100);
  */
-double bl_log_display_get_value(bl_log_display_data *data, double x, double y);
+double bl_log_display_get_value(bl_log_display_data* data, double x, double y);
 
 #endif

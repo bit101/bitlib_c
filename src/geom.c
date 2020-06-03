@@ -43,5 +43,3 @@ double bl_quadratic_bezier(double x0, double x1, double x2, double t) {
   double m2 = t * t;
   return m0 * x0 + m1 * x1 + m2 * x2;
 }
-// xy in triangle
-// rect intersect

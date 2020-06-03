@@ -5,6 +5,7 @@ SKETCH_C := sketch.c
 CC := gcc
 CFLAGS := `pkg-config --cflags gtk+-3.0`
 CLIBS := `pkg-config --libs gtk+-3.0`
+LIBS := libs/*
 SKETCH_O := $(SKETCH_C:.c=.o)
 
 # to squelch any internal command line output, set BL_QUIET=1
@@ -13,7 +14,7 @@ default: main
 	@BL_QUIET=0 BL_SAVE_FRAMES=0 bash -c "./main"
 
 main: main.c $(SKETCH_O)
-	@$(CC) $(WARN) $(CFLAGS) -Iinclude main.c $(SKETCH_O) libs/bitlib.a -o main -lm $(CLIBS)
+	@$(CC) $(WARN) $(CFLAGS) -Iinclude main.c $(SKETCH_O) $(LIBS) -o main -lm $(CLIBS)
 
 $(SKETCH_O): $(SKETCH_C)
 	@$(CC) $(WARN) $(CFLAGS) -Iinclude -c $(SKETCH_C) -lm $(CLIBS)

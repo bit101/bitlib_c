@@ -1,4 +1,5 @@
 CC := gcc
+WARN := -Wno-unused-command-line-argument
 CFLAGS := `pkg-config --cflags gtk+-3.0`
 CLIBS := `pkg-config --libs gtk+-3.0`
 VERSION := v0.2.2

@@ -1,7 +1,7 @@
 #include <cairo.h>
 #include <glib.h>
-#include <malloc.h>
 #include <math.h>
+#include <stdlib.h>
 #include "bitlib.h"
 
 bl_color* bl_color_rgba(double r, double g, double b, double a) {

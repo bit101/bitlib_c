@@ -1,9 +1,9 @@
 #include "point.h"
 #include <cairo.h>
 #include <glib.h>
-#include <malloc.h>
 #include <math.h>
 #include <stdbool.h>
+#include <stdlib.h>
 #include "bitlib.h"
 
 bl_point* bl_make_point(double x, double y) {

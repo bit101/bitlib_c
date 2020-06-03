@@ -62,6 +62,7 @@ void* _thread_render_frames(void* arg) {
     }
   }
   free(props);
+  return NULL;
 }
 
 void _render_frames(bl_render_config* config, char* gif_name, bl_render_callback render, char* tmp, int num_threads) {
@@ -90,7 +91,7 @@ void _render_frames(bl_render_config* config, char* gif_name, bl_render_callback
   time_t elapsed = end_time - start_time;
   double spf = (double)elapsed / config->frames;
   if (bl_quiet == NULL || strcmp(bl_quiet, "1")) {
-    g_print("\n%d frames in %d seconds. %f seconds per frame\n", (int)config->frames, elapsed, spf);
+    g_print("\n%d frames in %ld seconds. %f seconds per frame\n", (int)config->frames, elapsed, spf);
   }
 }
 

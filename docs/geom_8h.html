@@ -89,8 +89,72 @@ Functions</h2></td></tr>
 <tr class="separator:adb01c8751d23339d6cac0ed1c888f8d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a80abad3c92d97e236f8743a83ecbe9e6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="geom_8h.html#a80abad3c92d97e236f8743a83ecbe9e6">bl_circle_intersect</a> (double cx0, double cy0, double cr0, double cx1, double cy1, double cr1)</td></tr>
 <tr class="separator:a80abad3c92d97e236f8743a83ecbe9e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc2be4a9d85f45fbc156e41682ba0e3c"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="geom_8h.html#abc2be4a9d85f45fbc156e41682ba0e3c">bl_bezier</a> (double x0, double x1, double x2, double x3, double t)</td></tr>
+<tr class="separator:abc2be4a9d85f45fbc156e41682ba0e3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a587e3afb06acefad82baa82a2d6cef6a"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="geom_8h.html#a587e3afb06acefad82baa82a2d6cef6a">bl_quadratic_bezier</a> (double x0, double x1, double x2, double t)</td></tr>
+<tr class="separator:a587e3afb06acefad82baa82a2d6cef6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="abc2be4a9d85f45fbc156e41682ba0e3c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc2be4a9d85f45fbc156e41682ba0e3c">&#9670;&nbsp;</a></span>bl_bezier()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double bl_bezier </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>x0</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>x1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>x2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>x3</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>t</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Returns a one-dimensional Bezier interpolation of four other values.</p>
+<p>Normally this would be applied to both the x and y values of a 2d point.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">double</td><td>x0 The first point. </td></tr>
+    <tr><td class="paramname">double</td><td>x1 The second point. </td></tr>
+    <tr><td class="paramname">double</td><td>x2 The third point. </td></tr>
+    <tr><td class="paramname">double</td><td>x3 The fourth point. </td></tr>
+    <tr><td class="paramname">double</td><td>t The interpolation value.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p><b>Examples</b> </p><pre class="fragment">double x = bl_bezier(100, 200, 300, 400, 0.4);
+double y = bl_bezier(100, 0, 300, 100, 0.4);
+</pre> 
+</div>
+</div>
 <a id="a80abad3c92d97e236f8743a83ecbe9e6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a80abad3c92d97e236f8743a83ecbe9e6">&#9670;&nbsp;</a></span>bl_circle_intersect()</h2>
 
@@ -207,6 +271,59 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>double</dd></dl>
 <p><b>Examples</b> </p><pre class="fragment">double dist = bl_distance_xy(100, 100, 200, 200);
+</pre> 
+</div>
+</div>
+<a id="a587e3afb06acefad82baa82a2d6cef6a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a587e3afb06acefad82baa82a2d6cef6a">&#9670;&nbsp;</a></span>bl_quadratic_bezier()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double bl_quadratic_bezier </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>x0</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>x1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>x2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>t</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Returns a one-dimensional quadratic Bezier interpolation of three other values.</p>
+<p>Normally this would be applied to both the x and y values of a 2d point.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">double</td><td>x0 The first point. </td></tr>
+    <tr><td class="paramname">double</td><td>x1 The second point. </td></tr>
+    <tr><td class="paramname">double</td><td>x2 The third point. </td></tr>
+    <tr><td class="paramname">double</td><td>t The interpolation value.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p><b>Examples</b> </p><pre class="fragment">double x = bl_quadratic_bezier(100, 200, 300, 0.4);
+double y = bl_quadratic_bezier(100, 0, 300, 0.4);
 </pre> 
 </div>
 </div>

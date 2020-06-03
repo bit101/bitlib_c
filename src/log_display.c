@@ -1,5 +1,5 @@
 #include "log_display.h"
-#include <malloc.h>
+#include <stdlib.h>
 #include <math.h>
 #include <stdlib.h>
 #include "bitlib.h"

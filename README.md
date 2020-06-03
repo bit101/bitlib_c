@@ -40,6 +40,24 @@ Run `make clean`:
 
   - removes all build artifacts, including `libs`.
 
+## Compiling on Macos
+
+In general, things should compile well on Macos right now, but you might wind up with various warnings about text-based stub files being out of sync.
+
+See: stackoverflow.com/questions/51314888/ld-warning-text-based-stub-file-are-out-of-sync-falling-back-to-library-file/55344565
+
+Steps to resolve:
+
+1. Run xcrun --show-sdk-path
+
+2. Copy the path that this outputs.
+
+3. Then: `export SDKROOT="<output path from step 1>`
+
+The `bl_view_image` and `bl_view_video` functions are hardcoded to run `eog` and `vlc`. This won't work if you don't have those installed. You can set up your own view functions by using `system`. Example:
+
+`system("open out.png");`
+
 ## Scripts
 
 Add or update the dist files to another project using the `copy_dist.sh` script, passing the path of the other project. Example:

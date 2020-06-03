@@ -2,7 +2,7 @@
 
 bitlib graphics library ported to c (gtk/cairo).
 
-So far only tested on Linux machines. 
+Mainly tested on Linux machines. Some testing has been done on Macos and it should compile and run. See notes below.
 
 ## Requirements
 

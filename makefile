@@ -31,4 +31,3 @@ clean:
 	@rm -rf libs
 	@rm -rf dist
 	@rm -f v*.zip
-	@rm -rf docs

@@ -12,10 +12,12 @@ long _m = (long)pow(2, 32);
 
 double rand_seed(long seed) {
   _seed = seed;
+  _rand_inited = true;
 }
 
 double rand_seed_rand() {
   _seed = time(NULL);
+  _rand_inited = true;
 }
 
 long rand_int() {

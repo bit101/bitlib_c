@@ -12,4 +12,8 @@ double rand_double_range(double min, double max);
 long rand_int_range(long min, long max);
 double rand_power(double min, double max, double power);
 double rand_gauss(double min, double max, int gauss);
+char* rand_string(int length);
+char* rand_string_lower(int length);
+char* rand_string_upper(int length);
+char* rand_string_alpha(int length);
 #endif

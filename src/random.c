@@ -60,3 +60,43 @@ double rand_gauss(double min, double max, int gauss) {
   }
   return total / gauss;
 }
+
+char* rand_string(int length) {
+  char* str = malloc(sizeof(char) * (length + 1));
+  for (int i = 0; i < length; i++) {
+    str[i] = (char)rand_int_range(33, 127);
+  }
+  str[length] = '\0';
+  return str;
+}
+
+char* rand_string_lower(int length) {
+  char* str = malloc(sizeof(char) * (length + 1));
+  for (int i = 0; i < length; i++) {
+    str[i] = (char)rand_int_range(97, 123);
+  }
+  str[length] = '\0';
+  return str;
+}
+
+char* rand_string_upper(int length) {
+  char* str = malloc(sizeof(char) * (length + 1));
+  for (int i = 0; i < length; i++) {
+    str[i] = (char)rand_int_range(65, 91);
+  }
+  str[length] = '\0';
+  return str;
+}
+
+char* rand_string_alpha(int length) {
+  char* str = malloc(sizeof(char) * (length + 1));
+  for (int i = 0; i < length; i++) {
+    char c = (char)rand_int_range(65, 117);
+    if (c > 90) {
+      c += 6;
+    }
+    str[i] = c;
+  }
+  str[length] = '\0';
+  return str;
+}

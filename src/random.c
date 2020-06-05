@@ -16,7 +16,7 @@ double rand_seed(long seed) {
 }
 
 double rand_seed_rand() {
-  _seed = time(NULL);
+  _seed = clock();
   _rand_inited = true;
 }
 

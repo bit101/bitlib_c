@@ -3,6 +3,7 @@ SKETCH_C := sketch.c
 
 # don't change any of this unless you know what you are doing.
 CC := gcc
+WARN := -Wno-unused-command-line-argument
 CFLAGS := `pkg-config --cflags gtk+-3.0`
 CLIBS := `pkg-config --libs gtk+-3.0`
 LIBS := libs/*

@@ -1,6 +1,10 @@
 #ifndef _MATH_H_
 #define _MATH_H_
 
+#define PI 3.1415926535897932384626433832795028841971693993751
+#define PI_2 1.5707963267948966192313216916397514420985846996876
+#define SQRT2 1.4142135623730950488016887242096980785696718753769
+
 #include <stdbool.h>
 
 /**
@@ -189,8 +193,8 @@ double bl_round_to_nearest(double value, double mult);
  * **Examples**
  *
  *     bl_sin_range(0, -10, 10) // returns 0 (-10 + 10) / 2
- *     bl_sin_range(G_PI / 2, -10, 10) // returns 10 (max)
- *     bl_sin_range(G_PI * 2 / 3, -10, 10) // returns -10 (min)
+ *     bl_sin_range(PI / 2, -10, 10) // returns 10 (max)
+ *     bl_sin_range(PI * 2 / 3, -10, 10) // returns -10 (min)
  */
 double bl_sin_range(double angle, double min, double max);
 
@@ -209,8 +213,8 @@ double bl_sin_range(double angle, double min, double max);
  * **Examples**
  *
  *     bl_cos_range(0, -10, 10) // returns 10 (max)
- *     bl_cos_range(G_PI / 2, -10, 10) // returns 0 (min+max) / 2
- *     bl_cos_range(G_PI, -10, 10) // returns -10 (min)
+ *     bl_cos_range(PI / 2, -10, 10) // returns 0 (min+max) / 2
+ *     bl_cos_range(PI, -10, 10) // returns -10 (min)
  */
 double bl_cos_range(double angle, double min, double max);
 
@@ -233,7 +237,7 @@ double bl_fract(double value);
  * Interpolates a normalized input value (0 to 1) to a sine wave extending from
  * min to max.
  *
- * This function is equivalent to calling `bl_sin_range(value * G_PI * 2, min,
+ * This function is equivalent to calling `bl_sin_range(value * PI * 2, min,
  * max)`. If you have an input value which can be treated as an angle, use
  * `bl_sin_range`. If you have a normalized value, use this.
  *

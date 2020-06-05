@@ -1,5 +1,4 @@
 #include <cairo.h>
-#include <glib.h>
 #include <math.h>
 #include <stdlib.h>
 #include "bitlib.h"
@@ -49,9 +48,9 @@ bl_color* bl_color_lerp(bl_color* color_a, bl_color* color_b, double t) {
 }
 
 bl_color* bl_color_random_rgb() {
-  double r = g_random_double();
-  double g = g_random_double();
-  double b = g_random_double();
+  double r = rand_double();
+  double g = rand_double();
+  double b = rand_double();
   return bl_color_rgb(r, g, b);
 }
 
@@ -92,11 +91,11 @@ bl_color* bl_color_grey_int(int shade) {
 }
 
 bl_color* bl_color_random_grey() {
-  return bl_color_grey(g_random_double());
+  return bl_color_grey(rand_double());
 }
 
 bl_color* bl_color_random_grey_range(double min, double max) {
-  return bl_color_grey(min + g_random_double() * (max - min));
+  return bl_color_grey(min + rand_double() * (max - min));
 }
 
 bl_color* bl_color_blueviolet() {

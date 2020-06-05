@@ -1,6 +1,5 @@
 #include "blmath.h"
 #include <cairo.h>
-#include <glib.h>
 #include <math.h>
 #include <stdbool.h>
 
@@ -67,7 +66,7 @@ double bl_fract(double value) {
 }
 
 double bl_lerp_sin(double value, double min, double max) {
-  return bl_sin_range(value * G_PI * 2, min, max);
+  return bl_sin_range(value * PI * 2, min, max);
 }
 
 bool bl_equalish(double a, double b, double delta) {

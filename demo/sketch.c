@@ -1,5 +1,4 @@
 #include <cairo.h>
-#include <glib.h>
 #include "bitlib.h"
 
 double width, height;
@@ -33,7 +32,7 @@ void render(cairo_t* cr, double percent) {
   cairo_set_line_width(cr, 0.5);
 
   for (int i = 0; i < 20; i++) {
-    cairo_line_to(cr, g_random_double_range(0, width * percent), g_random_double_range(0, height));
+    cairo_line_to(cr, rand_double_range(0, width * percent), rand_double_range(0, height));
   }
   cairo_stroke(cr);
 

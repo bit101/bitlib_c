@@ -194,8 +194,8 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>double</dd></dl>
 <p><b>Examples</b> </p><pre class="fragment">bl_cos_range(0, -10, 10) // returns 10 (max)
-bl_cos_range(G_PI / 2, -10, 10) // returns 0 (min+max) / 2
-bl_cos_range(G_PI, -10, 10) // returns -10 (min)
+bl_cos_range(PI / 2, -10, 10) // returns 0 (min+max) / 2
+bl_cos_range(PI, -10, 10) // returns -10 (min)
 </pre> 
 </div>
 </div>
@@ -392,7 +392,7 @@ bl_equalish(1, 1.0001, 0.00001) // returns false
       </table>
 </div><div class="memdoc">
 <p>Interpolates a normalized input value (0 to 1) to a sine wave extending from min to max.</p>
-<p>This function is equivalent to calling <code>bl_sin_range(value * G_PI * 2, min, max)</code>. If you have an input value which can be treated as an angle, use <code>bl_sin_range</code>. If you have a normalized value, use this.</p>
+<p>This function is equivalent to calling <code>bl_sin_range(value * PI * 2, min, max)</code>. If you have an input value which can be treated as an angle, use <code>bl_sin_range</code>. If you have a normalized value, use this.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">double</td><td>value The input value. </td></tr>
@@ -640,8 +640,8 @@ bl_round_to_nearest(5.7123, 0.25) // returns 5.75
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>double</dd></dl>
 <p><b>Examples</b> </p><pre class="fragment">bl_sin_range(0, -10, 10) // returns 0 (-10 + 10) / 2
-bl_sin_range(G_PI / 2, -10, 10) // returns 10 (max)
-bl_sin_range(G_PI * 2 / 3, -10, 10) // returns -10 (min)
+bl_sin_range(PI / 2, -10, 10) // returns 10 (max)
+bl_sin_range(PI * 2 / 3, -10, 10) // returns -10 (min)
 </pre> 
 </div>
 </div>

@@ -1,7 +1,7 @@
 #include "drawing.h"
 #include <cairo.h>
-#include <glib.h>
 #include <math.h>
+#include <stdarg.h>
 #include <stdbool.h>
 #include <stdio.h>
 
@@ -77,13 +77,13 @@ void cairo_round_rectangle(cairo_t* cr, double x, double y, double w, double h, 
   r = fmin(r, h / 2);
   cairo_move_to(cr, x + r, y);
   cairo_line_to(cr, x + w - r, y);
-  cairo_arc(cr, x + w - r, y + r, r, -G_PI_2, 0);
+  cairo_arc(cr, x + w - r, y + r, r, -PI_2, 0);
   cairo_line_to(cr, x + w, y + h - r);
-  cairo_arc(cr, x + w - r, y + h - r, r, 0, G_PI_2);
+  cairo_arc(cr, x + w - r, y + h - r, r, 0, PI_2);
   cairo_line_to(cr, x + r, y + h);
-  cairo_arc(cr, x + r, y + h - r, r, G_PI_2, G_PI);
+  cairo_arc(cr, x + r, y + h - r, r, PI_2, PI);
   cairo_line_to(cr, x, y + r);
-  cairo_arc(cr, x + r, y + r, r, G_PI, -G_PI_2);
+  cairo_arc(cr, x + r, y + r, r, PI, -PI_2);
 }
 void cairo_stroke_round_rectangle(cairo_t* cr, double x, double y, double w, double h, double r) {
   cairo_round_rectangle(cr, x, y, w, h, r);
@@ -96,7 +96,7 @@ void cairo_fill_round_rectangle(cairo_t* cr, double x, double y, double w, doubl
 }
 
 void cairo_circle(cairo_t* cr, double x, double y, double r) {
-  cairo_arc(cr, x, y, r, 0, G_PI * 2);
+  cairo_arc(cr, x, y, r, 0, PI * 2);
 }
 
 void cairo_stroke_circle(cairo_t* cr, double x, double y, double r) {
@@ -162,7 +162,7 @@ void cairo_polygon(cairo_t* cr, double x, double y, double r, int sides, double 
   cairo_rotate(cr, rotation);
   cairo_move_to(cr, r, 0);
   for (int i = 0; i < sides; i++) {
-    angle = G_PI * 2 / (double)sides * (double)i;
+    angle = PI * 2 / (double)sides * (double)i;
     cairo_line_to(cr, cos(angle) * r, sin(angle) * r);
   }
   cairo_line_to(cr, r, 0);
@@ -191,7 +191,7 @@ void cairo_star(cairo_t* cr, double x, double y, double r0, double r1, int point
     if (i % 2 == 1) {
       r = r0;
     }
-    angle = G_PI / (double)points * (double)i;
+    angle = PI / (double)points * (double)i;
     cairo_line_to(cr, cos(angle) * r, sin(angle) * r);
   }
   cairo_close_path(cr);
@@ -239,14 +239,14 @@ bl_point* splat_point(double angle, double radius) {
 
 void cairo_splat(cairo_t* cr, double x, double y, int num_nodes, double radius, double inner_radius, double variation) {
   bl_point_list* path = bl_make_point_list();
-  double slice = G_PI * 2 / (double)(num_nodes * 2);
+  double slice = PI * 2 / (double)(num_nodes * 2);
   double angle = 0.0;
   double curve = 0.3;
   double radius_range = radius - inner_radius;
 
   variation = bl_clamp(variation, 0, 1);
   for (int i = 0; i < num_nodes; i++) {
-    double r = radius + variation * g_random_double_range(-radius_range, radius_range);
+    double r = radius + variation * rand_double_range(-radius_range, radius_range);
     double rr = r - inner_radius;
     bl_add_point(path, splat_point(angle - slice * (1.0 + curve), inner_radius));
     bl_add_point(path, splat_point(angle + slice * curve, inner_radius));
@@ -378,8 +378,8 @@ void cairo_fractal_line(cairo_t* cr, double x0, double y0, double x1, double y1,
     bl_point* curr = path->head;
     while (curr->next != NULL) {
       bl_point* next = curr->next;
-      double x = (curr->x + next->x) / 2.0 + g_random_double_range(-offset, offset);
-      double y = (curr->y + next->y) / 2.0 + g_random_double_range(-offset, offset);
+      double x = (curr->x + next->x) / 2.0 + rand_double_range(-offset, offset);
+      double y = (curr->y + next->y) / 2.0 + rand_double_range(-offset, offset);
       bl_point* middle = bl_make_point(x, y);
       middle->next = next;
       curr->next = middle;
@@ -410,7 +410,7 @@ void cairo_heart(cairo_t* cr, double x, double y, double w, double h, double r) 
   cairo_translate(cr, x, y);
   cairo_rotate(cr, r);
   for (int i = 0; i < res; i++) {
-    double a = G_PI * 2 * (double)i / res;
+    double a = PI * 2 * (double)i / res;
     double x = w * pow(sin(a), 3.0);
     double y = h * (0.8125 * cos(a) - 0.3125 * cos(2.0 * a) - 0.125 * cos(3.0 * a) - 0.0625 * cos(4.0 * a));
     bl_add_point_xy(path, x, -y);
@@ -442,14 +442,14 @@ void cairo_grid(cairo_t* cr, double x, double y, double w, double h, double xres
 }
 
 void cairo_hex_grid(cairo_t* cr, double x, double y, double w, double h, double res_0, double res_1) {
-  double sin_60_r = sin(G_PI / 3) * res_0;
+  double sin_60_r = sin(PI / 3) * res_0;
   double x_inc = 2 * sin_60_r;
   double y_inc = res_0 * 1.5;
   double offset = 0;
 
   for (double yy = y; yy < y + h + y_inc; yy += y_inc) {
     for (double xx = x; xx < x + w + x_inc; xx += x_inc) {
-      cairo_polygon(cr, xx + offset, yy, res_1, 6, G_PI / 2);
+      cairo_polygon(cr, xx + offset, yy, res_1, 6, PI / 2);
     }
     if (offset == 0) {
       offset = sin_60_r;

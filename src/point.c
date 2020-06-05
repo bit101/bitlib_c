@@ -1,6 +1,5 @@
 #include "point.h"
 #include <cairo.h>
-#include <glib.h>
 #include <math.h>
 #include <stdbool.h>
 #include <stdlib.h>
@@ -63,20 +62,20 @@ bl_point* bl_lerp_point(double t, bl_point* p0, bl_point* p1) {
 }
 
 bl_point* bl_random_point(double x, double y, double w, double h) {
-  double px = g_random_double_range(x, x + w);
-  double py = g_random_double_range(y, y + h);
+  double px = rand_double_range(x, x + w);
+  double py = rand_double_range(y, y + h);
   return bl_make_point(px, py);
 }
 
 bl_point* bl_random_point_in_circle(double x, double y, double r) {
-  double angle = g_random_double_range(0, G_PI * 2);
-  double radius = g_random_double_range(0, r);
+  double angle = rand_double_range(0, PI * 2);
+  double radius = rand_double_range(0, r);
   return bl_make_point(x + cos(angle) * radius, y + sin(angle) * radius);
 }
 
 bl_point* bl_random_point_in_triangle(bl_point* p0, bl_point* p1, bl_point* p2) {
-  double s = g_random_double();
-  double t = g_random_double();
+  double s = rand_double();
+  double t = rand_double();
   double a = 1.0 - sqrt(t);
   double b = (1.0 - s) * sqrt(t);
   double c = s * sqrt(t);

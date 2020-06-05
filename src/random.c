@@ -5,12 +5,12 @@
 #include <time.h>
 
 bool _rand_inited = false;
-int _seed = 0;
-int _a = 1664525;
-int _c = 1013904223;
-int _m = (int)pow(2, 32);
+long _seed = 0;
+long _a = 1664525;
+long _c = 1013904223;
+long _m = (long)pow(2, 32);
 
-double rand_seed(int seed) {
+double rand_seed(long seed) {
   _seed = seed;
 }
 
@@ -18,7 +18,7 @@ double rand_seed_rand() {
   _seed = time(NULL);
 }
 
-int rand_int() {
+long rand_int() {
   if (!_rand_inited) {
     rand_seed_rand();
     _rand_inited = true;
@@ -43,8 +43,8 @@ double rand_double_range(double min, double max) {
   return min + rand_double() * (max - min);
 }
 
-int rand_int_range(int min, int max) {
-  return (int)floor(rand_double_range(min, max));
+long rand_int_range(long min, long max) {
+  return (long)floor(rand_double_range(min, max));
 }
 
 double rand_power(double min, double max, double power) {

@@ -12,13 +12,13 @@
  *
  * **Examples**
  *
- * rand_seed(0);
- * double a = rand_double();
- * int b = rand_int();
- *
- * rand_seed(0);
- * double c = rand_double(); // c will equal a
- * int d = rand_int(); // d will equal b
+ *     rand_seed(0);
+ *     double a = rand_double();
+ *     int b = rand_int();
+ *     
+ *     rand_seed(0);
+ *     double c = rand_double(); // c will equal a
+ *     int d = rand_int(); // d will equal b
  *
  */
 void rand_seed(int seed);
@@ -28,8 +28,10 @@ void rand_seed(int seed);
  *
  * This actually sets the seed using a couple of different time functions designed to give a fairly decent random seed.
  *
- * rand_seed_rand();
- * int b = rand_int(); // who knows what b will equal?
+ * **Examples**
+ *
+ *     rand_seed_rand();
+ *     int b = rand_int(); // who knows what b will equal?
  *
  */
 void rand_seed_rand();
@@ -41,7 +43,7 @@ void rand_seed_rand();
  *
  * **Examples**
  *
- * bool b = rand_weighted_bool(0.2); // b has a 20% chance of being true.
+ *     bool b = rand_weighted_bool(0.2); // b has a 20% chance of being true.
  *
  */
 bool rand_weighted_bool(double percent);
@@ -53,7 +55,7 @@ bool rand_weighted_bool(double percent);
  *
  * **Examples**
  *
- * bool b = rand_bool(); // b has a 50% chance of being true.
+ *     bool b = rand_bool(); // b has a 50% chance of being true.
  *
  */
 bool rand_bool();
@@ -65,7 +67,7 @@ bool rand_bool();
  *
  * **Examples**
  *
- * int n = rand_int();
+ *     int n = rand_int();
  *
  */
 int rand_int();
@@ -77,7 +79,7 @@ int rand_int();
  *
  * **Examples**
  *
- * double n = rand_double();
+ *     double n = rand_double();
  *
  */
 double rand_double();
@@ -91,7 +93,7 @@ double rand_double();
  *
  * **Examples**
  *
- * double n = rand_double_range(50, 100);
+ *     double n = rand_double_range(50, 100);
  *
  */
 double rand_double_range(double min, double max);
@@ -105,7 +107,7 @@ double rand_double_range(double min, double max);
  *
  * **Examples**
  *
- * int n = rand_int_range(50, 100);
+ *     int n = rand_int_range(50, 100);
  *
  */
 int rand_int_range(int min, int max);
@@ -124,8 +126,8 @@ int rand_int_range(int min, int max);
  *
  * **Examples**
  *
- * double n = rand_power(0, 100, 2); // n will be more likely to be closer to 0.
- * double m = rand_power(0, 100, 0.2); // m will be more likely to be closer to 100.
+ *     double n = rand_power(0, 100, 2); // n will be more likely to be closer to 0.
+ *     double m = rand_power(0, 100, 0.2); // m will be more likely to be closer to 100.
  *
  */
 double rand_power(double min, double max, double power);
@@ -144,8 +146,8 @@ double rand_power(double min, double max, double power);
  *
  * **Examples**
  *
- * double n = rand_gauss(0, 100, 2); // n will be more somewhat more likely to be closer to 50 than a random range.
- * double m = rand_gauss(0, 100, 10); // m will be very much more likely to be closer to 50.
+ *     double n = rand_gauss(0, 100, 2); // n will be more somewhat more likely to be closer to 50 than a random range.
+ *     double m = rand_gauss(0, 100, 10); // m will be very much more likely to be closer to 50.
  *
  */
 double rand_gauss(double min, double max, int gauss);
@@ -160,9 +162,9 @@ double rand_gauss(double min, double max, int gauss);
  *
  * **Examples**
  *
- * char *str = rand_string(10);
- * printf("str: %s\n", str);
- * free(str);
+ *     char *str = rand_string(10);
+ *     printf("str: %s\n", str);
+ *     free(str);
  *
  */
 char* rand_string(int length);
@@ -177,9 +179,9 @@ char* rand_string(int length);
  *
  * **Examples**
  *
- * char *str = rand_string_lower(10);
- * printf("str: %s\n", str);
- * free(str);
+ *     char *str = rand_string_lower(10);
+ *     printf("str: %s\n", str);
+ *     free(str);
  *
  */
 char* rand_string_lower(int length);
@@ -194,9 +196,9 @@ char* rand_string_lower(int length);
  *
  * **Examples**
  *
- * char *str = rand_string_upper(10);
- * printf("str: %s\n", str);
- * free(str);
+ *     char *str = rand_string_upper(10);
+ *     printf("str: %s\n", str);
+ *     free(str);
  *
  */
 char* rand_string_upper(int length);
@@ -211,9 +213,9 @@ char* rand_string_upper(int length);
  *
  * **Examples**
  *
- * char *str = rand_string_alpha(10);
- * printf("str: %s\n", str);
- * free(str);
+ *     char *str = rand_string_alpha(10);
+ *     printf("str: %s\n", str);
+ *     free(str);
  *
  */
 char* rand_string_alpha(int length);

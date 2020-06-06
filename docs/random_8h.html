@@ -124,9 +124,8 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Returns a random boolean.</p>
 <dl class="section return"><dt>Returns</dt><dd>double</dd></dl>
-<p><b>Examples</b></p>
-<p>bool b = <a class="el" href="random_8h.html#ac6e0bbe48ab4a3816c1abde3ccff4bdb">rand_bool()</a>; // b has a 50% chance of being true. </p>
-
+<p><b>Examples</b> </p><pre class="fragment">bool b = rand_bool(); // b has a 50% chance of being true.
+</pre> 
 </div>
 </div>
 <a id="a2e6a2be33dfea7b0858bfb3e278739d4"></a>
@@ -145,9 +144,8 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Returns a random double from 0 to 1.</p>
 <dl class="section return"><dt>Returns</dt><dd>double</dd></dl>
-<p><b>Examples</b></p>
-<p>double n = <a class="el" href="random_8h.html#a2e6a2be33dfea7b0858bfb3e278739d4">rand_double()</a>; </p>
-
+<p><b>Examples</b> </p><pre class="fragment">double n = rand_double();
+</pre> 
 </div>
 </div>
 <a id="ab354f262c43a80449986a1c45616566f"></a>
@@ -184,9 +182,8 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>double</dd></dl>
-<p><b>Examples</b></p>
-<p>double n = rand_double_range(50, 100); </p>
-
+<p><b>Examples</b> </p><pre class="fragment">double n = rand_double_range(50, 100);
+</pre> 
 </div>
 </div>
 <a id="a4bb1d5aea9a60f91a7177627c1f9c69f"></a>
@@ -231,9 +228,9 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>double</dd></dl>
-<p><b>Examples</b></p>
-<p>double n = rand_gauss(0, 100, 2); // n will be more somewhat more likely to be closer to 50 than a random range. double m = rand_gauss(0, 100, 10); // m will be very much more likely to be closer to 50. </p>
-
+<p><b>Examples</b> </p><pre class="fragment">double n = rand_gauss(0, 100, 2); // n will be more somewhat more likely to be closer to 50 than a random range.
+double m = rand_gauss(0, 100, 10); // m will be very much more likely to be closer to 50.
+</pre> 
 </div>
 </div>
 <a id="ac1d70899f65125676450ad9faf23034d"></a>
@@ -252,9 +249,8 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Returns a random integer from 0 to MAX_RAND.</p>
 <dl class="section return"><dt>Returns</dt><dd>int</dd></dl>
-<p><b>Examples</b></p>
-<p>int n = <a class="el" href="random_8h.html#ac1d70899f65125676450ad9faf23034d">rand_int()</a>; </p>
-
+<p><b>Examples</b> </p><pre class="fragment">int n = rand_int();
+</pre> 
 </div>
 </div>
 <a id="a90269aec4aabc892a25b2a31a0747d00"></a>
@@ -291,9 +287,8 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>int</dd></dl>
-<p><b>Examples</b></p>
-<p>int n = rand_int_range(50, 100); </p>
-
+<p><b>Examples</b> </p><pre class="fragment">int n = rand_int_range(50, 100);
+</pre> 
 </div>
 </div>
 <a id="afc5cd28bf7e534251babf4b1cf0263e2"></a>
@@ -338,9 +333,9 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>double</dd></dl>
-<p><b>Examples</b></p>
-<p>double n = rand_power(0, 100, 2); // n will be more likely to be closer to 0. double m = rand_power(0, 100, 0.2); // m will be more likely to be closer to 100. </p>
-
+<p><b>Examples</b> </p><pre class="fragment">double n = rand_power(0, 100, 2); // n will be more likely to be closer to 0.
+double m = rand_power(0, 100, 0.2); // m will be more likely to be closer to 100.
+</pre> 
 </div>
 </div>
 <a id="a652b25de633a34df4d7173088b35cd94"></a>
@@ -366,10 +361,14 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<p><b>Examples</b></p>
-<p>rand_seed(0); double a = <a class="el" href="random_8h.html#a2e6a2be33dfea7b0858bfb3e278739d4">rand_double()</a>; int b = <a class="el" href="random_8h.html#ac1d70899f65125676450ad9faf23034d">rand_int()</a>;</p>
-<p>rand_seed(0); double c = <a class="el" href="random_8h.html#a2e6a2be33dfea7b0858bfb3e278739d4">rand_double()</a>; // c will equal a int d = <a class="el" href="random_8h.html#ac1d70899f65125676450ad9faf23034d">rand_int()</a>; // d will equal b </p>
+<p><b>Examples</b> </p><pre class="fragment">rand_seed(0);
+double a = rand_double();
+int b = rand_int();
 
+rand_seed(0);
+double c = rand_double(); // c will equal a
+int d = rand_int(); // d will equal b
+</pre> 
 </div>
 </div>
 <a id="a8e8c93210cec73904b38df68fe728910"></a>
@@ -388,8 +387,9 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Sets the seed used for generating random values.</p>
 <p>This actually sets the seed using a couple of different time functions designed to give a fairly decent random seed.</p>
-<p><a class="el" href="random_8h.html#a8e8c93210cec73904b38df68fe728910">rand_seed_rand()</a>; int b = <a class="el" href="random_8h.html#ac1d70899f65125676450ad9faf23034d">rand_int()</a>; // who knows what b will equal? </p>
-
+<p><b>Examples</b> </p><pre class="fragment">rand_seed_rand();
+int b = rand_int(); // who knows what b will equal?
+</pre> 
 </div>
 </div>
 <a id="a159680bb5fb68c9a8b9a971d5f6922cd"></a>
@@ -416,9 +416,10 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>char*</dd></dl>
-<p><b>Examples</b></p>
-<p>char *str = rand_string(10); printf("str: %s\n", str); free(str); </p>
-
+<p><b>Examples</b> </p><pre class="fragment">char *str = rand_string(10);
+printf("str: %s\n", str);
+free(str);
+</pre> 
 </div>
 </div>
 <a id="ae82677686fdedb905b4fb0bd8d406020"></a>
@@ -445,9 +446,10 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>char*</dd></dl>
-<p><b>Examples</b></p>
-<p>char *str = rand_string_alpha(10); printf("str: %s\n", str); free(str); </p>
-
+<p><b>Examples</b> </p><pre class="fragment">char *str = rand_string_alpha(10);
+printf("str: %s\n", str);
+free(str);
+</pre> 
 </div>
 </div>
 <a id="a445197d30b3dc00f71a1f379c2d8519d"></a>
@@ -474,9 +476,10 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>char*</dd></dl>
-<p><b>Examples</b></p>
-<p>char *str = rand_string_lower(10); printf("str: %s\n", str); free(str); </p>
-
+<p><b>Examples</b> </p><pre class="fragment">char *str = rand_string_lower(10);
+printf("str: %s\n", str);
+free(str);
+</pre> 
 </div>
 </div>
 <a id="ae852c2f4e3f6043c20ca8cef3e3671ba"></a>
@@ -503,9 +506,10 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>char*</dd></dl>
-<p><b>Examples</b></p>
-<p>char *str = rand_string_upper(10); printf("str: %s\n", str); free(str); </p>
-
+<p><b>Examples</b> </p><pre class="fragment">char *str = rand_string_upper(10);
+printf("str: %s\n", str);
+free(str);
+</pre> 
 </div>
 </div>
 <a id="aef8ae4178a0ad4ee7f547240cc06330a"></a>
@@ -531,9 +535,8 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>double</dd></dl>
-<p><b>Examples</b></p>
-<p>bool b = rand_weighted_bool(0.2); // b has a 20% chance of being true. </p>
-
+<p><b>Examples</b> </p><pre class="fragment">bool b = rand_weighted_bool(0.2); // b has a 20% chance of being true.
+</pre> 
 </div>
 </div>
 </div><!-- contents -->

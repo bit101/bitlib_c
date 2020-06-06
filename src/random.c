@@ -9,6 +9,9 @@ void rand_seed(int seed) {
 }
 
 void rand_seed_rand() {
+  // time(NULL) returns number of seconds since 1970 or whatever.
+  // clock() returns clock ticks since program started.
+  // combining the two should give a half decent random seed. good enough for purposes of this lib.
   srand(time(NULL) % clock());
 }
 

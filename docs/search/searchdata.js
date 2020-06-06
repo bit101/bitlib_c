@@ -3,11 +3,12 @@ var indexSectionsWithContent =
   0: "_abcdfghilmnprstvwxy",
   1: "_cp",
   2: "abcdglnprv",
-  3: "_bc",
+  3: "_bcr",
   4: "abfghmnrtwxy",
   5: "b",
   6: "b",
-  7: "gisv"
+  7: "gisv",
+  8: "ps"
 };
 
 var indexSectionNames =
@@ -19,7 +20,8 @@ var indexSectionNames =
   4: "variables",
   5: "typedefs",
   6: "enums",
-  7: "enumvalues"
+  7: "enumvalues",
+  8: "defines"
 };
 
 var indexSectionLabels =
@@ -31,6 +33,7 @@ var indexSectionLabels =
   4: "Variables",
   5: "Typedefs",
   6: "Enumerations",
-  7: "Enumerator"
+  7: "Enumerator",
+  8: "Macros"
 };
 

@@ -76,7 +76,7 @@ void cairo_line_through(cairo_t* cr, double x0, double y0, double x1, double y1,
  *
  * **Examples**
  *
- *     cairo_ray(cr, 100, 100, G_PI / 2, 0, 100);
+ *     cairo_ray(cr, 100, 100, PI / 2, 0, 100);
  */
 void cairo_ray(cairo_t* cr, double x, double y, double angle, double offset, double length);
 

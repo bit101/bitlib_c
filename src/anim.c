@@ -1,8 +1,10 @@
 #include "anim.h"
-#include <glib.h>
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 #include <time.h>
 #include "bitlib.h"
+#include "pthread.h"
 #include "render.h"
 
 typedef struct _render_props {
@@ -58,7 +60,7 @@ void* _thread_render_frames(void* arg) {
     done++;
     char* bl_quiet = getenv("BL_QUIET");
     if (bl_quiet == NULL || strcmp(bl_quiet, "1")) {
-      g_print("\r%f", done / config->frames);
+      printf("\r%f", done / config->frames);
     }
   }
   free(props);
@@ -69,7 +71,7 @@ void _render_frames(bl_render_config* config, char* gif_name, bl_render_callback
   pthread_t threads[num_threads];
   char* bl_quiet = getenv("BL_QUIET");
   if (bl_quiet == NULL || strcmp(bl_quiet, "1")) {
-    g_print("rendering on %d threads\n", num_threads);
+    printf("rendering on %d threads\n", num_threads);
   }
   time_t start_time = time(NULL);
   for (int i = 0; i < num_threads; i++) {
@@ -91,7 +93,7 @@ void _render_frames(bl_render_config* config, char* gif_name, bl_render_callback
   time_t elapsed = end_time - start_time;
   double spf = (double)elapsed / config->frames;
   if (bl_quiet == NULL || strcmp(bl_quiet, "1")) {
-    g_print("\n%d frames in %ld seconds. %f seconds per frame\n", (int)config->frames, elapsed, spf);
+    printf("\n%d frames in %ld seconds. %f seconds per frame\n", (int)config->frames, elapsed, spf);
   }
 }
 

@@ -165,7 +165,7 @@ bl_point* bl_random_point_in_triangle(bl_point* p0, bl_point* p1, bl_point* p2);
  *
  * **Examples**
  *
- *     bl_point *p = bl_point_from_polar(G_PI / 4, 100);
+ *     bl_point *p = bl_point_from_polar(PI / 4, 100);
  */
 bl_point* bl_point_from_polar(double angle, double radius);
 
@@ -247,7 +247,7 @@ void bl_point_scale(bl_point* p, double sx, double sy);
  * **Examples**
  *
  *     bl_point *p = bl_make_point(200, 150);
- *     bl_point_rotate(p, G_PI / 4);
+ *     bl_point_rotate(p, PI / 4);
  */
 void bl_point_rotate(bl_point* p, double angle);
 

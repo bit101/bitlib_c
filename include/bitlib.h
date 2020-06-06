@@ -10,6 +10,7 @@
 #include "log_display.h"
 #include "noise.h"
 #include "point.h"
+#include "random.h"
 #include "render.h"
 #include "view.h"
 
@@ -31,6 +32,8 @@
  * [noise package](@ref noise.h)
  *
  * [point package](@ref point.h)
+ *
+ * [random package](@ref random.h)
  *
  * [render package](@ref render.h)
  *

@@ -4,33 +4,20 @@
 #include <stdlib.h>
 #include <time.h>
 
-bool _rand_inited = false;
-long _seed = 0;
-long _a = 1664525;
-long _c = 1013904223;
-long _m = (long)pow(2, 32);
-
-double rand_seed(long seed) {
-  _seed = seed;
-  _rand_inited = true;
+void rand_seed(int seed) {
+  srand(seed);
 }
 
-double rand_seed_rand() {
-  _seed = clock();
-  _rand_inited = true;
+void rand_seed_rand() {
+  srand(time(NULL) % clock());
 }
 
-long rand_int() {
-  if (!_rand_inited) {
-    rand_seed_rand();
-    _rand_inited = true;
-  }
-  _seed = (_seed * _a + _c) % _m;
-  return _seed;
+int rand_int() {
+  return rand();
 }
 
 double rand_double() {
-  return (double)rand_int() / _m;
+  return (double)rand() / RAND_MAX;
 }
 
 bool rand_weighted_bool(double percent) {
@@ -45,8 +32,8 @@ double rand_double_range(double min, double max) {
   return min + rand_double() * (max - min);
 }
 
-long rand_int_range(long min, long max) {
-  return (long)floor(rand_double_range(min, max));
+int rand_int_range(int min, int max) {
+  return min + rand() % (max - min);
 }
 
 double rand_power(double min, double max, double power) {

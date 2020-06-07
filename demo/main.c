@@ -25,14 +25,14 @@ int main(int argc, char** argv) {
 
     case GIF:
       out_name = "out.gif";
-      bl_render_gif(&config, out_name, num_threads, render);
+      bl_render_gif(config, out_name, num_threads, render);
       bl_view_image(out_name);
       break;
 
     case VIDEO:
     case SMALL_VIDEO:
       out_name = "out.mp4";
-      bl_render_video(&config, out_name, num_threads, render);
+      bl_render_video(config, out_name, num_threads, render);
       bl_view_video(out_name);
       break;
 

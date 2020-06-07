@@ -15,7 +15,7 @@
  *     rand_seed(0);
  *     double a = rand_double();
  *     int b = rand_int();
- *     
+ *
  *     rand_seed(0);
  *     double c = rand_double(); // c will equal a
  *     int d = rand_int(); // d will equal b
@@ -153,71 +153,75 @@ double rand_power(double min, double max, double power);
 double rand_gauss(double min, double max, int gauss);
 
 /**
- * Returns a random string which may contain upper and lower case characters, digits and other ascii symbols.
+ * Creates a random string which may contain upper and lower case characters, digits and other ascii symbols.
  *
- * This function allocates memory that should be freed when you are complete with it.
+ * The char array that is passed in should have a length of at least length + 1 to account for the null terminator.
  *
+ * @param char *str A char array that will receive the random string.
  * @param int length The length of the string returned.
  * @return char*
  *
  * **Examples**
  *
- *     char *str = rand_string(10);
+ *     char str[11];
+ *     rand_string(str, 10);
  *     printf("str: %s\n", str);
- *     free(str);
  *
  */
-char* rand_string(int length);
+void rand_string(char* str, int length);
 
 /**
- * Returns a random string of lower case letters.
+ * Creates a random string of lower case letters.
+ * The char array that is passed in should have a length of at least length + 1 to account for the null terminator.
  *
- * This function allocates memory that should be freed when you are complete with it.
- *
+ * @param char *str A char array that will receive the random string.
  * @param int length The length of the string returned.
+ *
  * @return char*
  *
  * **Examples**
  *
- *     char *str = rand_string_lower(10);
+ *     char str[11];
+ *     rand_string_lower(str, 10);
  *     printf("str: %s\n", str);
- *     free(str);
  *
  */
-char* rand_string_lower(int length);
+void rand_string_lower(char* str, int length);
 
 /**
- * Returns a random string of upper case letters.
+ * Creates a random string of upper case letters.
  *
- * This function allocates memory that should be freed when you are complete with it.
+ * The char array that is passed in should have a length of at least length + 1 to account for the null terminator.
  *
+ * @param char *str A char array that will receive the random string.
  * @param int length The length of the string returned.
  * @return char*
  *
  * **Examples**
  *
- *     char *str = rand_string_upper(10);
+ *     char str[11];
+ *     rand_string_upper(str, 10);
  *     printf("str: %s\n", str);
- *     free(str);
  *
  */
-char* rand_string_upper(int length);
+void rand_string_upper(char* str, int length);
 
 /**
- * Returns a random string of upper and lower case letters.
+ * Creates a random string of upper and lower case letters.
  *
- * This function allocates memory that should be freed when you are complete with it.
+ * The char array that is passed in should have a length of at least length + 1 to account for the null terminator.
  *
+ * @param char *str A char array that will receive the random string.
  * @param int length The length of the string returned.
  * @return char*
  *
  * **Examples**
  *
- *     char *str = rand_string_alpha(10);
+ *     char str[11];
+ *     rand_string_alpha(str, 10);
  *     printf("str: %s\n", str);
- *     free(str);
  *
  */
-char* rand_string_alpha(int length);
+void rand_string_alpha(char* str, int length);
 
 #endif

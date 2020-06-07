@@ -8,23 +8,23 @@
 #include "render.h"
 
 typedef struct _render_props {
-  bl_render_config* config;
+  bl_render_config config;
   int start_frame;
   int end_frame;
   char* tmp;
   bl_render_callback render;
 } render_props;
 
-bl_render_config* bl_make_render_config(double width, double height, double frames, double fps) {
-  bl_render_config* config = malloc(sizeof(bl_render_config));
-  config->width = width;
-  config->height = height;
-  config->frames = frames;
-  config->fps = fps;
+bl_render_config bl_make_render_config(double width, double height, double frames, double fps) {
+  bl_render_config config;
+  config.width = width;
+  config.height = height;
+  config.frames = frames;
+  config.fps = fps;
   return config;
 }
 
-render_props* _make_render_props(bl_render_config* config,
+render_props* _make_render_props(bl_render_config config,
                                  int start_frame,
                                  int end_frame,
                                  char* tmp,
@@ -40,15 +40,15 @@ render_props* _make_render_props(bl_render_config* config,
 
 void* _thread_render_frames(void* arg) {
   render_props* props = (render_props*)arg;
-  bl_render_config* config = props->config;
+  bl_render_config config = props->config;
   static double done = 0;
   char frame_name[255];
-  int last_frame = fmin(config->frames, props->end_frame);
+  int last_frame = fmin(config.frames, props->end_frame);
 
-  cairo_surface_t* surface = cairo_image_surface_create(CAIRO_FORMAT_ARGB32, config->width, config->height);
+  cairo_surface_t* surface = cairo_image_surface_create(CAIRO_FORMAT_ARGB32, config.width, config.height);
 
   for (int i = props->start_frame; i < last_frame; i++) {
-    double percent = (double)i / config->frames;
+    double percent = (double)i / config.frames;
     cairo_t* cr = cairo_create(surface);
 
     props->render(cr, percent);
@@ -60,14 +60,14 @@ void* _thread_render_frames(void* arg) {
     done++;
     char* bl_quiet = getenv("BL_QUIET");
     if (bl_quiet == NULL || strcmp(bl_quiet, "1")) {
-      printf("\r%f", done / config->frames);
+      printf("\r%f", done / config.frames);
     }
   }
   free(props);
   return NULL;
 }
 
-void _render_frames(bl_render_config* config, char* gif_name, bl_render_callback render, char* tmp, int num_threads) {
+void _render_frames(bl_render_config config, char* gif_name, bl_render_callback render, char* tmp, int num_threads) {
   pthread_t threads[num_threads];
   char* bl_quiet = getenv("BL_QUIET");
   if (bl_quiet == NULL || strcmp(bl_quiet, "1")) {
@@ -76,9 +76,9 @@ void _render_frames(bl_render_config* config, char* gif_name, bl_render_callback
   time_t start_time = time(NULL);
   for (int i = 0; i < num_threads; i++) {
     int start = 0;
-    int end = config->frames;
+    int end = config.frames;
     if (num_threads > 1) {
-      int batch = (int)config->frames / num_threads;
+      int batch = (int)config.frames / num_threads;
       start = batch * i;
       end = start + batch;
     }
@@ -91,13 +91,13 @@ void _render_frames(bl_render_config* config, char* gif_name, bl_render_callback
   }
   time_t end_time = time(NULL);
   time_t elapsed = end_time - start_time;
-  double spf = (double)elapsed / config->frames;
+  double spf = (double)elapsed / config.frames;
   if (bl_quiet == NULL || strcmp(bl_quiet, "1")) {
-    printf("\n%d frames in %ld seconds. %f seconds per frame\n", (int)config->frames, elapsed, spf);
+    printf("\n%d frames in %ld seconds. %f seconds per frame\n", (int)config.frames, elapsed, spf);
   }
 }
 
-void _convert_frames_to_video(bl_render_config* config, char* frames_dir, char* file_name, double fps) {
+void _convert_frames_to_video(bl_render_config config, char* frames_dir, char* file_name, double fps) {
   char command[255];
 
   // -framerate fps
@@ -112,7 +112,7 @@ void _convert_frames_to_video(bl_render_config* config, char* frames_dir, char* 
   sprintf(command,
           "ffmpeg -framerate %f -i %s/frame_%%04d.png -s:v %dx%d -c:v libx264 "
           "-profile:v high -crf 20 -pix_fmt yuv420p -v 0 -y %s",
-          fps, frames_dir, (int)config->width, (int)config->height, file_name);
+          fps, frames_dir, (int)config.width, (int)config.height, file_name);
 
   system(command);
 }

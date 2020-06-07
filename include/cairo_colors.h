@@ -8,15 +8,14 @@
  * Sets the drawing source color using an instance of `bl_color`.
  *
  * @param cairo_t *cr The cairo context.
- * @param bl_color *c The color to use.
+ * @param bl_color c The color to use.
  *
  * **Examples**
  *
- *     bl_color *c = bl_color_hsv(90, 1, 0.5);
+ *     bl_color c = bl_color_hsv(90, 1, 0.5);
  *     cairo_set_source_color(cr, c);
- *     free(c);
  */
-void cairo_set_source_color(cairo_t* cr, bl_color* c);
+void cairo_set_source_color(cairo_t* cr, bl_color c);
 
 /**
  * Sets the drawing source color to a shade of grey.
@@ -121,15 +120,14 @@ void cairo_clear_rgb(cairo_t* cr, double r, double g, double b);
  * Clears the cairo context to a color specified by an instance of `bl_color`.
  *
  * @param cairo_t *cr The cairo context.
- * @param bl_color *c The color to use.
+ * @param bl_color c The color to use.
  *
  * **Examples**
  *
- *     bl_color *c = bl_color_hsv(90, 1, 0.5);
+ *     bl_color c = bl_color_hsv(90, 1, 0.5);
  *     cairo_clear_color(cr, c);
- *     free(c);
  */
-void cairo_clear_color(cairo_t* cr, bl_color* c);
+void cairo_clear_color(cairo_t* cr, bl_color c);
 
 /**
  * Clears the cairo context to a shade of grey.

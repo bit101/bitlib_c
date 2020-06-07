@@ -16,13 +16,13 @@
  * @param double fps Frames per second of the animation.
  * @returns bl_render_config
  */
-bl_render_config* bl_make_render_config(double width, double height, double frames, double fps);
+bl_render_config bl_make_render_config(double width, double height, double frames, double fps);
 
 /**
  * Renders each frame of an animation into png files in a folder. Internal use
  * only.
  *
- * @param bl_render_config *config Contains information on how to render the
+ * @param bl_render_config config Contains information on how to render the
  * frames.
  * @param char *gif_name The output file name.
  * @param bl_render_callback *render The function that draws each frame.
@@ -30,7 +30,7 @@ bl_render_config* bl_make_render_config(double width, double height, double fram
  * post-render.
  * @param int num_threads How many threads to use to render this animation.
  */
-void _render_frames(bl_render_config* config, char* gif_name, bl_render_callback render, char* tmp, int num_threads);
+void _render_frames(bl_render_config config, char* gif_name, bl_render_callback render, char* tmp, int num_threads);
 
 /**
  * Converts the frames in the temp folder into an animated gif. Internal use
@@ -49,6 +49,6 @@ void _convert_frames_to_gif(char* frames_dir, char* file_name, double fps);
  * @param char *file_name The name of the output file.
  * @param double fps. Frames per second for the animation.
  */
-void _convert_frames_to_video(bl_render_config* config, char* frames_dir, char* file_name, double fps);
+void _convert_frames_to_video(bl_render_config config, char* frames_dir, char* file_name, double fps);
 
 #endif

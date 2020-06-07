@@ -11,17 +11,17 @@ char* frames_dir = "bitlib_c_frames";
 void _create_frame_dir();
 void _remove_frame_dir();
 
-void bl_render_gif(bl_render_config* config, char* gif_name, int threads, bl_render_callback render) {
+void bl_render_gif(bl_render_config config, char* gif_name, int threads, bl_render_callback render) {
   _create_frame_dir();
   _render_frames(config, gif_name, render, frames_dir, threads);
-  _convert_frames_to_gif(frames_dir, gif_name, config->fps);
+  _convert_frames_to_gif(frames_dir, gif_name, config.fps);
   _remove_frame_dir();
 }
 
-void bl_render_video(bl_render_config* config, char* mp4_name, int threads, bl_render_callback render) {
+void bl_render_video(bl_render_config config, char* mp4_name, int threads, bl_render_callback render) {
   _create_frame_dir();
   _render_frames(config, mp4_name, render, frames_dir, threads);
-  _convert_frames_to_video(config, frames_dir, mp4_name, config->fps);
+  _convert_frames_to_video(config, frames_dir, mp4_name, config.fps);
   _remove_frame_dir();
 }
 

@@ -2,7 +2,7 @@ var searchData=
 [
   ['cairo_5fcircle_586',['cairo_circle',['../drawing_8h.html#a710503e9314ab3e1745b94eab8ca4b17',1,'drawing.h']]],
   ['cairo_5fclear_5fblack_587',['cairo_clear_black',['../cairo__colors_8h.html#a21aa2510f15a407063bb89ee8fb72e13',1,'cairo_colors.h']]],
-  ['cairo_5fclear_5fcolor_588',['cairo_clear_color',['../cairo__colors_8h.html#ae5701478406a07453da949a703401cb9',1,'cairo_colors.h']]],
+  ['cairo_5fclear_5fcolor_588',['cairo_clear_color',['../cairo__colors_8h.html#aca583838fffac48dd53da4322a199dfc',1,'cairo_colors.h']]],
   ['cairo_5fclear_5fgrey_589',['cairo_clear_grey',['../cairo__colors_8h.html#a2328ffaa004f9d2b0b59ea888c49c44c',1,'cairo_colors.h']]],
   ['cairo_5fclear_5fhsv_590',['cairo_clear_hsv',['../cairo__colors_8h.html#abc8057c910ab8cd7749892c2f87173f2',1,'cairo_colors.h']]],
   ['cairo_5fclear_5frandom_5fgrey_591',['cairo_clear_random_grey',['../cairo__colors_8h.html#a643e2a067f98174adec19ce5db27bbc1',1,'cairo_colors.h']]],
@@ -41,7 +41,7 @@ var searchData=
   ['cairo_5fray_624',['cairo_ray',['../drawing_8h.html#afacb099113fabb91f74b45436a61ca37',1,'drawing.h']]],
   ['cairo_5fround_5frectangle_625',['cairo_round_rectangle',['../drawing_8h.html#aa75fbca3f8e026377b00fad21b416f04',1,'drawing.h']]],
   ['cairo_5fset_5fsource_5fblack_626',['cairo_set_source_black',['../cairo__colors_8h.html#a8c0df1b42da035bf1988d23bc711c1f2',1,'cairo_colors.h']]],
-  ['cairo_5fset_5fsource_5fcolor_627',['cairo_set_source_color',['../cairo__colors_8h.html#a1b915d99fe2196e051fd615677f2137d',1,'cairo_colors.h']]],
+  ['cairo_5fset_5fsource_5fcolor_627',['cairo_set_source_color',['../cairo__colors_8h.html#af01c5dd026d8a034df08338f8841f631',1,'cairo_colors.h']]],
   ['cairo_5fset_5fsource_5fgrey_628',['cairo_set_source_grey',['../cairo__colors_8h.html#a993e7e0d511ae591ae56fa4fed49c0ce',1,'cairo_colors.h']]],
   ['cairo_5fset_5fsource_5fhsv_629',['cairo_set_source_hsv',['../cairo__colors_8h.html#a1397cbb1b1c7aa0bf193a90e76fca1fe',1,'cairo_colors.h']]],
   ['cairo_5fset_5fsource_5frandom_5fgrey_630',['cairo_set_source_random_grey',['../cairo__colors_8h.html#a7c73b2fcea2785fd6afb2cc071cacfea',1,'cairo_colors.h']]],

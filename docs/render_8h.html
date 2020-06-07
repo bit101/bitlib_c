@@ -102,10 +102,10 @@ Enumerations</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a8238290968b4c6ac9e7e18978bc94ede"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="render_8h.html#a8238290968b4c6ac9e7e18978bc94ede">bl_render_gif</a> (<a class="el" href="render_8h.html#adf7f0737d797110c459f339fa73c97d5">bl_render_config</a> *config, char *gif_name, int threads, <a class="el" href="render_8h.html#a8f62220ca89bf374e39206926aec3214">bl_render_callback</a> render)</td></tr>
-<tr class="separator:a8238290968b4c6ac9e7e18978bc94ede"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9609664e10b7613a977c6fd59d175a4d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="render_8h.html#a9609664e10b7613a977c6fd59d175a4d">bl_render_video</a> (<a class="el" href="render_8h.html#adf7f0737d797110c459f339fa73c97d5">bl_render_config</a> *config, char *mp4_name, int threads, <a class="el" href="render_8h.html#a8f62220ca89bf374e39206926aec3214">bl_render_callback</a> render)</td></tr>
-<tr class="separator:a9609664e10b7613a977c6fd59d175a4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f6daf9892f72f34df1cdc8554c108b3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="render_8h.html#a5f6daf9892f72f34df1cdc8554c108b3">bl_render_gif</a> (<a class="el" href="render_8h.html#adf7f0737d797110c459f339fa73c97d5">bl_render_config</a> config, char *gif_name, int threads, <a class="el" href="render_8h.html#a8f62220ca89bf374e39206926aec3214">bl_render_callback</a> render)</td></tr>
+<tr class="separator:a5f6daf9892f72f34df1cdc8554c108b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0714467cc5cc63c3ab9c1f7deb65fe78"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="render_8h.html#a0714467cc5cc63c3ab9c1f7deb65fe78">bl_render_video</a> (<a class="el" href="render_8h.html#adf7f0737d797110c459f339fa73c97d5">bl_render_config</a> config, char *mp4_name, int threads, <a class="el" href="render_8h.html#a8f62220ca89bf374e39206926aec3214">bl_render_callback</a> render)</td></tr>
+<tr class="separator:a0714467cc5cc63c3ab9c1f7deb65fe78"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af6c7e85d030a405ac7e584789e6bab19"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="render_8h.html#af6c7e85d030a405ac7e584789e6bab19">bl_render_image</a> (double width, double height, char *png_file_name, <a class="el" href="render_8h.html#a8f62220ca89bf374e39206926aec3214">bl_render_callback</a> render)</td></tr>
 <tr class="separator:af6c7e85d030a405ac7e584789e6bab19"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -176,8 +176,8 @@ bl_render_gif(config, "out.gif", 4, render);
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a8238290968b4c6ac9e7e18978bc94ede"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8238290968b4c6ac9e7e18978bc94ede">&#9670;&nbsp;</a></span>bl_render_gif()</h2>
+<a id="a5f6daf9892f72f34df1cdc8554c108b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5f6daf9892f72f34df1cdc8554c108b3">&#9670;&nbsp;</a></span>bl_render_gif()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -185,7 +185,7 @@ bl_render_gif(config, "out.gif", 4, render);
         <tr>
           <td class="memname">void bl_render_gif </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="render_8h.html#adf7f0737d797110c459f339fa73c97d5">bl_render_config</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="render_8h.html#adf7f0737d797110c459f339fa73c97d5">bl_render_config</a>&#160;</td>
           <td class="paramname"><em>config</em>, </td>
         </tr>
         <tr>
@@ -216,7 +216,7 @@ bl_render_gif(config, "out.gif", 4, render);
 <p>Renders multiple frames of an animation and saves them to an animated gif.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">bl_render_config</td><td>*config The configuration file for the animation. </td></tr>
+    <tr><td class="paramname">bl_render_config</td><td>config The configuration file for the animation. </td></tr>
     <tr><td class="paramname">char</td><td>*gif_name The path of the output gif. </td></tr>
     <tr><td class="paramname">int</td><td>threads How many threads to use for rendering all the frames. </td></tr>
     <tr><td class="paramname">bl_render_callback</td><td>render The callback function that will do the drawing for each frame.</td></tr>
@@ -267,7 +267,7 @@ bl_render_gif(config, "out.gif", 4, render);
 <p>Renders an image and saves it as a png.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">bl_render_config</td><td>*config The configuration file for the image. </td></tr>
+    <tr><td class="paramname">bl_render_config</td><td>config The configuration file for the image. </td></tr>
     <tr><td class="paramname">char</td><td>*png_file_name The path of the output png. </td></tr>
     <tr><td class="paramname">bl_render_callback</td><td>render The callback function that will draw the image.</td></tr>
   </table>
@@ -277,8 +277,8 @@ bl_render_gif(config, "out.gif", 4, render);
 </pre> 
 </div>
 </div>
-<a id="a9609664e10b7613a977c6fd59d175a4d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9609664e10b7613a977c6fd59d175a4d">&#9670;&nbsp;</a></span>bl_render_video()</h2>
+<a id="a0714467cc5cc63c3ab9c1f7deb65fe78"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0714467cc5cc63c3ab9c1f7deb65fe78">&#9670;&nbsp;</a></span>bl_render_video()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -286,7 +286,7 @@ bl_render_gif(config, "out.gif", 4, render);
         <tr>
           <td class="memname">void bl_render_video </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="render_8h.html#adf7f0737d797110c459f339fa73c97d5">bl_render_config</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="render_8h.html#adf7f0737d797110c459f339fa73c97d5">bl_render_config</a>&#160;</td>
           <td class="paramname"><em>config</em>, </td>
         </tr>
         <tr>
@@ -317,7 +317,7 @@ bl_render_gif(config, "out.gif", 4, render);
 <p>Renders multiple frames of an animation and saves them to an mp4 video file.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">bl_render_config</td><td>*config The configuration file for the animation. </td></tr>
+    <tr><td class="paramname">bl_render_config</td><td>config The configuration file for the animation. </td></tr>
     <tr><td class="paramname">char</td><td>*mp4_name The path of the output video. </td></tr>
     <tr><td class="paramname">int</td><td>threads How many threads to use for rendering all the frames. </td></tr>
     <tr><td class="paramname">bl_render_callback</td><td>render The callback function that will do the drawing for each frame.</td></tr>

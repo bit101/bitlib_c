@@ -98,14 +98,14 @@ Functions</h2></td></tr>
 <tr class="separator:afc5cd28bf7e534251babf4b1cf0263e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4bb1d5aea9a60f91a7177627c1f9c69f"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="random_8h.html#a4bb1d5aea9a60f91a7177627c1f9c69f">rand_gauss</a> (double min, double max, int gauss)</td></tr>
 <tr class="separator:a4bb1d5aea9a60f91a7177627c1f9c69f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a159680bb5fb68c9a8b9a971d5f6922cd"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="random_8h.html#a159680bb5fb68c9a8b9a971d5f6922cd">rand_string</a> (int length)</td></tr>
-<tr class="separator:a159680bb5fb68c9a8b9a971d5f6922cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a445197d30b3dc00f71a1f379c2d8519d"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="random_8h.html#a445197d30b3dc00f71a1f379c2d8519d">rand_string_lower</a> (int length)</td></tr>
-<tr class="separator:a445197d30b3dc00f71a1f379c2d8519d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae852c2f4e3f6043c20ca8cef3e3671ba"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="random_8h.html#ae852c2f4e3f6043c20ca8cef3e3671ba">rand_string_upper</a> (int length)</td></tr>
-<tr class="separator:ae852c2f4e3f6043c20ca8cef3e3671ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae82677686fdedb905b4fb0bd8d406020"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="random_8h.html#ae82677686fdedb905b4fb0bd8d406020">rand_string_alpha</a> (int length)</td></tr>
-<tr class="separator:ae82677686fdedb905b4fb0bd8d406020"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab76f58e5278db72401c1befdf398f36"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="random_8h.html#aab76f58e5278db72401c1befdf398f36">rand_string</a> (char *str, int length)</td></tr>
+<tr class="separator:aab76f58e5278db72401c1befdf398f36"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d3f24d1b81d96d62b521c175fc91ef0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="random_8h.html#a9d3f24d1b81d96d62b521c175fc91ef0">rand_string_lower</a> (char *str, int length)</td></tr>
+<tr class="separator:a9d3f24d1b81d96d62b521c175fc91ef0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac094c5f703d59a8e65e5da4c63de7048"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="random_8h.html#ac094c5f703d59a8e65e5da4c63de7048">rand_string_upper</a> (char *str, int length)</td></tr>
+<tr class="separator:ac094c5f703d59a8e65e5da4c63de7048"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f15fda4cf9e91493565fec78a59c64d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="random_8h.html#a7f15fda4cf9e91493565fec78a59c64d">rand_string_alpha</a> (char *str, int length)</td></tr>
+<tr class="separator:a7f15fda4cf9e91493565fec78a59c64d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="ac6e0bbe48ab4a3816c1abde3ccff4bdb"></a>
@@ -392,123 +392,166 @@ int b = rand_int(); // who knows what b will equal?
 </pre> 
 </div>
 </div>
-<a id="a159680bb5fb68c9a8b9a971d5f6922cd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a159680bb5fb68c9a8b9a971d5f6922cd">&#9670;&nbsp;</a></span>rand_string()</h2>
+<a id="aab76f58e5278db72401c1befdf398f36"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aab76f58e5278db72401c1befdf398f36">&#9670;&nbsp;</a></span>rand_string()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">char* rand_string </td>
+          <td class="memname">void rand_string </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>length</em></td><td>)</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>str</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>length</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Returns a random string which may contain upper and lower case characters, digits and other ascii symbols.</p>
-<p>This function allocates memory that should be freed when you are complete with it.</p>
+<p>Creates a random string which may contain upper and lower case characters, digits and other ascii symbols.</p>
+<p>The char array that is passed in should have a length of at least length + 1 to account for the null terminator.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
+    <tr><td class="paramname">char</td><td>*str A char array that will receive the random string. </td></tr>
     <tr><td class="paramname">int</td><td>length The length of the string returned. </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>char*</dd></dl>
-<p><b>Examples</b> </p><pre class="fragment">char *str = rand_string(10);
+<p><b>Examples</b> </p><pre class="fragment">char str[11];
+rand_string(str, 10);
 printf("str: %s\n", str);
-free(str);
 </pre> 
 </div>
 </div>
-<a id="ae82677686fdedb905b4fb0bd8d406020"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae82677686fdedb905b4fb0bd8d406020">&#9670;&nbsp;</a></span>rand_string_alpha()</h2>
+<a id="a7f15fda4cf9e91493565fec78a59c64d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f15fda4cf9e91493565fec78a59c64d">&#9670;&nbsp;</a></span>rand_string_alpha()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">char* rand_string_alpha </td>
+          <td class="memname">void rand_string_alpha </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>length</em></td><td>)</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>str</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>length</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Returns a random string of upper and lower case letters.</p>
-<p>This function allocates memory that should be freed when you are complete with it.</p>
+<p>Creates a random string of upper and lower case letters.</p>
+<p>The char array that is passed in should have a length of at least length + 1 to account for the null terminator.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
+    <tr><td class="paramname">char</td><td>*str A char array that will receive the random string. </td></tr>
     <tr><td class="paramname">int</td><td>length The length of the string returned. </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>char*</dd></dl>
-<p><b>Examples</b> </p><pre class="fragment">char *str = rand_string_alpha(10);
+<p><b>Examples</b> </p><pre class="fragment">char str[11];
+rand_string_alpha(str, 10);
 printf("str: %s\n", str);
-free(str);
 </pre> 
 </div>
 </div>
-<a id="a445197d30b3dc00f71a1f379c2d8519d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a445197d30b3dc00f71a1f379c2d8519d">&#9670;&nbsp;</a></span>rand_string_lower()</h2>
+<a id="a9d3f24d1b81d96d62b521c175fc91ef0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d3f24d1b81d96d62b521c175fc91ef0">&#9670;&nbsp;</a></span>rand_string_lower()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">char* rand_string_lower </td>
+          <td class="memname">void rand_string_lower </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>length</em></td><td>)</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>str</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>length</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Returns a random string of lower case letters.</p>
-<p>This function allocates memory that should be freed when you are complete with it.</p>
+<p>Creates a random string of lower case letters. The char array that is passed in should have a length of at least length + 1 to account for the null terminator.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">int</td><td>length The length of the string returned. </td></tr>
+    <tr><td class="paramname">char</td><td>*str A char array that will receive the random string. </td></tr>
+    <tr><td class="paramname">int</td><td>length The length of the string returned.</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>char*</dd></dl>
-<p><b>Examples</b> </p><pre class="fragment">char *str = rand_string_lower(10);
+<p><b>Examples</b> </p><pre class="fragment">char str[11];
+rand_string_lower(str, 10);
 printf("str: %s\n", str);
-free(str);
 </pre> 
 </div>
 </div>
-<a id="ae852c2f4e3f6043c20ca8cef3e3671ba"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae852c2f4e3f6043c20ca8cef3e3671ba">&#9670;&nbsp;</a></span>rand_string_upper()</h2>
+<a id="ac094c5f703d59a8e65e5da4c63de7048"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac094c5f703d59a8e65e5da4c63de7048">&#9670;&nbsp;</a></span>rand_string_upper()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">char* rand_string_upper </td>
+          <td class="memname">void rand_string_upper </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>length</em></td><td>)</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>str</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>length</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Returns a random string of upper case letters.</p>
-<p>This function allocates memory that should be freed when you are complete with it.</p>
+<p>Creates a random string of upper case letters.</p>
+<p>The char array that is passed in should have a length of at least length + 1 to account for the null terminator.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
+    <tr><td class="paramname">char</td><td>*str A char array that will receive the random string. </td></tr>
     <tr><td class="paramname">int</td><td>length The length of the string returned. </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>char*</dd></dl>
-<p><b>Examples</b> </p><pre class="fragment">char *str = rand_string_upper(10);
+<p><b>Examples</b> </p><pre class="fragment">char str[11];
+rand_string_upper(str, 10);
 printf("str: %s\n", str);
-free(str);
 </pre> 
 </div>
 </div>

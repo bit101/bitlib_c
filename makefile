@@ -21,6 +21,12 @@ libs/bitlib.a: $(SRC) $(INC)
 	@$(CC) $(WARN) $(CFLAGS) -c $(SRC) -Iinclude  -lm $(CLIBS)
 	@mv *.o build/
 	@ld -r build/*.o -o libs/bitlib.a
+	@rm build/*
+
+	@echo compiling libbitlib.so ...
+	@$(CC) $(WARN) $(CFLAGS) -fPIC -c $(SRC) -Iinclude  -lm $(CLIBS)
+	@mv *.o build/
+	@gcc build/*.o -shared -o libs/libbitlib.so
 
 docs: $(INC)
 	@doxygen Doxyfile

@@ -89,3 +89,36 @@ There's usually no need to touch the `main.c` file or the rest of `makefile`, bu
 ## API Docs
 
 [bitlib_c documentation](https://bit101.github.io/bitlib_c/index.html)
+
+## Installing bitlib system wide
+
+
+To install the library system-wide, run the `install.sh` script.
+
+This script does three things: 
+
+1. First it runs `make dist` to generate a fresh copy of the library files.
+
+2. Then it copies the files in `dist/include` to `/usr/include/bitlib/`.
+
+3. Then it copies `libbitlib.so` to `/user/lib64/`.
+
+You'll only have to do that once. Now, you can use bitlib in new projects without explicitly adding these files to the project.
+
+This will require a couple of changes to your projects:
+
+1. Change your bitlib include statements from the local versions:
+
+    #include "bitlib.h"
+
+to system-level includes:
+
+    #include <bitlib/bitlib.h>
+
+2. In the call to your compiler, instead of linking to the local bitlib library like so:
+
+    ./libs/bitlib.a
+
+instead, link to the system library with:
+
+    -lbitlib

@@ -1,4 +1,4 @@
-#include "bitlib.h"
+#include <bitlib/bitlib.h>
 
 extern double width, height;
 extern enum bl_render_mode mode;

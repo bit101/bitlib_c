@@ -1,5 +1,5 @@
+#include <bitlib/bitlib.h>
 #include <cairo.h>
-#include "bitlib.h"
 
 double width, height;
 enum bl_render_mode mode;

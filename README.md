@@ -30,7 +30,7 @@ Mainly tested on Linux machines. Some testing has been done on Macos and it shou
 
 Run `make dist`:
 
-  - generates the `bitlib.a` library file into `libs` folder.
+  - generates the `bitlib.a` and `libbitlib.so` library files into `libs` folder.
 
   - copies `libs` and `include` into `dist` folder.
 
@@ -40,29 +40,37 @@ Run `make clean`:
 
   - removes all build artifacts, including `libs`.
 
-## Compiling on Macos
+## Install
 
-In general, things should compile well on Macos right now, but you might wind up with various warnings about text-based stub files being out of sync.
+To install the library system-wide, run the `install.sh` script.
 
-See: stackoverflow.com/questions/51314888/ld-warning-text-based-stub-file-are-out-of-sync-falling-back-to-library-file/55344565
+This script does three things: 
 
-Steps to resolve:
+1. First it runs `make dist` to generate a fresh copy of the library files.
 
-1. Run xcrun --show-sdk-path
+2. Then it copies the files in `dist/include` to `/usr/include/bitlib/`.
 
-2. Copy the path that this outputs.
+3. Then it copies `libbitlib.so` to `/user/lib64/`.
 
-3. Then: `export SDKROOT="<output path from step 1>`
+If your system is set up differently than the above, you'll have to figure out where to put those files so that your compiler will find them.
 
-The `bl_view_image` and `bl_view_video` functions are hardcoded to run `eog` and `vlc`. This won't work if you don't have those installed. You can set up your own view functions by using `system`. Example:
+You'll only have to do the install once. Then any projects you create will have access to the library.
 
-`system("open out.png");`
+Include any bitlib headers in your files by using the following statment:
 
-## Scripts
+    #include <bitlib/bitlib.h>
 
-Add or update the dist files to another project using the `copy_dist.sh` script, passing the path of the other project. Example:
+Add the library to your compile by using the following in your gcc or clang call:
 
-    ./copy_dist.sh ../existing_project
+    -lbitlib
+
+The older method of copying the `include` folder and `bitlib.a` file to a project will still work, but is no longer the recommended way to create a project. The demo project depends on the library being installed system-wide.
+
+## Uninstall
+
+To remove the library files from your `/usr` directory, you can either just delete `/usr/include/bitlib` and `/usr/lib64/libbitlib.so` or run the `uninstall.sh` script which does just that.
+
+## Project Template and Script
 
 Generate a new project with `new_project.sh`. The project in `demo` itself is incomplete and will not run by itself. Use the `new_project.sh` script to generate a runnable project elsewhere. Pass the path of the new project to the script. Example:
 
@@ -90,35 +98,26 @@ There's usually no need to touch the `main.c` file or the rest of `makefile`, bu
 
 [bitlib_c documentation](https://bit101.github.io/bitlib_c/index.html)
 
-## Installing bitlib system wide
 
+## Compiling on Macos
 
-To install the library system-wide, run the `install.sh` script.
+I'm explicitly NOT supporting this library on anything but Linux based operating systems.
 
-This script does three things: 
+That said, I have gotten it compiling and working on Macos. You'll have to fiddle with some settings system-wide and figure out how to handle various warnings and errors. I'll list some of what I've found here. But this should only be taken as advice, not any kind of statement of support for that platform.
 
-1. First it runs `make dist` to generate a fresh copy of the library files.
+You might wind up with various warnings about text-based stub files being out of sync.
 
-2. Then it copies the files in `dist/include` to `/usr/include/bitlib/`.
+See: stackoverflow.com/questions/51314888/ld-warning-text-based-stub-file-are-out-of-sync-falling-back-to-library-file/55344565
 
-3. Then it copies `libbitlib.so` to `/user/lib64/`.
+Steps to resolve:
 
-You'll only have to do that once. Now, you can use bitlib in new projects without explicitly adding these files to the project.
+1. Run xcrun --show-sdk-path
 
-This will require a couple of changes to your projects:
+2. Copy the path that this outputs.
 
-1. Change your bitlib include statements from the local versions:
+3. Then: `export SDKROOT="<output path from step 1>`
 
-    #include "bitlib.h"
+The `bl_view_image` and `bl_view_video` functions are hardcoded to run `eog` and `vlc`. This won't work if you don't have those installed. You can set up your own view functions by using `system`. Example:
 
-to system-level includes:
+`system("open out.png");`
 
-    #include <bitlib/bitlib.h>
-
-2. In the call to your compiler, instead of linking to the local bitlib library like so:
-
-    ./libs/bitlib.a
-
-instead, link to the system library with:
-
-    -lbitlib
